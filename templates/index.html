@@ -2,36 +2,16 @@
 <html>
     <head>
         <title>Whole-genome-imputation</title>
-        <script>
-            $('#wholegenomebutton').click(function(){
-  //$('#my-custom-design-upload').trigger('click');                 
-  create_config();
-  return false;
-});
-    function create_config() {
-        confstr = "";
-        confstr += "gt:" + "\n";
-        confstr += "  " + "class: File" + "\n";
-        vcffile = document.getElementById("target_vcf");
-        console.log(vcffile)
-        confstr += "  " + "path: " + vcffile.value + "\n";
-        confstr += "gp:" + document.getElementById("output_genotype_prob").value + "\n";
-        confstr += "nthreads: " + document.getElementById("num_threads").value;
-        document.getElementById("job_config").innerHTML = confstr;
-    }
-        </script>
-
     </head>
 
     <body>
         <h1>Whole-genome imputation job set up page</h1>
         <form enctype="multipart/form-data" action="/" method="POST" id="wholegenomeform">
-            Target VCF file: <input type="file" name="target_vcf" id="target_vcf"/>
+            Target VCF file: <input type="text" name="target_vcf" id="target_vcf"/>
             <br />
-            Reference panel config file: <input type="file" name="ref_panel_config" id="ref_panel_config"/>
+            Reference panel config file: <input type="text" name="ref_panel_config" id="ref_panel_config"/>
             <br />
-            Output directory: <input type="text" name="output_dir" id="output_dir"/>
-            <br />
+
             Output genotype probability:
             <input type="radio" name="output_genotype_prob"  id="output_genotype_prob" value="false" checked/>false
 
@@ -39,9 +19,8 @@
             <br />
             Number of threads: <input type="text" name="num_threads" id="num_threads" />
             <br />
-            <input type="button" id="wholegenomebutton" value="Set up job" onclick="create_config()"/>
-            <textarea name="job_config" rows="10" cols="100" id="job_config"></textarea>
-
+            <input type="submit" id="wholegenomebutton" value="Set up job" onclick="create_config()"/>
+            <textarea name="job_config" rows="10" cols="100" id="job_config">{{ configcontent }}</textarea>
         </form>
     </body>
 </html>
