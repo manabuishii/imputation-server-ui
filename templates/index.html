@@ -9,15 +9,24 @@
         <form enctype="multipart/form-data" action="/" method="POST" id="wholegenomeform">
             Target VCF file: <input type="text" name="target_vcf" id="target_vcf"/>
             <br />
+            Reference panel preset config or other:<br>
+            Preset<br>
+            <input type="radio" name="reference_panel" value="GRCh37.1KGP" selected>GRCh37.1KGP<br>
+            <input type="radio" name="reference_panel" value="GRCh37.1KGP-EAS">GRCh37.1KGP-EAS<br>
+            <input type="radio" name="reference_panel" value="GRCh38.1KGP" >GRCh38.1KGP<br>
+            <input type="radio" name="reference_panel" value="GRCh38.1KGP-EAS">GRCh38.1KGP-EAS<br>
+            Other<br>
+            <input type="radio" name="reference_panel" value="other">other , please set Reference panel config file<br>
             Reference panel config file: <input type="text" name="ref_panel_config" id="ref_panel_config"/>
             <br />
+
 
             Output genotype probability:
             <input type="radio" name="output_genotype_prob"  id="output_genotype_prob" value="false" checked/>false
 
             <input type="radio" name="output_genotype_prob" id="output_genotype_prob" value="true" />true
             <br />
-            Number of threads: <input type="text" name="num_threads" id="num_threads" />
+            Number of threads: <input type="text" name="num_threads" id="num_threads" value="16"/>
             <br />
             <input type="submit" id="wholegenomebutton" value="Set up job" onclick="create_config()"/>
             <textarea name="job_config" rows="10" cols="100" id="job_config">{{ configcontent }}</textarea>

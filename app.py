@@ -20,10 +20,21 @@ def index():
         configcontent = ""
         configcontent += "gt:\n  class: File\n"
         configcontent += "  path: " + request.form["target_vcf"] + "\n"
-        configcontent += "gp: " + request.form["output_genotype_prob"] + "\n"
+        configcontent += "gp: " + "\"" + request.form["output_genotype_prob"] + "\"" + "\n"
         configcontent += "nthreads: " + request.form["num_threads"] + "\n"
-        # read the config file
-        referencepanelconfigfile = request.form["ref_panel_config"]
+        # read the reference panel config file
+        refpanel = request.form["reference_panel"]
+        referencepanelconfigfile =""
+        if refpanel == "GRCh37.1KGP":
+            referencepanelconfigfile = "/home/ddbjshare-pg/imputation-server/reference/GRCh37.1KGP/default.config.yaml"
+        elif refpanel == "GRCh37.1KGP-EAS":
+            referencepanelconfigfile = "/home/ddbjshare-pg/imputation-server/reference/GRCh37.1KGP-EAS/default.config.yaml"
+        elif refpanel == "GRCh38.1KGP":
+            referencepanelconfigfile = "/home/ddbjshare-pg/imputation-server/reference/GRCh38.1KGP/default.config.yaml"
+        elif refpanel == "GRCh38.1KGP-EAS":
+            referencepanelconfigfile = "/home/ddbjshare-pg/imputation-server/reference/GRCh38.1KGP-EAS/default.config.yaml"
+        elif refpanel == "others":
+            referencepanelconfigfile = request.form["ref_panel_config"]
         with open(referencepanelconfigfile, "r") as f:
             configcontent += f.read()
         return render_template("index.html", configcontent=configcontent)
