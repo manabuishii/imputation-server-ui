@@ -1,35 +1,148 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Whole-genome-imputation</title>
-    </head>
 
-    <body>
-        <h1>Whole-genome imputation job set up page</h1>
-        <form enctype="multipart/form-data" action="/" method="POST" id="wholegenomeform">
-            Target VCF file: <input type="text" name="target_vcf" id="target_vcf"/>
-            <br />
-            Reference panel preset config or other:<br>
-            Preset<br>
-            <input type="radio" name="reference_panel" value="GRCh37.1KGP" selected>GRCh37.1KGP<br>
-            <input type="radio" name="reference_panel" value="GRCh37.1KGP-EAS">GRCh37.1KGP-EAS<br>
-            <input type="radio" name="reference_panel" value="GRCh38.1KGP" >GRCh38.1KGP<br>
-            <input type="radio" name="reference_panel" value="GRCh38.1KGP-EAS">GRCh38.1KGP-EAS<br>
-            Other<br>
-            <input type="radio" name="reference_panel" value="other">other , please set Reference panel config file<br>
-            Reference panel config file: <input type="text" name="ref_panel_config" id="ref_panel_config"/>
-            <br />
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
 
+    <title>The NBDC-DDBJ imputation server job configuration</title>
 
-            Output genotype probability:
-            <input type="radio" name="output_genotype_prob"  id="output_genotype_prob" value="false" checked/>false
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-            <input type="radio" name="output_genotype_prob" id="output_genotype_prob" value="true" />true
-            <br />
-            Number of threads: <input type="text" name="num_threads" id="num_threads" value="16"/>
-            <br />
-            <input type="submit" id="wholegenomebutton" value="Set up job" onclick="create_config()"/>
-            <textarea name="job_config" rows="10" cols="100" id="job_config">{{ configcontent }}</textarea>
-        </form>
-    </body>
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/offcanvas/offcanvas.css" rel="stylesheet">
+
+    <style>
+        body {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Droid Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <form enctype="multipart/form-data" action="/" method="POST" id="wholegenomeform">
+
+<main role="main" class="container">
+      <div class="masthead">
+        <h3 class="text-muted">The NBDC-DDBJ imputation server job configuration</h3>
+        </div>
+
+    <!-- top -->
+    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+        <div class="form-group lh-100 w-100">
+            <label for="target_vcf">Target VCF file:
+<span class="badge text-light bg-danger">* required</span>
+</label>
+            <input type="text" class="form-control" name="target_vcf" id="target_vcf" placeholder="Target VCF file path">
+        </div>
+    </div>
+
+    <!-- second -->
+    <div class="d-block align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+            <h6 class="mb-0 text-dark lh-100">Reference panel preset config or other:</h6>
+        
+    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+        <div class="lh-100">
+        <div class="lh-100">
+            <h6 class="mb-0 text-dark lh-100">Reference panel preset config:
+<span class="badge text-light bg-danger">* required</span>
+</h6>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="reference_panel" value="GRCh37.1KGP" id="GRCh37.1KGP" checked>
+                <label class="form-check-label" for="GRCh37.1KGP">
+                    GRCh37.1KGP
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="reference_panel" value="GRCh37.1KGP-EAS" id="GRCh37.1KGP-EAS" >
+                <label class="form-check-label" for="GRCh37.1KGP-EAS">
+                    GRCh37.1KGP-EAS
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="reference_panel" value="GRCh38.1KGP" id="GRCh38.1KGP" >
+                <label class="form-check-label" for="GRCh38.1KGP">
+                    GRCh38.1KGP
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="reference_panel" value="GRCh38.1KGP-EAS" id="GRCh38.1KGP-EAS" >
+                <label class="form-check-label" for="GRCh38.1KGP-EAS">
+                    GRCh38.1KGP-EAS
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="reference_panel" value="others" id="others" >
+                <label class="form-check-label" for="others">
+                other
+                </label>
+            </div>
+        </div>
+
+        </div>
+    </div>
+    <!-- third -->
+    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+        <div class="form-group lh-100 w-100">
+            <label for="ref_panel_config">Ohter reference panel config file :</label>
+            <input type="text" class="form-control" name="ref_panel_config" id="ref_panel_config" placeholder="Other reference panel config file path">
+        </div>
+    </div>
+    </div>
+    <!-- fourth -->
+    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+        <div class="lh-100">
+            <h6 class="mb-0 text-dark lh-100">Output genotype probability:</h6>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="output_genotype_prob"  id="output_genotype_prob_false" value="false" checked>
+                <label class="form-check-label" for="output_genotype_prob_false">
+                false
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="output_genotype_prob" id="output_genotype_prob_true" value="true" >
+                <label class="form-check-label" for="output_genotype_prob_true">
+                true
+                </label>
+            </div>
+        </div>
+    </div>
+    <!-- fifth -->
+    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+        <div class="form-group lh-100 w-100">
+            <label for="num_threads">Number of threads:</label>
+            <input type="text" class="form-control" name="num_threads" id="num_threads" placeholder="Number of threads" value="16">
+        </div>
+    </div>
+    
+    <!-- sixth -->
+    <div class="">
+        <p class="text-center">
+    <button class="btn btn-primary" type="submit">Set up job</button>
+    </p>
+    </div>
+    
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Generated config file</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{ configcontent }}</textarea>
+    </div>
+
+</main>
+</form>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://getbootstrap.com/assets/js/vendor/holder.min.js"></script>
+<script src="https://getbootstrap.com/docs/4.0/examples/offcanvas/offcanvas.js"></script>
+</body>
 </html>
