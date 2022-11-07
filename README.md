@@ -28,10 +28,8 @@ The web user interface enables the
 
 There are 2 mandatory input parameters.
 
-1. Target genotype dataset
-  - VCF Format
-2. Reference panel dataset
-  - Dataset containing phased haplotypes
+1. Target genotype dataset (VCF Format)
+2. Reference panel dataset (Dataset containing phased haplotypes)
 
 ### Optional parameters
 
