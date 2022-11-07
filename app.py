@@ -22,6 +22,8 @@ def index():
         configcontent += "  path: " + request.form["target_vcf"] + "\n"
         configcontent += "gp: " + "\"" + request.form["output_genotype_prob"] + "\"" + "\n"
         configcontent += "nthreads: " + request.form["num_threads"] + "\n"
+        configcontent += "REPLACEME4BINARYPLINK: " + request.form["target_binary_plink"] + "\n"
+        configcontent += "REPLACEME4PLINK: " + request.form["target_plink"] + "\n"
         # read the reference panel config file
         refpanel = request.form["reference_panel"]
         referencepanelconfigfile =""
