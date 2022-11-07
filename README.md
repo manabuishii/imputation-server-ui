@@ -2,6 +2,17 @@
 
 Web interface to generate parameters config file for imputation workflow.
 
+## Workflow Available Imputation Algorithm.
+
+| Program  | Version  |
+|---|---|
+| conform-gt  | 24May16  |
+| Beagle 5.2  | 21Apr21.304  |
+| bcftools  | 1.9  |
+
+More workflow detail is [https://sc.ddbj.nig.ac.jp/advanced_guides/imputation_server](https://sc.ddbj.nig.ac.jp/advanced_guides/imputation_server)
+
+
 ## UI
 
 Web site image is here
@@ -34,12 +45,3 @@ The web user interface enables the
 - Generated config file
   - This is used as input parameters for imputation workflow
 
-## Workflow Available Imputation Algorithm.
-
-| Program  | Version  |
-|---|---|
-| conform-gt  | 24May16  |
-| Beagle 5.2  | 21Apr21.304  |
-| bcftools  | 1.9  |
-
-More workflow detail is [https://sc.ddbj.nig.ac.jp/advanced_guides/imputation_server](https://sc.ddbj.nig.ac.jp/advanced_guides/imputation_server)
