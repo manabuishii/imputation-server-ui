@@ -26,19 +26,19 @@ The web user interface enables the
 
 ### Mandatory parameters
 
-2 input options is requried.
+There are 2 mandatory input parameters.
 
-- 1. Target genotype dataset
+1. Target genotype dataset
   - VCF Format
-- 2. Reference panel dataset
+2. Reference panel dataset
   - Dataset containing phased haplotypes
 
 ### Optional parameters
 
-2 input options is optional.
+There are 2 optional input parameters.
 
-- Number of threads (default value of 16) 
-- The posterior probability of possible genotypes is included in the output file (default is false)
+1. Number of threads (default value of 16) 
+2. The posterior probability of possible genotypes is included in the output file (default is false)
 
 ## Result
 
