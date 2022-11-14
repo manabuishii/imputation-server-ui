@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="">
 
-    <title>The NBDC-DDBJ imputation server job configuration</title>
+    <title>The NBDC-DDBJ imputation server plink2vcf conversion configuration</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -50,7 +50,7 @@
 
     <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
         <div class="form-group lh-100 w-100">
-            <label for="target_binary_plink">Target BINARY PLINK BED file:
+            <label for="target_binary_plink">Input PLINK BED file path:
 <span class="badge text-light bg-danger">* required</span>
             </label>
             <input type="text" class="form-control" name="target_binary_plink" id="target_binary_plink" placeholder="Target BINARY PLINK folder path">
@@ -59,91 +59,12 @@
 
     <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
         <div class="form-group lh-100 w-100">
-            <label for="target_plink">Target PLINK BED file:
+            <label for="target_plink">Output VCF file name:
 <span class="badge text-light bg-danger">* required</span>
             </label>
             <input type="text" class="form-control" name="target_plink" id="target_plink" placeholder="Target PLINK folder path">
         </div>
-    </div>
-
-    <!-- second -->
-    <!--
-    <div class="d-block align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
-            <h6 class="mb-0 text-dark lh-100">Reference panel preset config or other:</h6>
-        
-    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
-        <div class="lh-100">
-        <div class="lh-100">
-            <h6 class="mb-0 text-dark lh-100">Reference panel preset config:
-<span class="badge text-light bg-danger">* required</span>
-</h6>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="reference_panel" value="GRCh37.1KGP" id="GRCh37.1KGP" checked>
-                <label class="form-check-label" for="GRCh37.1KGP">
-                    GRCh37.1KGP
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="reference_panel" value="GRCh37.1KGP-EAS" id="GRCh37.1KGP-EAS" >
-                <label class="form-check-label" for="GRCh37.1KGP-EAS">
-                    GRCh37.1KGP-EAS
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="reference_panel" value="GRCh38.1KGP" id="GRCh38.1KGP" >
-                <label class="form-check-label" for="GRCh38.1KGP">
-                    GRCh38.1KGP
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="reference_panel" value="GRCh38.1KGP-EAS" id="GRCh38.1KGP-EAS" >
-                <label class="form-check-label" for="GRCh38.1KGP-EAS">
-                    GRCh38.1KGP-EAS
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="reference_panel" value="others" id="others" >
-                <label class="form-check-label" for="others">
-                other
-                </label>
-            </div>
-        </div>
-
-        </div>
-    </div>
-    <!-- third -->
-    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
-        <div class="form-group lh-100 w-100">
-            <label for="ref_panel_config">Ohter reference panel config file :</label>
-            <input type="text" class="form-control" name="ref_panel_config" id="ref_panel_config" placeholder="Other reference panel config file path">
-        </div>
-    </div>
-    </div>
-    <!-- fourth -->
-    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
-        <div class="lh-100">
-            <h6 class="mb-0 text-dark lh-100">Output genotype probability:</h6>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="output_genotype_prob"  id="output_genotype_prob_false" value="false" checked>
-                <label class="form-check-label" for="output_genotype_prob_false">
-                false
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="output_genotype_prob" id="output_genotype_prob_true" value="true" >
-                <label class="form-check-label" for="output_genotype_prob_true">
-                true
-                </label>
-            </div>
-        </div>
-    </div>
-    <!-- fifth -->
-    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
-        <div class="form-group lh-100 w-100">
-            <label for="num_threads">Number of threads:</label>
-            <input type="text" class="form-control" name="num_threads" id="num_threads" placeholder="Number of threads" value="16">
-        </div>
-    </div>
+    </div>    
     
     <!-- sixth -->
     <div class="">
