@@ -41,6 +41,19 @@ def index():
             configcontent += f.read()
         return render_template("index.html", configcontent=configcontent)
 
+@app.route("/plink", methods=["GET", "POST"])
+def plink():
+    """Show the plink2vcf conversion configuration page."""
+    # GET
+    if request.method == "GET":
+        return render_template("plink.html")
+
+@app.route("/bplink", methods=["GET", "POST"])
+def bplink():
+    """Show the bplink2vcf conversion configuration page."""
+    # GET
+    if request.method == "GET":
+        return render_template("bplink.html")
 
 if __name__ == "__main__":
     # run host 0.0.0.0
