@@ -22,8 +22,7 @@ def index():
         configcontent += "  path: " + request.form["target_vcf"] + "\n"
         configcontent += "gp: " + "\"" + request.form["output_genotype_prob"] + "\"" + "\n"
         configcontent += "nthreads: " + request.form["num_threads"] + "\n"
-        configcontent += "in_bed: " + request.form["in_bed"] + "\n"
-        configcontent += "out_name: " + request.form["out_name"] + "\n"
+
         # read the reference panel config file
         refpanel = request.form["reference_panel"]
         referencepanelconfigfile =""
@@ -47,6 +46,11 @@ def plink():
     # GET
     if request.method == "GET":
         return render_template("plink.html")
+    elif request.method == "POST":
+        configcontent = ""
+        configcontent += "in_bed:\n    class: File" + request.form["in_bed"] + "\n"
+        configcontent += "out_name: " + request.form["out_name"] + "\n"
+    return render_template("plink.html", configcontent=configcontent)
 
 @app.route("/bplink", methods=["GET", "POST"])
 def bplink():
@@ -54,6 +58,11 @@ def bplink():
     # GET
     if request.method == "GET":
         return render_template("bplink.html")
+    elif request.method == "POST":
+        configcontent = ""
+        configcontent += "in_bed:\n    class: File" + request.form["in_bed"] + "\n"
+        configcontent += "out_name: " + request.form["out_name"] + "\n"
+    return render_template("bplink.html", configcontent=configcontent)
 
 if __name__ == "__main__":
     # run host 0.0.0.0
