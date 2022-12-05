@@ -48,7 +48,7 @@ def plink():
         return render_template("plink.html")
     elif request.method == "POST":
         configcontent = ""
-        configcontent += "in_bed:\n    class: File" + request.form["in_bed"] + "\n"
+        configcontent += "in_bed:\n    class: File\n    path: " + request.form["in_bed"] + "\n"
         configcontent += "out_name: " + request.form["out_name"] + "\n"
     return render_template("plink.html", configcontent=configcontent)
 
@@ -60,7 +60,7 @@ def bplink():
         return render_template("bplink.html")
     elif request.method == "POST":
         configcontent = ""
-        configcontent += "in_bed:\n    class: File" + request.form["in_bed"] + "\n"
+        configcontent += "in_bed:\n    class: File\n    path: " + request.form["in_bed"] + "\n"
         configcontent += "out_name: " + request.form["out_name"] + "\n"
     return render_template("bplink.html", configcontent=configcontent)
 
