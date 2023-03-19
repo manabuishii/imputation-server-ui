@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+
+    <title>The NBDC-DDBJ imputation server plink2vcf conversion configuration</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/offcanvas/offcanvas.css" rel="stylesheet">
+
+    <style>
+        body {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Droid Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+        label {
+            margin-top: 0.2rem;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <form enctype="multipart/form-data" action="/plink" method="POST" id="wholegenomeform">
+
+<main role="main" class="container">
+      <div class="masthead">
+        <h3 class="text-muted">The NBDC-DDBJ imputation server plink2vcf conversion configuration</h3>
+        </div>
+
+    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+        <div class="form-group lh-100 w-100">
+            <label for="in_ped">Input PLINK PED file path:
+<span class="badge text-light bg-danger">* required</span>
+            </label>
+            <input type="text" class="form-control" name="in_ped" id="in_ped" placeholder="Input PLINK PED file path">
+        </div>
+    </div>
+
+    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+        <div class="form-group lh-100 w-100">
+            <label for="out_name">Output VCF file name:
+<span class="badge text-light bg-danger">* required</span>
+            </label>
+            <input type="text" class="form-control" name="out_name" id="out_name" placeholder="Output VCF file name">
+        </div>
+    </div>    
+    
+    <!-- sixth -->
+    <div class="">
+        <p class="text-center">
+    <button class="btn btn-primary" type="submit">Set up job</button>
+    </p>
+    </div>
+    
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Generated config file</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{ configcontent }}</textarea>
+    </div>
+
+</main>
+</form>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://getbootstrap.com/assets/js/vendor/holder.min.js"></script>
+<script src="https://getbootstrap.com/docs/4.0/examples/offcanvas/offcanvas.js"></script>
+</body>
+</html>
