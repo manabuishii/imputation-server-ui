@@ -64,6 +64,18 @@ def bplink():
         configcontent += "out_name: " + request.form["out_name"] + "\n"
     return render_template("bplink.html", configcontent=configcontent)
 
+@app.route("/hibag", methods=["GET", "POST"])
+def hibag():
+    items = ["model1", "model2", "model3"]
+    selected_item = None
+
+    if request.method == "GET":
+        return render_template("hibag.html")
+    elif request.method == "POST":
+        selected_item = request.form.get('select_item')
+    return render_template("hibag.html", items=items, selected_item=selected_item)
+
+
 if __name__ == "__main__":
     # run host 0.0.0.0
     # Base.metadata.create_all(bind=ENGINE)
