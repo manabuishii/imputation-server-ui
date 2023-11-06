@@ -2,22 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>プルダウン選択UI</title>
+    <title>Dropdown Selection</title>
 </head>
 <body>
-    <form action="/" method="post">
-        <select name="select_item">
-            {% for item in items %}
-            <option value="{{ item }}" {% if item == selected_item %} selected {% endif %}>{{ item }}</option>
+    
+<form method="POST">
+    <select name="dropdown1">
+        {% for option in options1 %}
+            <option value="{{ option }}" {% if selections[0] == option %}selected{% endif %}>{{ option }}</option>
+        {% endfor %}
+    </select>
+    {% if options2 %}
+        <select name="dropdown2">
+            {% for option in options2 %}
+                <option value="{{ option }}" {% if selections[1] == option %}selected{% endif %}>{{ option }}</option>
             {% endfor %}
         </select>
-        <button type="submit">選択</button>
-    </form>
-    
-    {% if selected_item %}
-    <p>選択されたアイテム: {{ selected_item }}</p>
+    {% endif %}
+    {% if options3 %}
+        <select name="dropdown3">
+            {% for option in options3 %}
+                <option value="{{ option }}" {% if selections[2] == option %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+        </select>
+    {% endif %}
+    {% if options4 %}
+        <select name="dropdown4">
+            {% for option in options4 %}
+                <option value="{{ option }}" {% if selections[3] == option %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+        </select>
+    {% endif %}
+    <input type="submit" value="Submit">
+</form>
+
+    {% if answer %}
+        <div>Your answer: {{ answer[0] }}</div>
     {% endif %}
 </body>
 </html>
