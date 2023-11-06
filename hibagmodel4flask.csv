@@ -1,0 +1,14 @@
+USE_YOUR_MODEL_OR_NOT,GENOTYPING_PLATFORMS,RESOLUTION,ANCESTRY,HIBAG_MODEL_URL
+Yes,None,None,None,None
+No,Illumina 1M Duo,Two-field (4-digit),European,HIBAG_MODEL_URL1
+No,Illumina Human610-Quad v1.0,Two-field (4-digit),European,HIBAG_MODEL_URL2
+No,Illumina Human660W-Quad v1.0,Two-field (4-digit),European,HIBAG_MODEL_URL3
+No,Illumina 1M Duo,One-field (2-digit),European,HIBAG_MODEL_URL4
+No,Illumina Human610-Quad v1.0,One-field (2-digit),European,HIBAG_MODEL_URL5
+No,Illumina Human660W-Quad v1.0,One-field (2-digit),European,HIBAG_MODEL_URL6
+No,Illumina 1M Duo,Two-field (4-digit),Asian,HIBAG_MODEL_URL7
+No,Illumina Human610-Quad v1.0,Two-field (4-digit),Asian,HIBAG_MODEL_URL8
+No,Illumina Human660W-Quad v1.0,Two-field (4-digit),Asian,HIBAG_MODEL_URL9
+No,Illumina 1M Duo,One-field (2-digit),Asian,HIBAG_MODEL_URL10
+No,Illumina Human610-Quad v1.0,One-field (2-digit),Asian,HIBAG_MODEL_URL11
+No,Illumina Human660W-Quad v1.0,One-field (2-digit),Asian,HIBAG_MODEL_URL12
