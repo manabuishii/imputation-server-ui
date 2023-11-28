@@ -13,6 +13,13 @@
             <option value="{{ option }}" {% if selections[0] == option %}selected{% endif %}>{{ option }}</option>
         {% endfor %}
     </select>
+
+    {% if show_text_input %}
+        <input type="text" name="text_input" placeholder="Enter Text">
+        <button type="submit" name="submit_text">Submit Your Model Path</button>
+    {% endif %}
+
+
     {% if options2 %}
         <select name="dropdown2">
             {% for option in options2 %}
@@ -34,10 +41,13 @@
             {% endfor %}
         </select>
     {% endif %}
-    <input type="submit" value="Submit">
+
+    {% if show_text_input == False %}
+        <input type="submit" value="Select Prepared Model Type">
+    {% endif %}
 </form>
 
-    {% if answer %}
+    {% if answer or show_usermodel_jobyml %}
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Generated config file</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{ rendered_yaml }}</textarea>
