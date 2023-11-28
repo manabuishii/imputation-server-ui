@@ -1,6 +1,9 @@
 USE_YOUR_MODEL_OR_NOT,GENOTYPING_PLATFORMS,RESOLUTION,ANCESTRY,HIBAG_MODEL_URL
 Yes,None,None,None,None
-No,Illumina 1M Duo,Two-field (4-digit),European,HIBAG_MODEL_URL1
+No,Illumina 1M Duo,Two-field (4-digit),European,https://hibag.s3.amazonaws.com/download/HLARES/Illumina1M-European-HLA4-hg19.RData
+No,Illumina 1M Duo,Two-field (4-digit),Asian,https://hibag.s3.amazonaws.com/download/HLARES/Illumina1M-Asian-HLA4-hg19.RData
+No,Illumina 1M Duo,Two-field (4-digit),Hispanic,https://hibag.s3.amazonaws.com/download/HLARES/Illumina1M-Hispanic-HLA4-hg19.RData
+No,Illumina 1M Duo,Two-field (4-digit),African,https://hibag.s3.amazonaws.com/download/HLARES/Illumina1M-African-HLA4-hg19.RData
 No,Illumina Human610-Quad v1.0,Two-field (4-digit),European,HIBAG_MODEL_URL2
 No,Illumina Human660W-Quad v1.0,Two-field (4-digit),European,HIBAG_MODEL_URL3
 No,Illumina 1M Duo,One-field (2-digit),European,HIBAG_MODEL_URL4
