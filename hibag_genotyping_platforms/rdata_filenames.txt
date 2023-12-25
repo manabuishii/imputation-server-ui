@@ -74,8 +74,6 @@ https://hibag.s3.amazonaws.com/download/HLARES/HumanCoreExome-Asian-HLA4-hg19.RD
 https://hibag.s3.amazonaws.com/download/HLARES/HumanCoreExome-Hispanic-HLA4-hg19.RData
 https://hibag.s3.amazonaws.com/download/HLARES/HumanCoreExome-African-HLA4-hg19.RData
 https://hibag.s3.amazonaws.com/download/HLARES/HumanCoreExome-Broad-HLA4-hg19.RData
-http://supportres.illumina.com/documents/myillumina/d66802da-e633-4475-9b54-13a285c449f5/immunochip_geneannotation.zip
-http://support.illumina.com/downloads/immunochip_product_support_files.ilmn
 https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-European-HLA2-hg18.RData
 https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-Asian-HLA2-hg18.RData
 https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-Hispanic-HLA2-hg18.RData
@@ -105,7 +103,6 @@ https://hibag.s3.amazonaws.com/download/HLARES/InfiniumOmniExpress-24-European-H
 https://hibag.s3.amazonaws.com/download/HLARES/InfiniumOmniExpress-24-Asian-HLA4-hg19.RData
 https://hibag.s3.amazonaws.com/download/HLARES/InfiniumOmniExpress-24-Hispanic-HLA4-hg19.RData
 https://hibag.s3.amazonaws.com/download/HLARES/InfiniumOmniExpress-24-African-HLA4-hg19.RData
-None
 https://hibag.s3.amazonaws.com/download/HLARES/InfiniumOmniExpress-24-Broad-HLA4-hg19.RData
 https://hibag.s3.amazonaws.com/download/HLARES/MHC_Exon_Golden_Gate-European-HLA2-hg19.RData
 https://hibag.s3.amazonaws.com/download/HLARES/MHC_Exon_Golden_Gate-Asian-HLA2-hg19.RData
