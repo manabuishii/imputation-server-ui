@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org./TR/xhtml1/DTD/hxtml1-strict.dtd">
+<!-- saved from url=(0051)https://hibag.s3.amazonaws.com/hlares_platform.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>HIBAG – HLA Genotype Imputation with Attribute Bagging</title>
+
+<meta name="description" content="HIBAG – HLA Genotype Imputation with Attribute Bagging">
+<meta name="keywords" content="HLA, GWAS, Genetics">
+</head>
+
+<body>
+
+<span style="FONT-FAMILY: &#39;Times New Roman&#39;,&#39;serif&#39;; FONT-SIZE: 13.5pt">
+
+<h2 id="platform">Genotyping Platforms</h2>
+If you are interested in the HIBAG prediction models specific to a genotyping platform, please send an email to
+<a href="mailto:zhengx@u.washington.edu">Dr. Xiuwen Zheng</a>
+or check the following platforms.
+
+<br>
+Or you could find other available HIBAG models <a href="https://hibag.s3.amazonaws.com/index.html">here</a>.
+
+<hr>
+
+<p><i>Illumina 1M Duo:</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Illumina1M-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Illumina1M-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Illumina1M-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Illumina1M-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Illumina1M-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina Human610-Quad v1.0:</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Human610-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Human610-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Human610-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Human610-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Human610-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina Human660W-Quad v1.0:</i></p>
+<ul>
+<li><div>
+	One-field (2-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Human660W-European-HLA2-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Human660W-Asian-HLA2-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Human660W-Hispanic-HLA2-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Human660W-African-HLA2-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Human660W-Broad-HLA2-hg19.RData">Multi-ethnic models</a>
+</div></li>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Human660W-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Human660W-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Human660W-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Human660W-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Human660W-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina HumanOmniExpress (based on HumanOmniExpress-12v1-1_B):</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmniExpress-European-HLA4-hg18.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmniExpress-Asian-HLA4-hg18.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmniExpress-Hispanic-HLA4-hg18.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmniExpress-African-HLA4-hg18.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmniExpress-Broad-HLA4-hg18.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina HumanOmni1-Quad (based on Omni1_Quad_v1_0_H):</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Omni1_Quad-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Omni1_Quad-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Omni1_Quad-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Omni1_Quad-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Omni1_Quad-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina HumanOmni2.5 (based on HumanOmni2.5-8v1_C):</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmni2.5-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmni2.5-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmni2.5-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmni2.5-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmni2.5-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina HumanOmni5 (based on HumanOmni5-4v1_C):</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmni5-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmni5-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmni5-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmni5-African-HLA4-hg19.RData">African</a>
+	ancestry;
+</div></li>
+</ul>
+
+<p><i>Illumina Infinium HumanOmniExpressExome (based on HumanOmniExpressExome-8v1.1):</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmniExpressExome-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmniExpressExome-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmniExpressExome-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmniExpressExome-African-HLA4-hg19.RData">African</a>
+	ancestry;
+</div></li>
+</ul>
+
+<p><i>Illumina Infinium Omni2.5Exome-8 BeadChip Kit:</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Omni2.5Exome-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Omni2.5Exome-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Omni2.5Exome-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Omni2.5Exome-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Omni2.5Exome-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina Infinium HumanOmni5Exome (based on HumanOmni5Exome-4v1.0):</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmni5Exome-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmni5Exome-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmni5Exome-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmni5Exome-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanOmni5Exome-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina HumanExome:</i></p>
+<ul>
+<li><div>
+	hg18 assembly (<i>HumanExome-12v1.0</i>), Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanExome12-European-HLA4-hg18.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanExome12-Asian-HLA4-hg18.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanExome12-Hispanic-HLA4-hg18.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanExome12-African-HLA4-hg18.RData">African</a>
+	ancestry;
+</div></li>
+<li><div>
+	hg19 assembly (<i>HumanExome-12v1.2_a</i>), One-field (2-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanExome12-European-HLA2-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanExome12-Asian-HLA2-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanExome12-Hispanic-HLA2-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanExome12-African-HLA2-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/Models_HLARES/HumanExome12-Broad-HLA2-hg19.RData">Multi-ethnic models</a>
+</div></li>
+<li><div>
+	hg19 assembly (<i>HumanExome-12v1.2_a</i>), Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanExome12-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanExome12-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanExome12-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanExome12-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanExome12-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina HumanCoreExome (based on HumanCoreExome-12v1.0):</i></p>
+<ul>
+<li><div>
+	One-field (2-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanCoreExome-European-HLA2-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanCoreExome-Asian-HLA2-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanCoreExome-Hispanic-HLA2-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanCoreExome-African-HLA2-hg19.RData">African</a>
+	ancestry;
+</div></li>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanCoreExome-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanCoreExome-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanCoreExome-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanCoreExome-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/HumanCoreExome-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+
+</ul>
+
+<p><i>Illumina ImmunoChip (hg18 models are based on <a href="http://supportres.illumina.com/documents/myillumina/d66802da-e633-4475-9b54-13a285c449f5/immunochip_geneannotation.zip">gene annotation file</a>
+	at <a href="http://support.illumina.com/downloads/immunochip_product_support_files.ilmn">http://support.illumina.com/downloads/immunochip_product_support_files.ilmn</a>):</i></p>
+<ul>
+<li><div>
+	hg18, one-field (2-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-European-HLA2-hg18.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-Asian-HLA2-hg18.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-Hispanic-HLA2-hg18.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-African-HLA2-hg18.RData">African</a>
+	ancestry;
+</div></li>
+<li><div>
+	hg18, two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-European-HLA4-hg18.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-Asian-HLA4-hg18.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-Hispanic-HLA4-hg18.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-African-HLA4-hg18.RData">African</a>
+	ancestry;
+</div></li>
+<li><div>
+	hg19, one-field (2-digit) resolution: Ethnic-specific models of <a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-European-HLARES-HLA2-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-Asian-HLARES-HLA2-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-Hispanic-HLARES-HLA2-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-African-HLARES-HLA2-hg19.RData">African</a>
+	ancestry; <a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-Broad-HLARES-HLA2-hg19.RData">Multi-ethnic models</a>
+</div></li>
+<li><div>
+	hg19, two-field (4-digit) resolution: Ethnic-specific models of <a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-European-HLARES-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-Asian-HLARES-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-Hispanic-HLARES-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-African-HLARES-HLA4-hg19.RData">African</a>
+	ancestry; <a href="https://hibag.s3.amazonaws.com/download/HLARES/ImmunoChip-Broad-HLARES-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina Human Omni Zhonghua-8 Beadchip:</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/OmniZhonghua-Asian-HLA4-hg19.RData">Asian</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/OmniZhonghua-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina Infinium OncoArray-500K BeadChip:</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/OncoArray500K-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/OncoArray500K-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/OncoArray500K-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/OncoArray500K-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/OncoArray500K-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina Infinium OmniExpress-24 v1.2:</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of 
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/InfiniumOmniExpress-24-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/InfiniumOmniExpress-24-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/InfiniumOmniExpress-24-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/InfiniumOmniExpress-24-African-HLA4-hg19.RData">African</a><a>
+	ancestry;
+	</a><a href="https://hibag.s3.amazonaws.com/download/HLARES/InfiniumOmniExpress-24-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina MHC Exon-centric Golden Gate panel:</i></p>
+<ul>
+<li><div>
+	One-field (2-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/MHC_Exon_Golden_Gate-European-HLA2-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/MHC_Exon_Golden_Gate-Asian-HLA2-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/MHC_Exon_Golden_Gate-Hispanic-HLA2-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/MHC_Exon_Golden_Gate-African-HLA2-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/MHC_Exon_Golden_Gate-Broad-HLA2-hg19.RData">Multi-ethnic models</a>
+</div></li>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/MHC_Exon_Golden_Gate-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/MHC_Exon_Golden_Gate-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/MHC_Exon_Golden_Gate-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/MHC_Exon_Golden_Gate-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/MHC_Exon_Golden_Gate-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina PsychArray-B:</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/PsychArray-B-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/PsychArray-B-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/PsychArray-B-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/PsychArray-B-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/PsychArray-B-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina Sentrix HumanHap300:</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/IlluminaHumanHap300-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/IlluminaHumanHap300-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/IlluminaHumanHap300-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/IlluminaHumanHap300-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/IlluminaHumanHap300-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina Infinium Multi-Ethnic Global BeadChip:</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/InfiniumMEGA-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/InfiniumMEGA-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/InfiniumMEGA-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/InfiniumMEGA-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/InfiniumMEGA-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina Infinium Global Screening Array v2.0:</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/InfiniumGlobal-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/InfiniumGlobal-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/InfiniumGlobal-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/InfiniumGlobal-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/InfiniumGlobal-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Illumina Infinium Global Diversity Array v1.0:</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Infinium_GDA-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Infinium_GDA-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Infinium_GDA-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Infinium_GDA-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Infinium_GDA-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+
+
+<hr>
+
+<p><i>Affymetrix Genome-Wide Human SNP Array 5.0:</i></p>
+<ul>
+<li><div>
+	One-field (2-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Affy500K-European-HLA2-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Affy500K-Asian-HLA2-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Affy500K-Hispanic-HLA2-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Affy500K-African-HLA2-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Affy500K-Broad-HLA2-hg19.RData">Multi-ethnic models</a>
+</div></li>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Affy500K-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Affy500K-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Affy500K-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Affy500K-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Affy500K-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Affymetrix Genome-Wide Human SNP Array 6.0:</i></p>
+<ul>
+<li><div>
+	One-field (2-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffySNPv6-European-HLA2-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffySNPv6-Asian-HLA2-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffySNPv6-Hispanic-HLA2-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffySNPv6-African-HLA2-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffySNPv6-Broad-HLA2-hg19.RData">Multi-ethnic models</a>
+</div></li>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffySNPv6-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffySNPv6-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffySNPv6-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffySNPv6-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffySNPv6-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Affymetrix Axiom® Exome 319 Array Plate:</i></p>
+<ul>
+<li><div>
+	One-field (2-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomExome319-European-HLA2-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomExome319-Asian-HLA2-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomExome319-Hispanic-HLA2-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomExome319-African-HLA2-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomExome319-Broad-HLA2-hg19.RData">Multi-ethnic models</a>
+</div></li>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomExome319-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomExome319-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomExome319-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomExome319-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomExome319-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Affymetrix Axiom® Genome-Wide CEU 1 Array Plate:</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific model of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Axiom_GW_CEU-European-HLA4-hg19.RData">European</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Axiom_GW_CEU-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Affymetrix Axiom® Genome-Wide ASI 1 Array Plate:</i></p>
+<ul>
+<li><div>
+	One-field (2-digit) resolution: Ethnic-specific model of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_ASI-Asian-HLA2-hg19.RData">Asian</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_ASI-Broad-HLA2-hg19.RData">Multi-ethnic models</a>
+</div></li>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific model of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_ASI-Asian-HLA4-hg19.RData">Asian</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_ASI-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Affymetrix Axiom® Genome-Wide CHB 1 Array Plate:</i></p>
+<ul>
+<li><div>
+	One-field (2-digit) resolution: Ethnic-specific model of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomCHB_1-Asian-HLA2-hg19.RData">Asian</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomCHB_1-Broad-HLA2-hg19.RData">Multi-ethnic models</a>
+</div></li>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific model of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomCHB_1-Asian-HLA4-hg19.RData">Asian</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomCHB_1-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Affymetrix Axiom® Human Origins 1 Array:</i></p>
+<ul>
+<li><div>
+	One-field (2-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_Human_Origin_1-European-HLA2-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_Human_Origin_1-Asian-HLA2-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_Human_Origin_1-Hispanic-HLA2-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_Human_Origin_1-African-HLA2-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_Human_Origin_1-Broad-HLA2-hg19.RData">Multi-ethnic models</a>
+</div></li>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_Human_Origin_1-European-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_Human_Origin_1-Asian-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_Human_Origin_1-Hispanic-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_Human_Origin_1-African-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_Human_Origin_1-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Affymetrix Axiom® UK Biobank Array:</i></p>
+<ul>
+<li><div>
+	One-field (2-digit) resolution: Ethnic-specific model of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomUKB-European-HLA2-hg19.RData">European</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomUKB-Broad-HLA2-hg19.RData">Multi-ethnic models</a>
+</div></li>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific model of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomUKB-European-HLA4-hg19.RData">European</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiomUKB-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Affymetrix Axiom® World Arrays Genome-Wide EUR 1 Array Plate:</i></p>
+<ul>
+<li><div>
+	One-field (2-digit) resolution: Ethnic-specific model of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_WA_EUR-European-HLA2-hg19.RData">European</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_WA_EUR-Broad-HLA2-hg19.RData">Multi-ethnic models</a>
+</div></li>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific model of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_WA_EUR-European-HLA4-hg19.RData">European</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_WA_EUR-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Affymetrix Axiom® World Arrays Genome-Wide EAS 1 Array Plate:</i></p>
+<ul>
+<li><div>
+	One-field (2-digit) resolution: Ethnic-specific model of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_WA_EAS-Asian-HLA2-hg19.RData">Asian</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_WA_EAS-Broad-HLA2-hg19.RData">Multi-ethnic models</a>
+</div></li>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific model of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_WA_EAS-Asian-HLA4-hg19.RData">Asian</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/AffyAxiom_WA_EAS-Broad-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<p><i>Axiom™ Precision Medicine Research Array (PMRA):</i></p>
+<ul>
+<li><div>
+	Two-field (4-digit) resolution: Ethnic-specific models of
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Axiom_PMRA-European-HLARES-HLA4-hg19.RData">European</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Axiom_PMRA-Asian-HLARES-HLA4-hg19.RData">Asian</a>,
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Axiom_PMRA-Hispanic-HLARES-HLA4-hg19.RData">Hispanic</a> or
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Axiom_PMRA-African-HLARES-HLA4-hg19.RData">African</a>
+	ancestry;
+	<a href="https://hibag.s3.amazonaws.com/download/HLARES/Axiom_PMRA-Broad-HLARES-HLA4-hg19.RData">Multi-ethnic models</a>
+</div></li>
+</ul>
+
+<br><br>
+
+</span>
+
+
+
+</body></html>
