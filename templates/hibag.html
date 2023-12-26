@@ -25,6 +25,13 @@
             margin-top: 0.2rem;
         }
     </style>
+    <style>
+        /* ドロップダウンのスタイルをカスタマイズ */
+        .vertical-dropdown {
+            display: block; /* 各ドロップダウンをブロック要素として表示 */
+            margin-bottom: 10px; /* ドロップダウン間の余白 */
+        }
+    </style>
 </head>
 
 <body class="bg-light">
@@ -48,7 +55,13 @@
 </div>
     
 <!-- <form method="POST"> -->
-    <select name="dropdown1">
+<div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+        <div class="form-group lh-100 w-100">
+            <label for="in_bed">Input HIBAG model path or Select prepared model:
+    <span class="badge text-light bg-danger">* required</span>
+            </label>
+
+    <select class="vertical-dropdown" name="dropdown1">
         {% for option in options1 %}
             <option value="{{ option }}" {% if selections[0] == option %}selected{% endif %}>{{ option }}</option>
         {% endfor %}
@@ -61,21 +74,21 @@
 
 
     {% if options2 %}
-        <select name="dropdown2">
+        <select class="vertical-dropdown" name="dropdown2">
             {% for option in options2 %}
                 <option value="{{ option }}" {% if selections[1] == option %}selected{% endif %}>{{ option }}</option>
             {% endfor %}
         </select>
     {% endif %}
     {% if options3 %}
-        <select name="dropdown3">
+        <select class="vertical-dropdown" name="dropdown3">
             {% for option in options3 %}
                 <option value="{{ option }}" {% if selections[2] == option %}selected{% endif %}>{{ option }}</option>
             {% endfor %}
         </select>
     {% endif %}
     {% if options4 %}
-        <select name="dropdown4">
+        <select class="vertical-dropdown" name="dropdown4">
             {% for option in options4 %}
                 <option value="{{ option }}" {% if selections[3] == option %}selected{% endif %}>{{ option }}</option>
             {% endfor %}
@@ -94,6 +107,9 @@
         </div>
     <!-- <div>Your answer: {{ answer }}</div> -->
     {% endif %}
+
+</div>
+</div>
 
     <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
         <div class="form-group lh-100 w-100">
