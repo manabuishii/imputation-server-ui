@@ -86,7 +86,7 @@
 
     {% if answer or show_usermodel_jobyml %}
         <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Generated config file</label>
+            <label for="exampleFormControlTextarea1" class="form-label">Your model file path</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{ rendered_yaml }}</textarea>
         </div>
     <!-- <div>Your answer: {{ answer }}</div> -->
@@ -99,7 +99,18 @@
             </label>
             <input type="text" class="form-control" name="out_name" id="out_name" placeholder="Output VCF file name">
         </div>
-    </div> 
+    </div>
+
+    <div class="">
+        <p class="text-center">
+    <button class="btn btn-primary" type="submit">Set up job</button>
+    </p>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Generated config file</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{ rendered_yaml }}</textarea>
+    </div>
 
 </main>
 
