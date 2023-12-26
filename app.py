@@ -19,11 +19,18 @@ in_modelfile:
   path: {{ model_file }}
 '''
 
+# hibag_parameters = {
+#     'in_bed_path': './1KG.JPT.bed',
+#     'in_chromosome_number': '6',
+#     'runhibag_out_name': 'continuousWFtest_newdocker1',
+#     'model_file': './model_6_1KG.JPT.txt' 
+# }
+
 hibag_parameters = {
-    'in_bed_path': './1KG.JPT.bed',
+    'in_bed_path': '',
     'in_chromosome_number': '6',
-    'runhibag_out_name': 'continuousWFtest_newdocker1',
-    'model_file': './model_6_1KG.JPT.txt' 
+    'runhibag_out_name': '',
+    'model_file': '' 
 }
 
 # set the secret key.  keep this really secret:
@@ -94,6 +101,10 @@ def hibag():
     selections = [request.form.get('dropdown1'), request.form.get('dropdown2'), request.form.get('dropdown3'), request.form.get('dropdown4')]
     selections = [s for s in selections if s]  # Remove None values
 
+    bed_filepath = request.form.get('in_bed')
+    output_prefix = request.form.get('out_name')
+    # submit_button = request.form['setupjob_button']
+
     filtered_data = hibagdata
     for i, column in enumerate(['USE_YOUR_MODEL_OR_NOT', 'GENOTYPING_PLATFORMS', 'RESOLUTION', 'ANCESTRY']):
         if i < len(selections):
@@ -111,17 +122,25 @@ def hibag():
     options3 = filtered_data['RESOLUTION'].unique().tolist() if len(selections) >= 2 else []
     options4 = filtered_data['ANCESTRY'].unique().tolist() if len(selections) >= 3 else []
     answer = filtered_data['HIBAG_MODEL_URL'].tolist() if len(selections) >= 4 else []
+    
+    if bed_filepath != "":
+        hibag_parameters['in_bed_path'] = bed_filepath
 
     if len(answer) > 0:
         hibag_parameters['model_file'] = answer[0]
 
+    if output_prefix != "":
+        hibag_parameters['runhibag_out_name'] = output_prefix
+    
     env = jinja2.Environment(loader=jinja2.BaseLoader())
     template = env.from_string(hibag_job_template)
     rendered_yaml = template.render(hibag_parameters)
-    print(rendered_yaml)
-
+    # if submit_button == 'setupjob_button':
+    #     print("hoge")
+    
     return render_template('hibag.html', options1=options1, show_text_input=show_text_input, show_usermodel_jobyml=show_usermodel_jobyml, options2=options2, options3=options3, options4=options4,
                            answer=answer, rendered_yaml=rendered_yaml, selections=selections)
+
 
 if __name__ == "__main__":
     # run host 0.0.0.0
