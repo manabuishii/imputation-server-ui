@@ -29,6 +29,20 @@
 
 <body class="bg-light">
 <main role="main" class="container">
+
+
+<div class="masthead">
+    <h3 class="text-muted">The NBDC-DDBJ imputation server HIBAG – HLA Genotype Imputation configuration</h3>
+</div>
+
+<div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+    <div class="form-group lh-100 w-100">
+        <label for="in_bed">Input BINARY PLINK BED file path:
+<span class="badge text-light bg-danger">* required</span>
+        </label>
+        <input type="text" class="form-control" name="in_bed" id="in_bed" placeholder="Input BINARY PLINK BED file path">
+    </div>
+</div>
     
 <form method="POST">
     <select name="dropdown1">
@@ -77,6 +91,15 @@
         </div>
     <!-- <div>Your answer: {{ answer }}</div> -->
     {% endif %}
+
+    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+        <div class="form-group lh-100 w-100">
+            <label for="out_name">Output file name prefix:
+<span class="badge text-light bg-danger">* required</span>
+            </label>
+            <input type="text" class="form-control" name="out_name" id="out_name" placeholder="Output VCF file name">
+        </div>
+    </div> 
 
 </main>
 
