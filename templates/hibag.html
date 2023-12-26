@@ -28,6 +28,9 @@
 </head>
 
 <body class="bg-light">
+
+    <form enctype="multipart/form-data" action="/hibag" method="POST" id="wholegenomeform">
+
 <main role="main" class="container">
 
 
@@ -44,7 +47,7 @@
     </div>
 </div>
     
-<form method="POST">
+<!-- <form method="POST"> -->
     <select name="dropdown1">
         {% for option in options1 %}
             <option value="{{ option }}" {% if selections[0] == option %}selected{% endif %}>{{ option }}</option>
@@ -82,7 +85,7 @@
     {% if show_text_input == False %}
         <input type="submit" value="Select Prepared Model Type">
     {% endif %}
-</form>
+
 
     {% if answer or show_usermodel_jobyml %}
         <div class="mb-3">
@@ -97,13 +100,13 @@
             <label for="out_name">Output file name prefix:
 <span class="badge text-light bg-danger">* required</span>
             </label>
-            <input type="text" class="form-control" name="out_name" id="out_name" placeholder="Output VCF file name">
+            <input type="text" class="form-control" name="out_name" id="out_name" placeholder="Output file name prefix">
         </div>
     </div>
 
     <div class="">
         <p class="text-center">
-    <button class="btn btn-primary" type="submit">Set up job</button>
+    <button class="btn btn-primary" type="submit" name="setupjob_button" value="setupjob_button">Set up job</button>
     </p>
     </div>
 
@@ -113,6 +116,7 @@
     </div>
 
 </main>
+</form>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
