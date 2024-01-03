@@ -52,7 +52,7 @@
         <label for="in_bed">Input BINARY PLINK BED file path:
 <span class="badge text-light bg-danger">* required</span>
         </label>
-        <input type="text" class="form-control" name="in_bed" id="in_bed" placeholder="Input BINARY PLINK BED file path">
+        <input type="text" class="form-control" name="in_bed" id="in_bed" placeholder="Input BINARY PLINK BED file path" value="{{ in_bed }}">
     </div>
 </div>
     
@@ -84,7 +84,7 @@
     </select>
 
     <input type="hidden" name="hibagmodel_filepath" id="hibagmodel_filepath" value="">
-    <button class="vertical-dropdown" id="reset">Reset</button>
+    <button class="vertical-dropdown" name="reset_hibagmodel">Reset HIBAG model</button>
 
     <script>
     $(document).ready(function() {
@@ -128,11 +128,14 @@
                 });
         });
 
-        $('#reset').click(function() {
-            $('#dropdown1').prop('disabled', false);
-            $('#dropdown2').empty().prop('disabled', true);
-            $('#dropdown3').empty().prop('disabled', true);
-        });
+        // $('#reset').click(function() {
+        //     $('#dropdown1').prop('disabled', false);
+        //     $('#dropdown2').empty().prop('disabled', true);
+        //     $('#dropdown3').empty().prop('disabled', true);
+        //     $('#in_bed').empty().attr('value', 'hoge');
+        //     $('#out_name').empty().attr('value', 'ccc');
+        // });
+
     });
     </script>
 
@@ -144,7 +147,7 @@
             <label for="out_name">Output file name prefix:
 <span class="badge text-light bg-danger">* required</span>
             </label>
-            <input type="text" class="form-control" name="out_name" id="out_name" placeholder="Output file name prefix">
+            <input type="text" class="form-control" name="out_name" id="out_name" placeholder="Output file name prefix" value="{{ out_name }}">
         </div>
     </div>
 

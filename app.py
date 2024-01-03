@@ -92,20 +92,25 @@ def hibag():
     if request.method == "GET":
         return render_template('hibag.html', dropdown_list1=dropdown_list1)
     elif request.method == "POST":
-        env = jinja2.Environment(loader=jinja2.BaseLoader())
-        template = env.from_string(hibag_job_template)
-        hibag_parameters['in_bed_path'] = request.form["in_bed"]
-        hibag_parameters['runhibag_out_name'] = request.form["out_name"]
-        print(request.form["hibagmodel_filepath"])
-        hibag_parameters['model_file'] = request.form["hibagmodel_filepath"]
-        rendered_yaml = template.render(hibag_parameters)
-        return render_template('hibag.html', dropdown_list1=dropdown_list1, rendered_yaml=rendered_yaml)
+        if 'reset_hibagmodel' not in request.form:
+            env = jinja2.Environment(loader=jinja2.BaseLoader())
+            template = env.from_string(hibag_job_template)
+            hibag_parameters['in_bed_path'] = request.form["in_bed"]
+            hibag_parameters['runhibag_out_name'] = request.form["out_name"]
+            # print(request.form["hibagmodel_filepath"])
+            hibag_parameters['model_file'] = request.form["hibagmodel_filepath"]
+            rendered_yaml = template.render(hibag_parameters)
+            return render_template('hibag.html', dropdown_list1=dropdown_list1, rendered_yaml=rendered_yaml)
+        elif 'reset_hibagmodel' in request.form:
+            in_bed_text = request.form["in_bed"]
+            out_name_text = request.form["out_name"]
+            return render_template('hibag.html', dropdown_list1=dropdown_list1, in_bed=in_bed_text, out_name=out_name_text)
 
 @app.route('/hibag/get_dropdown2')
 def get_dropdown2():
     selected_val1 = request.args.get('selected_val1', type=str)
     dropdown_list2 = hibagmodel_df[hibagmodel_df['Column1'] == selected_val1]['Column2'].unique().tolist()
-    print(dropdown_list2)
+    # print(dropdown_list2)
     return jsonify(dropdown_list2)
 
 @app.route('/hibag/get_dropdown3')
@@ -128,8 +133,8 @@ def get_hibagmodel_filepath():
     val1_index = hibagmodel_df['Column1'] == selected_val1
     val2_index = hibagmodel_df['Column2'] == selected_val2
     val3_index = hibagmodel_df['Column3'] == selected_val3
-    foo = val1_index & val2_index & val3_index
-    hibagmodel_filepath = hibagmodel_df[foo]['Column4'].unique().tolist()
+    bar = val1_index & val2_index & val3_index
+    hibagmodel_filepath = hibagmodel_df[bar]['Column4'].unique().tolist()
     return jsonify(hibagmodel_filepath)
 
 if __name__ == "__main__":
