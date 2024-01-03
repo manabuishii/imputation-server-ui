@@ -1,210 +1,209 @@
-USE_YOUR_MODEL_OR_NOT,GENOTYPING_PLATFORMS,RESOLUTION,ANCESTRY,HIBAG_MODEL_URL
-Yes,None,None,None,None
-No,Illumina 1M Duo,Two-field (4-digit) resolution,European,./Illumina1M-European-4-digit-hg19.RData
-No,Illumina 1M Duo,Two-field (4-digit) resolution,Asian,./Illumina1M-Asian-4-digit-hg19.RData
-No,Illumina 1M Duo,Two-field (4-digit) resolution,Hispanic,./Illumina1M-Hispanic-4-digit-hg19.RData
-No,Illumina 1M Duo,Two-field (4-digit) resolution,African,./Illumina1M-African-4-digit-hg19.RData
-No,Illumina 1M Duo,Two-field (4-digit) resolution,Broad,./Illumina1M-Broad-4-digit-hg19.RData
-No,Illumina Human610-Quad v1.0,Two-field (4-digit) resolution,European,./Human610-European-4-digit-hg19.RData
-No,Illumina Human610-Quad v1.0,Two-field (4-digit) resolution,Asian,./Human610-Asian-4-digit-hg19.RData
-No,Illumina Human610-Quad v1.0,Two-field (4-digit) resolution,Hispanic,./Human610-Hispanic-4-digit-hg19.RData
-No,Illumina Human610-Quad v1.0,Two-field (4-digit) resolution,African,./Human610-African-4-digit-hg19.RData
-No,Illumina Human610-Quad v1.0,Two-field (4-digit) resolution,Broad,./Human610-Broad-4-digit-hg19.RData
-No,Illumina Human660W-Quad v1.0,One-field (2-digit) resolution,European,./Human660W-European-2-digit-hg19.RData
-No,Illumina Human660W-Quad v1.0,One-field (2-digit) resolution,Asian,./Human660W-Asian-2-digit-hg19.RData
-No,Illumina Human660W-Quad v1.0,One-field (2-digit) resolution,Hispanic,./Human660W-Hispanic-2-digit-hg19.RData
-No,Illumina Human660W-Quad v1.0,One-field (2-digit) resolution,African,./Human660W-African-2-digit-hg19.RData
-No,Illumina Human660W-Quad v1.0,One-field (2-digit) resolution,Broad,./Human660W-Broad-2-digit-hg19.RData
-No,Illumina Human660W-Quad v1.0,Two-field (4-digit) resolution,European,./Human660W-European-4-digit-hg19.RData
-No,Illumina Human660W-Quad v1.0,Two-field (4-digit) resolution,Asian,./Human660W-Asian-4-digit-hg19.RData
-No,Illumina Human660W-Quad v1.0,Two-field (4-digit) resolution,Hispanic,./Human660W-Hispanic-4-digit-hg19.RData
-No,Illumina Human660W-Quad v1.0,Two-field (4-digit) resolution,African,./Human660W-African-4-digit-hg19.RData
-No,Illumina Human660W-Quad v1.0,Two-field (4-digit) resolution,Broad,./Human660W-Broad-4-digit-hg19.RData
-No,Illumina HumanOmniExpress (based on HumanOmniExpress-12v1-1_B),Two-field (4-digit) resolution,European,./HumanOmniExpress-European-4-digit-hg18.RData
-No,Illumina HumanOmniExpress (based on HumanOmniExpress-12v1-1_B),Two-field (4-digit) resolution,Asian,./HumanOmniExpress-Asian-4-digit-hg18.RData
-No,Illumina HumanOmniExpress (based on HumanOmniExpress-12v1-1_B),Two-field (4-digit) resolution,Hispanic,./HumanOmniExpress-Hispanic-4-digit-hg18.RData
-No,Illumina HumanOmniExpress (based on HumanOmniExpress-12v1-1_B),Two-field (4-digit) resolution,African,./HumanOmniExpress-African-4-digit-hg18.RData
-No,Illumina HumanOmniExpress (based on HumanOmniExpress-12v1-1_B),Two-field (4-digit) resolution,Broad,./HumanOmniExpress-Broad-4-digit-hg18.RData
-No,Illumina HumanOmni1-Quad (based on Omni1_Quad_v1_0_H),Two-field (4-digit) resolution,European,./Omni1_Quad-European-4-digit-hg19.RData
-No,Illumina HumanOmni1-Quad (based on Omni1_Quad_v1_0_H),Two-field (4-digit) resolution,Asian,./Omni1_Quad-Asian-4-digit-hg19.RData
-No,Illumina HumanOmni1-Quad (based on Omni1_Quad_v1_0_H),Two-field (4-digit) resolution,Hispanic,./Omni1_Quad-Hispanic-4-digit-hg19.RData
-No,Illumina HumanOmni1-Quad (based on Omni1_Quad_v1_0_H),Two-field (4-digit) resolution,African,./Omni1_Quad-African-4-digit-hg19.RData
-No,Illumina HumanOmni1-Quad (based on Omni1_Quad_v1_0_H),Two-field (4-digit) resolution,Broad,./Omni1_Quad-Broad-4-digit-hg19.RData
-No,Illumina HumanOmni2.5 (based on HumanOmni2.5-8v1_C),Two-field (4-digit) resolution,European,./HumanOmni2.5-European-4-digit-hg19.RData
-No,Illumina HumanOmni2.5 (based on HumanOmni2.5-8v1_C),Two-field (4-digit) resolution,Asian,./HumanOmni2.5-Asian-4-digit-hg19.RData
-No,Illumina HumanOmni2.5 (based on HumanOmni2.5-8v1_C),Two-field (4-digit) resolution,Hispanic,./HumanOmni2.5-Hispanic-4-digit-hg19.RData
-No,Illumina HumanOmni2.5 (based on HumanOmni2.5-8v1_C),Two-field (4-digit) resolution,African,./HumanOmni2.5-African-4-digit-hg19.RData
-No,Illumina HumanOmni2.5 (based on HumanOmni2.5-8v1_C),Two-field (4-digit) resolution,Broad,./HumanOmni2.5-Broad-4-digit-hg19.RData
-No,Illumina HumanOmni5 (based on HumanOmni5-4v1_C),Two-field (4-digit) resolution,European,./HumanOmni5-European-4-digit-hg19.RData
-No,Illumina HumanOmni5 (based on HumanOmni5-4v1_C),Two-field (4-digit) resolution,Asian,./HumanOmni5-Asian-4-digit-hg19.RData
-No,Illumina HumanOmni5 (based on HumanOmni5-4v1_C),Two-field (4-digit) resolution,Hispanic,./HumanOmni5-Hispanic-4-digit-hg19.RData
-No,Illumina HumanOmni5 (based on HumanOmni5-4v1_C),Two-field (4-digit) resolution,African,./HumanOmni5-African-4-digit-hg19.RData
-No,Illumina Infinium HumanOmniExpressExome (based on HumanOmniExpressExome-8v1.1),Two-field (4-digit) resolution,European,./HumanOmniExpressExome-European-4-digit-hg19.RData
-No,Illumina Infinium HumanOmniExpressExome (based on HumanOmniExpressExome-8v1.1),Two-field (4-digit) resolution,Asian,./HumanOmniExpressExome-Asian-4-digit-hg19.RData
-No,Illumina Infinium HumanOmniExpressExome (based on HumanOmniExpressExome-8v1.1),Two-field (4-digit) resolution,Hispanic,./HumanOmniExpressExome-Hispanic-4-digit-hg19.RData
-No,Illumina Infinium HumanOmniExpressExome (based on HumanOmniExpressExome-8v1.1),Two-field (4-digit) resolution,African,./HumanOmniExpressExome-African-4-digit-hg19.RData
-No,Illumina Infinium Omni2.5Exome-8 BeadChip Kit,Two-field (4-digit) resolution,European,./Omni2.5Exome-European-4-digit-hg19.RData
-No,Illumina Infinium Omni2.5Exome-8 BeadChip Kit,Two-field (4-digit) resolution,Asian,./Omni2.5Exome-Asian-4-digit-hg19.RData
-No,Illumina Infinium Omni2.5Exome-8 BeadChip Kit,Two-field (4-digit) resolution,Hispanic,./Omni2.5Exome-Hispanic-4-digit-hg19.RData
-No,Illumina Infinium Omni2.5Exome-8 BeadChip Kit,Two-field (4-digit) resolution,African,./Omni2.5Exome-African-4-digit-hg19.RData
-No,Illumina Infinium Omni2.5Exome-8 BeadChip Kit,Two-field (4-digit) resolution,Broad,./Omni2.5Exome-Broad-4-digit-hg19.RData
-No,Illumina Infinium HumanOmni5Exome (based on HumanOmni5Exome-4v1.0),Two-field (4-digit) resolution,European,./HumanOmni5Exome-European-4-digit-hg19.RData
-No,Illumina Infinium HumanOmni5Exome (based on HumanOmni5Exome-4v1.0),Two-field (4-digit) resolution,Asian,./HumanOmni5Exome-Asian-4-digit-hg19.RData
-No,Illumina Infinium HumanOmni5Exome (based on HumanOmni5Exome-4v1.0),Two-field (4-digit) resolution,Hispanic,./HumanOmni5Exome-Hispanic-4-digit-hg19.RData
-No,Illumina Infinium HumanOmni5Exome (based on HumanOmni5Exome-4v1.0),Two-field (4-digit) resolution,African,./HumanOmni5Exome-African-4-digit-hg19.RData
-No,Illumina Infinium HumanOmni5Exome (based on HumanOmni5Exome-4v1.0),Two-field (4-digit) resolution,Broad,./HumanOmni5Exome-Broad-4-digit-hg19.RData
-No,Illumina HumanExome hg18 assembly (HumanExome-12v1.0),Two-field (4-digit) resolution,European,./HumanExome12-European-4-digit-hg18.RData
-No,Illumina HumanExome hg18 assembly (HumanExome-12v1.0),Two-field (4-digit) resolution,Asian,./HumanExome12-Asian-4-digit-hg18.RData
-No,Illumina HumanExome hg18 assembly (HumanExome-12v1.0),Two-field (4-digit) resolution,Hispanic,./HumanExome12-Hispanic-4-digit-hg18.RData
-No,Illumina HumanExome hg18 assembly (HumanExome-12v1.0),Two-field (4-digit) resolution,African,./HumanExome12-African-4-digit-hg18.RData
-No,Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),One-field (2-digit) resolution,European,./HumanExome12-European-2-digit-hg19.RData
-No,Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),One-field (2-digit) resolution,Asian,./HumanExome12-Asian-2-digit-hg19.RData
-No,Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),One-field (2-digit) resolution,Hispanic,./HumanExome12-Hispanic-2-digit-hg19.RData
-No,Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),One-field (2-digit) resolution,African,./HumanExome12-African-2-digit-hg19.RData
-No,Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),One-field (2-digit) resolution,Broad,./HumanExome12-Broad-2-digit-hg19.RData
-No,Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),Two-field (4-digit) resolution,European,./HumanExome12-European-4-digit-hg19.RData
-No,Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),Two-field (4-digit) resolution,Asian,./HumanExome12-Asian-4-digit-hg19.RData
-No,Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),Two-field (4-digit) resolution,Hispanic,./HumanExome12-Hispanic-4-digit-hg19.RData
-No,Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),Two-field (4-digit) resolution,African,./HumanExome12-African-4-digit-hg19.RData
-No,Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),Two-field (4-digit) resolution,Broad,./HumanExome12-Broad-4-digit-hg19.RData
-No,Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),One-field (2-digit) resolution,European,./HumanCoreExome-European-2-digit-hg19.RData
-No,Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),One-field (2-digit) resolution,Asian,./HumanCoreExome-Asian-2-digit-hg19.RData
-No,Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),One-field (2-digit) resolution,Hispanic,./HumanCoreExome-Hispanic-2-digit-hg19.RData
-No,Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),One-field (2-digit) resolution,African,./HumanCoreExome-African-2-digit-hg19.RData
-No,Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),Two-field (4-digit) resolution,European,./HumanCoreExome-European-4-digit-hg19.RData
-No,Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),Two-field (4-digit) resolution,Asian,./HumanCoreExome-Asian-4-digit-hg19.RData
-No,Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),Two-field (4-digit) resolution,Hispanic,./HumanCoreExome-Hispanic-4-digit-hg19.RData
-No,Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),Two-field (4-digit) resolution,African,./HumanCoreExome-African-4-digit-hg19.RData
-No,Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),Two-field (4-digit) resolution,Broad,./HumanCoreExome-Broad-4-digit-hg19.RData
-No,Illumina ImmunoChip,One-field (2-digit) resolution,European,./ImmunoChip-European-2-digit-hg18.RData
-No,Illumina ImmunoChip,One-field (2-digit) resolution,Asian,./ImmunoChip-Asian-2-digit-hg18.RData
-No,Illumina ImmunoChip,One-field (2-digit) resolution,Hispanic,./ImmunoChip-Hispanic-2-digit-hg18.RData
-No,Illumina ImmunoChip,One-field (2-digit) resolution,African,./ImmunoChip-African-2-digit-hg18.RData
-No,Illumina ImmunoChip,Two-field (4-digit) resolution,European,./ImmunoChip-European-4-digit-hg18.RData
-No,Illumina ImmunoChip,Two-field (4-digit) resolution,Asian,./ImmunoChip-Asian-4-digit-hg18.RData
-No,Illumina ImmunoChip,Two-field (4-digit) resolution,Hispanic,./ImmunoChip-Hispanic-4-digit-hg18.RData
-No,Illumina ImmunoChip,Two-field (4-digit) resolution,African,./ImmunoChip-African-4-digit-hg18.RData
-No,Illumina ImmunoChip,One-field (2-digit) resolution,European,./ImmunoChip-European-HLARES-2-digit-hg19.RData
-No,Illumina ImmunoChip,One-field (2-digit) resolution,Asian,./ImmunoChip-Asian-HLARES-2-digit-hg19.RData
-No,Illumina ImmunoChip,One-field (2-digit) resolution,Hispanic,./ImmunoChip-Hispanic-HLARES-2-digit-hg19.RData
-No,Illumina ImmunoChip,One-field (2-digit) resolution,African,./ImmunoChip-African-HLARES-2-digit-hg19.RData
-No,Illumina ImmunoChip,One-field (2-digit) resolution,Broad,./ImmunoChip-Broad-HLARES-2-digit-hg19.RData
-No,Illumina ImmunoChip,Two-field (4-digit) resolution,European,./ImmunoChip-European-HLARES-4-digit-hg19.RData
-No,Illumina ImmunoChip,Two-field (4-digit) resolution,Asian,./ImmunoChip-Asian-HLARES-4-digit-hg19.RData
-No,Illumina ImmunoChip,Two-field (4-digit) resolution,Hispanic,./ImmunoChip-Hispanic-HLARES-4-digit-hg19.RData
-No,Illumina ImmunoChip,Two-field (4-digit) resolution,African,./ImmunoChip-African-HLARES-4-digit-hg19.RData
-No,Illumina ImmunoChip,Two-field (4-digit) resolution,Broad,./ImmunoChip-Broad-HLARES-4-digit-hg19.RData
-No,Illumina Human Omni Zhonghua-8 Beadchip,Two-field (4-digit) resolution,Asian,./OmniZhonghua-Asian-4-digit-hg19.RData
-No,Illumina Human Omni Zhonghua-8 Beadchip,Two-field (4-digit) resolution,Broad,./OmniZhonghua-Broad-4-digit-hg19.RData
-No,Illumina Infinium OncoArray-500K BeadChip,Two-field (4-digit) resolution,European,./OncoArray500K-European-4-digit-hg19.RData
-No,Illumina Infinium OncoArray-500K BeadChip,Two-field (4-digit) resolution,Asian,./OncoArray500K-Asian-4-digit-hg19.RData
-No,Illumina Infinium OncoArray-500K BeadChip,Two-field (4-digit) resolution,Hispanic,./OncoArray500K-Hispanic-4-digit-hg19.RData
-No,Illumina Infinium OncoArray-500K BeadChip,Two-field (4-digit) resolution,African,./OncoArray500K-African-4-digit-hg19.RData
-No,Illumina Infinium OncoArray-500K BeadChip,Two-field (4-digit) resolution,Broad,./OncoArray500K-Broad-4-digit-hg19.RData
-No,Illumina Infinium OmniExpress-24 v1.2,Two-field (4-digit) resolution,European,./InfiniumOmniExpress-24-European-4-digit-hg19.RData
-No,Illumina Infinium OmniExpress-24 v1.2,Two-field (4-digit) resolution,Asian,./InfiniumOmniExpress-24-Asian-4-digit-hg19.RData
-No,Illumina Infinium OmniExpress-24 v1.2,Two-field (4-digit) resolution,Hispanic,./InfiniumOmniExpress-24-Hispanic-4-digit-hg19.RData
-No,Illumina Infinium OmniExpress-24 v1.2,Two-field (4-digit) resolution,African,./InfiniumOmniExpress-24-African-4-digit-hg19.RData
-No,Illumina Infinium OmniExpress-24 v1.2,Two-field (4-digit) resolution,Broad,./InfiniumOmniExpress-24-Broad-4-digit-hg19.RData
-No,Illumina MHC Exon-centric Golden Gate panel,One-field (2-digit) resolution,European,./MHC_Exon_Golden_Gate-European-2-digit-hg19.RData
-No,Illumina MHC Exon-centric Golden Gate panel,One-field (2-digit) resolution,Asian,./MHC_Exon_Golden_Gate-Asian-2-digit-hg19.RData
-No,Illumina MHC Exon-centric Golden Gate panel,One-field (2-digit) resolution,Hispanic,./MHC_Exon_Golden_Gate-Hispanic-2-digit-hg19.RData
-No,Illumina MHC Exon-centric Golden Gate panel,One-field (2-digit) resolution,African,./MHC_Exon_Golden_Gate-African-2-digit-hg19.RData
-No,Illumina MHC Exon-centric Golden Gate panel,One-field (2-digit) resolution,Broad,./MHC_Exon_Golden_Gate-Broad-2-digit-hg19.RData
-No,Illumina MHC Exon-centric Golden Gate panel,Two-field (4-digit) resolution,European,./MHC_Exon_Golden_Gate-European-4-digit-hg19.RData
-No,Illumina MHC Exon-centric Golden Gate panel,Two-field (4-digit) resolution,Asian,./MHC_Exon_Golden_Gate-Asian-4-digit-hg19.RData
-No,Illumina MHC Exon-centric Golden Gate panel,Two-field (4-digit) resolution,Hispanic,./MHC_Exon_Golden_Gate-Hispanic-4-digit-hg19.RData
-No,Illumina MHC Exon-centric Golden Gate panel,Two-field (4-digit) resolution,African,./MHC_Exon_Golden_Gate-African-4-digit-hg19.RData
-No,Illumina MHC Exon-centric Golden Gate panel,Two-field (4-digit) resolution,Broad,./MHC_Exon_Golden_Gate-Broad-4-digit-hg19.RData
-No,Illumina PsychArray-B,Two-field (4-digit) resolution,European,./PsychArray-B-European-4-digit-hg19.RData
-No,Illumina PsychArray-B,Two-field (4-digit) resolution,Asian,./PsychArray-B-Asian-4-digit-hg19.RData
-No,Illumina PsychArray-B,Two-field (4-digit) resolution,Hispanic,./PsychArray-B-Hispanic-4-digit-hg19.RData
-No,Illumina PsychArray-B,Two-field (4-digit) resolution,African,./PsychArray-B-African-4-digit-hg19.RData
-No,Illumina PsychArray-B,Two-field (4-digit) resolution,Broad,./PsychArray-B-Broad-4-digit-hg19.RData
-No,Illumina Sentrix HumanHap300,Two-field (4-digit) resolution,European,./IlluminaHumanHap300-European-4-digit-hg19.RData
-No,Illumina Sentrix HumanHap300,Two-field (4-digit) resolution,Asian,./IlluminaHumanHap300-Asian-4-digit-hg19.RData
-No,Illumina Sentrix HumanHap300,Two-field (4-digit) resolution,Hispanic,./IlluminaHumanHap300-Hispanic-4-digit-hg19.RData
-No,Illumina Sentrix HumanHap300,Two-field (4-digit) resolution,African,./IlluminaHumanHap300-African-4-digit-hg19.RData
-No,Illumina Sentrix HumanHap300,Two-field (4-digit) resolution,Broad,./IlluminaHumanHap300-Broad-4-digit-hg19.RData
-No,Illumina Infinium Multi-Ethnic Global BeadChip,Two-field (4-digit) resolution,European,./InfiniumMEGA-European-4-digit-hg19.RData
-No,Illumina Infinium Multi-Ethnic Global BeadChip,Two-field (4-digit) resolution,Asian,./InfiniumMEGA-Asian-4-digit-hg19.RData
-No,Illumina Infinium Multi-Ethnic Global BeadChip,Two-field (4-digit) resolution,Hispanic,./InfiniumMEGA-Hispanic-4-digit-hg19.RData
-No,Illumina Infinium Multi-Ethnic Global BeadChip,Two-field (4-digit) resolution,African,./InfiniumMEGA-African-4-digit-hg19.RData
-No,Illumina Infinium Multi-Ethnic Global BeadChip,Two-field (4-digit) resolution,Broad,./InfiniumMEGA-Broad-4-digit-hg19.RData
-No,Illumina Infinium Global Screening Array v2.0,Two-field (4-digit) resolution,European,./InfiniumGlobal-European-4-digit-hg19.RData
-No,Illumina Infinium Global Screening Array v2.0,Two-field (4-digit) resolution,Asian,./InfiniumGlobal-Asian-4-digit-hg19.RData
-No,Illumina Infinium Global Screening Array v2.0,Two-field (4-digit) resolution,Hispanic,./InfiniumGlobal-Hispanic-4-digit-hg19.RData
-No,Illumina Infinium Global Screening Array v2.0,Two-field (4-digit) resolution,African,./InfiniumGlobal-African-4-digit-hg19.RData
-No,Illumina Infinium Global Screening Array v2.0,Two-field (4-digit) resolution,Broad,./InfiniumGlobal-Broad-4-digit-hg19.RData
-No,Illumina Infinium Global Diversity Array v1.0,Two-field (4-digit) resolution,European,./Infinium_GDA-European-4-digit-hg19.RData
-No,Illumina Infinium Global Diversity Array v1.0,Two-field (4-digit) resolution,Asian,./Infinium_GDA-Asian-4-digit-hg19.RData
-No,Illumina Infinium Global Diversity Array v1.0,Two-field (4-digit) resolution,Hispanic,./Infinium_GDA-Hispanic-4-digit-hg19.RData
-No,Illumina Infinium Global Diversity Array v1.0,Two-field (4-digit) resolution,African,./Infinium_GDA-African-4-digit-hg19.RData
-No,Illumina Infinium Global Diversity Array v1.0,Two-field (4-digit) resolution,Broad,./Infinium_GDA-Broad-4-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 5.0,One-field (2-digit) resolution,European,./Affy500K-European-2-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 5.0,One-field (2-digit) resolution,Asian,./Affy500K-Asian-2-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 5.0,One-field (2-digit) resolution,Hispanic,./Affy500K-Hispanic-2-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 5.0,One-field (2-digit) resolution,African,./Affy500K-African-2-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 5.0,One-field (2-digit) resolution,Broad,./Affy500K-Broad-2-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 5.0,Two-field (4-digit) resolution,European,./Affy500K-European-4-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 5.0,Two-field (4-digit) resolution,Asian,./Affy500K-Asian-4-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 5.0,Two-field (4-digit) resolution,Hispanic,./Affy500K-Hispanic-4-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 5.0,Two-field (4-digit) resolution,African,./Affy500K-African-4-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 5.0,Two-field (4-digit) resolution,Broad,./Affy500K-Broad-4-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 6.0,One-field (2-digit) resolution,European,./AffySNPv6-European-2-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 6.0,One-field (2-digit) resolution,Asian,./AffySNPv6-Asian-2-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 6.0,One-field (2-digit) resolution,Hispanic,./AffySNPv6-Hispanic-2-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 6.0,One-field (2-digit) resolution,African,./AffySNPv6-African-2-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 6.0,One-field (2-digit) resolution,Broad,./AffySNPv6-Broad-2-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 6.0,Two-field (4-digit) resolution,European,./AffySNPv6-European-4-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 6.0,Two-field (4-digit) resolution,Asian,./AffySNPv6-Asian-4-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 6.0,Two-field (4-digit) resolution,Hispanic,./AffySNPv6-Hispanic-4-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 6.0,Two-field (4-digit) resolution,African,./AffySNPv6-African-4-digit-hg19.RData
-No,Affymetrix Genome-Wide Human SNP Array 6.0,Two-field (4-digit) resolution,Broad,./AffySNPv6-Broad-4-digit-hg19.RData
-No,Affymetrix Axiom® Exome 319 Array Plate,One-field (2-digit) resolution,European,./AffyAxiomExome319-European-2-digit-hg19.RData
-No,Affymetrix Axiom® Exome 319 Array Plate,One-field (2-digit) resolution,Asian,./AffyAxiomExome319-Asian-2-digit-hg19.RData
-No,Affymetrix Axiom® Exome 319 Array Plate,One-field (2-digit) resolution,Hispanic,./AffyAxiomExome319-Hispanic-2-digit-hg19.RData
-No,Affymetrix Axiom® Exome 319 Array Plate,One-field (2-digit) resolution,African,./AffyAxiomExome319-African-2-digit-hg19.RData
-No,Affymetrix Axiom® Exome 319 Array Plate,One-field (2-digit) resolution,Broad,./AffyAxiomExome319-Broad-2-digit-hg19.RData
-No,Affymetrix Axiom® Exome 319 Array Plate,Two-field (4-digit) resolution,European,./AffyAxiomExome319-European-4-digit-hg19.RData
-No,Affymetrix Axiom® Exome 319 Array Plate,Two-field (4-digit) resolution,Asian,./AffyAxiomExome319-Asian-4-digit-hg19.RData
-No,Affymetrix Axiom® Exome 319 Array Plate,Two-field (4-digit) resolution,Hispanic,./AffyAxiomExome319-Hispanic-4-digit-hg19.RData
-No,Affymetrix Axiom® Exome 319 Array Plate,Two-field (4-digit) resolution,African,./AffyAxiomExome319-African-4-digit-hg19.RData
-No,Affymetrix Axiom® Exome 319 Array Plate,Two-field (4-digit) resolution,Broad,./AffyAxiomExome319-Broad-4-digit-hg19.RData
-No,Affymetrix Axiom® Genome-Wide CEU 1 Array Plate,Two-field (4-digit) resolution,European,./Axiom_GW_CEU-European-4-digit-hg19.RData
-No,Affymetrix Axiom® Genome-Wide CEU 1 Array Plate,Two-field (4-digit) resolution,Broad,./Axiom_GW_CEU-Broad-4-digit-hg19.RData
-No,Affymetrix Axiom® Genome-Wide ASI 1 Array Plate,One-field (2-digit) resolution,Asian,./AffyAxiom_ASI-Asian-2-digit-hg19.RData
-No,Affymetrix Axiom® Genome-Wide ASI 1 Array Plate,One-field (2-digit) resolution,Broad,./AffyAxiom_ASI-Broad-2-digit-hg19.RData
-No,Affymetrix Axiom® Genome-Wide ASI 1 Array Plate,Two-field (4-digit) resolution,Asian,./AffyAxiom_ASI-Asian-4-digit-hg19.RData
-No,Affymetrix Axiom® Genome-Wide ASI 1 Array Plate,Two-field (4-digit) resolution,Broad,./AffyAxiom_ASI-Broad-4-digit-hg19.RData
-No,Affymetrix Axiom® Genome-Wide CHB 1 Array Plate,One-field (2-digit) resolution,Asian,./AffyAxiomCHB_1-Asian-2-digit-hg19.RData
-No,Affymetrix Axiom® Genome-Wide CHB 1 Array Plate,One-field (2-digit) resolution,Broad,./AffyAxiomCHB_1-Broad-2-digit-hg19.RData
-No,Affymetrix Axiom® Genome-Wide CHB 1 Array Plate,Two-field (4-digit) resolution,Asian,./AffyAxiomCHB_1-Asian-4-digit-hg19.RData
-No,Affymetrix Axiom® Genome-Wide CHB 1 Array Plate,Two-field (4-digit) resolution,Broad,./AffyAxiomCHB_1-Broad-4-digit-hg19.RData
-No,Affymetrix Axiom® Human Origins 1 Array,One-field (2-digit) resolution,European,./AffyAxiom_Human_Origin_1-European-2-digit-hg19.RData
-No,Affymetrix Axiom® Human Origins 1 Array,One-field (2-digit) resolution,Asian,./AffyAxiom_Human_Origin_1-Asian-2-digit-hg19.RData
-No,Affymetrix Axiom® Human Origins 1 Array,One-field (2-digit) resolution,Hispanic,./AffyAxiom_Human_Origin_1-Hispanic-2-digit-hg19.RData
-No,Affymetrix Axiom® Human Origins 1 Array,One-field (2-digit) resolution,African,./AffyAxiom_Human_Origin_1-African-2-digit-hg19.RData
-No,Affymetrix Axiom® Human Origins 1 Array,One-field (2-digit) resolution,Broad,./AffyAxiom_Human_Origin_1-Broad-2-digit-hg19.RData
-No,Affymetrix Axiom® Human Origins 1 Array,Two-field (4-digit) resolution,European,./AffyAxiom_Human_Origin_1-European-4-digit-hg19.RData
-No,Affymetrix Axiom® Human Origins 1 Array,Two-field (4-digit) resolution,Asian,./AffyAxiom_Human_Origin_1-Asian-4-digit-hg19.RData
-No,Affymetrix Axiom® Human Origins 1 Array,Two-field (4-digit) resolution,Hispanic,./AffyAxiom_Human_Origin_1-Hispanic-4-digit-hg19.RData
-No,Affymetrix Axiom® Human Origins 1 Array,Two-field (4-digit) resolution,African,./AffyAxiom_Human_Origin_1-African-4-digit-hg19.RData
-No,Affymetrix Axiom® Human Origins 1 Array,Two-field (4-digit) resolution,Broad,./AffyAxiom_Human_Origin_1-Broad-4-digit-hg19.RData
-No,Affymetrix Axiom® UK Biobank Array,One-field (2-digit) resolution,European,./AffyAxiomUKB-European-2-digit-hg19.RData
-No,Affymetrix Axiom® UK Biobank Array,One-field (2-digit) resolution,Broad,./AffyAxiomUKB-Broad-2-digit-hg19.RData
-No,Affymetrix Axiom® UK Biobank Array,Two-field (4-digit) resolution,European,./AffyAxiomUKB-European-4-digit-hg19.RData
-No,Affymetrix Axiom® UK Biobank Array,Two-field (4-digit) resolution,Broad,./AffyAxiomUKB-Broad-4-digit-hg19.RData
-No,Affymetrix Axiom® World Arrays Genome-Wide EUR 1 Array Plate,One-field (2-digit) resolution,European,./AffyAxiom_WA_EUR-European-2-digit-hg19.RData
-No,Affymetrix Axiom® World Arrays Genome-Wide EUR 1 Array Plate,One-field (2-digit) resolution,Broad,./AffyAxiom_WA_EUR-Broad-2-digit-hg19.RData
-No,Affymetrix Axiom® World Arrays Genome-Wide EUR 1 Array Plate,Two-field (4-digit) resolution,European,./AffyAxiom_WA_EUR-European-4-digit-hg19.RData
-No,Affymetrix Axiom® World Arrays Genome-Wide EUR 1 Array Plate,Two-field (4-digit) resolution,Broad,./AffyAxiom_WA_EUR-Broad-4-digit-hg19.RData
-No,Affymetrix Axiom® World Arrays Genome-Wide EAS 1 Array Plate,One-field (2-digit) resolution,Asian,./AffyAxiom_WA_EAS-Asian-2-digit-hg19.RData
-No,Affymetrix Axiom® World Arrays Genome-Wide EAS 1 Array Plate,One-field (2-digit) resolution,Broad,./AffyAxiom_WA_EAS-Broad-2-digit-hg19.RData
-No,Affymetrix Axiom® World Arrays Genome-Wide EAS 1 Array Plate,Two-field (4-digit) resolution,Asian,./AffyAxiom_WA_EAS-Asian-4-digit-hg19.RData
-No,Affymetrix Axiom® World Arrays Genome-Wide EAS 1 Array Plate,Two-field (4-digit) resolution,Broad,./AffyAxiom_WA_EAS-Broad-4-digit-hg19.RData
-No,Axiom™ Precision Medicine Research Array (PMRA),Two-field (4-digit) resolution,European,./Axiom_PMRA-European-HLARES-4-digit-hg19.RData
-No,Axiom™ Precision Medicine Research Array (PMRA),Two-field (4-digit) resolution,Asian,./Axiom_PMRA-Asian-HLARES-4-digit-hg19.RData
-No,Axiom™ Precision Medicine Research Array (PMRA),Two-field (4-digit) resolution,Hispanic,./Axiom_PMRA-Hispanic-HLARES-4-digit-hg19.RData
-No,Axiom™ Precision Medicine Research Array (PMRA),Two-field (4-digit) resolution,African,./Axiom_PMRA-African-HLARES-4-digit-hg19.RData
-No,Axiom™ Precision Medicine Research Array (PMRA),Two-field (4-digit) resolution,Broad,./Axiom_PMRA-Broad-HLARES-4-digit-hg19.RData
+Column1,Column2,Column3,Column4
+Illumina 1M Duo,Two-field (4-digit) resolution,European,./Illumina1M-European-4-digit-hg19.RData
+Illumina 1M Duo,Two-field (4-digit) resolution,Asian,./Illumina1M-Asian-4-digit-hg19.RData
+Illumina 1M Duo,Two-field (4-digit) resolution,Hispanic,./Illumina1M-Hispanic-4-digit-hg19.RData
+Illumina 1M Duo,Two-field (4-digit) resolution,African,./Illumina1M-African-4-digit-hg19.RData
+Illumina 1M Duo,Two-field (4-digit) resolution,Broad,./Illumina1M-Broad-4-digit-hg19.RData
+Illumina Human610-Quad v1.0,Two-field (4-digit) resolution,European,./Human610-European-4-digit-hg19.RData
+Illumina Human610-Quad v1.0,Two-field (4-digit) resolution,Asian,./Human610-Asian-4-digit-hg19.RData
+Illumina Human610-Quad v1.0,Two-field (4-digit) resolution,Hispanic,./Human610-Hispanic-4-digit-hg19.RData
+Illumina Human610-Quad v1.0,Two-field (4-digit) resolution,African,./Human610-African-4-digit-hg19.RData
+Illumina Human610-Quad v1.0,Two-field (4-digit) resolution,Broad,./Human610-Broad-4-digit-hg19.RData
+Illumina Human660W-Quad v1.0,One-field (2-digit) resolution,European,./Human660W-European-2-digit-hg19.RData
+Illumina Human660W-Quad v1.0,One-field (2-digit) resolution,Asian,./Human660W-Asian-2-digit-hg19.RData
+Illumina Human660W-Quad v1.0,One-field (2-digit) resolution,Hispanic,./Human660W-Hispanic-2-digit-hg19.RData
+Illumina Human660W-Quad v1.0,One-field (2-digit) resolution,African,./Human660W-African-2-digit-hg19.RData
+Illumina Human660W-Quad v1.0,One-field (2-digit) resolution,Broad,./Human660W-Broad-2-digit-hg19.RData
+Illumina Human660W-Quad v1.0,Two-field (4-digit) resolution,European,./Human660W-European-4-digit-hg19.RData
+Illumina Human660W-Quad v1.0,Two-field (4-digit) resolution,Asian,./Human660W-Asian-4-digit-hg19.RData
+Illumina Human660W-Quad v1.0,Two-field (4-digit) resolution,Hispanic,./Human660W-Hispanic-4-digit-hg19.RData
+Illumina Human660W-Quad v1.0,Two-field (4-digit) resolution,African,./Human660W-African-4-digit-hg19.RData
+Illumina Human660W-Quad v1.0,Two-field (4-digit) resolution,Broad,./Human660W-Broad-4-digit-hg19.RData
+Illumina HumanOmniExpress (based on HumanOmniExpress-12v1-1_B),Two-field (4-digit) resolution,European,./HumanOmniExpress-European-4-digit-hg18.RData
+Illumina HumanOmniExpress (based on HumanOmniExpress-12v1-1_B),Two-field (4-digit) resolution,Asian,./HumanOmniExpress-Asian-4-digit-hg18.RData
+Illumina HumanOmniExpress (based on HumanOmniExpress-12v1-1_B),Two-field (4-digit) resolution,Hispanic,./HumanOmniExpress-Hispanic-4-digit-hg18.RData
+Illumina HumanOmniExpress (based on HumanOmniExpress-12v1-1_B),Two-field (4-digit) resolution,African,./HumanOmniExpress-African-4-digit-hg18.RData
+Illumina HumanOmniExpress (based on HumanOmniExpress-12v1-1_B),Two-field (4-digit) resolution,Broad,./HumanOmniExpress-Broad-4-digit-hg18.RData
+Illumina HumanOmni1-Quad (based on Omni1_Quad_v1_0_H),Two-field (4-digit) resolution,European,./Omni1_Quad-European-4-digit-hg19.RData
+Illumina HumanOmni1-Quad (based on Omni1_Quad_v1_0_H),Two-field (4-digit) resolution,Asian,./Omni1_Quad-Asian-4-digit-hg19.RData
+Illumina HumanOmni1-Quad (based on Omni1_Quad_v1_0_H),Two-field (4-digit) resolution,Hispanic,./Omni1_Quad-Hispanic-4-digit-hg19.RData
+Illumina HumanOmni1-Quad (based on Omni1_Quad_v1_0_H),Two-field (4-digit) resolution,African,./Omni1_Quad-African-4-digit-hg19.RData
+Illumina HumanOmni1-Quad (based on Omni1_Quad_v1_0_H),Two-field (4-digit) resolution,Broad,./Omni1_Quad-Broad-4-digit-hg19.RData
+Illumina HumanOmni2.5 (based on HumanOmni2.5-8v1_C),Two-field (4-digit) resolution,European,./HumanOmni2.5-European-4-digit-hg19.RData
+Illumina HumanOmni2.5 (based on HumanOmni2.5-8v1_C),Two-field (4-digit) resolution,Asian,./HumanOmni2.5-Asian-4-digit-hg19.RData
+Illumina HumanOmni2.5 (based on HumanOmni2.5-8v1_C),Two-field (4-digit) resolution,Hispanic,./HumanOmni2.5-Hispanic-4-digit-hg19.RData
+Illumina HumanOmni2.5 (based on HumanOmni2.5-8v1_C),Two-field (4-digit) resolution,African,./HumanOmni2.5-African-4-digit-hg19.RData
+Illumina HumanOmni2.5 (based on HumanOmni2.5-8v1_C),Two-field (4-digit) resolution,Broad,./HumanOmni2.5-Broad-4-digit-hg19.RData
+Illumina HumanOmni5 (based on HumanOmni5-4v1_C),Two-field (4-digit) resolution,European,./HumanOmni5-European-4-digit-hg19.RData
+Illumina HumanOmni5 (based on HumanOmni5-4v1_C),Two-field (4-digit) resolution,Asian,./HumanOmni5-Asian-4-digit-hg19.RData
+Illumina HumanOmni5 (based on HumanOmni5-4v1_C),Two-field (4-digit) resolution,Hispanic,./HumanOmni5-Hispanic-4-digit-hg19.RData
+Illumina HumanOmni5 (based on HumanOmni5-4v1_C),Two-field (4-digit) resolution,African,./HumanOmni5-African-4-digit-hg19.RData
+Illumina Infinium HumanOmniExpressExome (based on HumanOmniExpressExome-8v1.1),Two-field (4-digit) resolution,European,./HumanOmniExpressExome-European-4-digit-hg19.RData
+Illumina Infinium HumanOmniExpressExome (based on HumanOmniExpressExome-8v1.1),Two-field (4-digit) resolution,Asian,./HumanOmniExpressExome-Asian-4-digit-hg19.RData
+Illumina Infinium HumanOmniExpressExome (based on HumanOmniExpressExome-8v1.1),Two-field (4-digit) resolution,Hispanic,./HumanOmniExpressExome-Hispanic-4-digit-hg19.RData
+Illumina Infinium HumanOmniExpressExome (based on HumanOmniExpressExome-8v1.1),Two-field (4-digit) resolution,African,./HumanOmniExpressExome-African-4-digit-hg19.RData
+Illumina Infinium Omni2.5Exome-8 BeadChip Kit,Two-field (4-digit) resolution,European,./Omni2.5Exome-European-4-digit-hg19.RData
+Illumina Infinium Omni2.5Exome-8 BeadChip Kit,Two-field (4-digit) resolution,Asian,./Omni2.5Exome-Asian-4-digit-hg19.RData
+Illumina Infinium Omni2.5Exome-8 BeadChip Kit,Two-field (4-digit) resolution,Hispanic,./Omni2.5Exome-Hispanic-4-digit-hg19.RData
+Illumina Infinium Omni2.5Exome-8 BeadChip Kit,Two-field (4-digit) resolution,African,./Omni2.5Exome-African-4-digit-hg19.RData
+Illumina Infinium Omni2.5Exome-8 BeadChip Kit,Two-field (4-digit) resolution,Broad,./Omni2.5Exome-Broad-4-digit-hg19.RData
+Illumina Infinium HumanOmni5Exome (based on HumanOmni5Exome-4v1.0),Two-field (4-digit) resolution,European,./HumanOmni5Exome-European-4-digit-hg19.RData
+Illumina Infinium HumanOmni5Exome (based on HumanOmni5Exome-4v1.0),Two-field (4-digit) resolution,Asian,./HumanOmni5Exome-Asian-4-digit-hg19.RData
+Illumina Infinium HumanOmni5Exome (based on HumanOmni5Exome-4v1.0),Two-field (4-digit) resolution,Hispanic,./HumanOmni5Exome-Hispanic-4-digit-hg19.RData
+Illumina Infinium HumanOmni5Exome (based on HumanOmni5Exome-4v1.0),Two-field (4-digit) resolution,African,./HumanOmni5Exome-African-4-digit-hg19.RData
+Illumina Infinium HumanOmni5Exome (based on HumanOmni5Exome-4v1.0),Two-field (4-digit) resolution,Broad,./HumanOmni5Exome-Broad-4-digit-hg19.RData
+Illumina HumanExome hg18 assembly (HumanExome-12v1.0),Two-field (4-digit) resolution,European,./HumanExome12-European-4-digit-hg18.RData
+Illumina HumanExome hg18 assembly (HumanExome-12v1.0),Two-field (4-digit) resolution,Asian,./HumanExome12-Asian-4-digit-hg18.RData
+Illumina HumanExome hg18 assembly (HumanExome-12v1.0),Two-field (4-digit) resolution,Hispanic,./HumanExome12-Hispanic-4-digit-hg18.RData
+Illumina HumanExome hg18 assembly (HumanExome-12v1.0),Two-field (4-digit) resolution,African,./HumanExome12-African-4-digit-hg18.RData
+Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),One-field (2-digit) resolution,European,./HumanExome12-European-2-digit-hg19.RData
+Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),One-field (2-digit) resolution,Asian,./HumanExome12-Asian-2-digit-hg19.RData
+Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),One-field (2-digit) resolution,Hispanic,./HumanExome12-Hispanic-2-digit-hg19.RData
+Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),One-field (2-digit) resolution,African,./HumanExome12-African-2-digit-hg19.RData
+Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),One-field (2-digit) resolution,Broad,./HumanExome12-Broad-2-digit-hg19.RData
+Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),Two-field (4-digit) resolution,European,./HumanExome12-European-4-digit-hg19.RData
+Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),Two-field (4-digit) resolution,Asian,./HumanExome12-Asian-4-digit-hg19.RData
+Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),Two-field (4-digit) resolution,Hispanic,./HumanExome12-Hispanic-4-digit-hg19.RData
+Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),Two-field (4-digit) resolution,African,./HumanExome12-African-4-digit-hg19.RData
+Illumina HumanExome hg19 assembly (HumanExome-12v1.2_a),Two-field (4-digit) resolution,Broad,./HumanExome12-Broad-4-digit-hg19.RData
+Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),One-field (2-digit) resolution,European,./HumanCoreExome-European-2-digit-hg19.RData
+Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),One-field (2-digit) resolution,Asian,./HumanCoreExome-Asian-2-digit-hg19.RData
+Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),One-field (2-digit) resolution,Hispanic,./HumanCoreExome-Hispanic-2-digit-hg19.RData
+Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),One-field (2-digit) resolution,African,./HumanCoreExome-African-2-digit-hg19.RData
+Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),Two-field (4-digit) resolution,European,./HumanCoreExome-European-4-digit-hg19.RData
+Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),Two-field (4-digit) resolution,Asian,./HumanCoreExome-Asian-4-digit-hg19.RData
+Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),Two-field (4-digit) resolution,Hispanic,./HumanCoreExome-Hispanic-4-digit-hg19.RData
+Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),Two-field (4-digit) resolution,African,./HumanCoreExome-African-4-digit-hg19.RData
+Illumina HumanCoreExome (based on HumanCoreExome-12v1.0),Two-field (4-digit) resolution,Broad,./HumanCoreExome-Broad-4-digit-hg19.RData
+Illumina ImmunoChip,One-field (2-digit) resolution,European,./ImmunoChip-European-2-digit-hg18.RData
+Illumina ImmunoChip,One-field (2-digit) resolution,Asian,./ImmunoChip-Asian-2-digit-hg18.RData
+Illumina ImmunoChip,One-field (2-digit) resolution,Hispanic,./ImmunoChip-Hispanic-2-digit-hg18.RData
+Illumina ImmunoChip,One-field (2-digit) resolution,African,./ImmunoChip-African-2-digit-hg18.RData
+Illumina ImmunoChip,Two-field (4-digit) resolution,European,./ImmunoChip-European-4-digit-hg18.RData
+Illumina ImmunoChip,Two-field (4-digit) resolution,Asian,./ImmunoChip-Asian-4-digit-hg18.RData
+Illumina ImmunoChip,Two-field (4-digit) resolution,Hispanic,./ImmunoChip-Hispanic-4-digit-hg18.RData
+Illumina ImmunoChip,Two-field (4-digit) resolution,African,./ImmunoChip-African-4-digit-hg18.RData
+Illumina ImmunoChip,One-field (2-digit) resolution,European,./ImmunoChip-European-HLARES-2-digit-hg19.RData
+Illumina ImmunoChip,One-field (2-digit) resolution,Asian,./ImmunoChip-Asian-HLARES-2-digit-hg19.RData
+Illumina ImmunoChip,One-field (2-digit) resolution,Hispanic,./ImmunoChip-Hispanic-HLARES-2-digit-hg19.RData
+Illumina ImmunoChip,One-field (2-digit) resolution,African,./ImmunoChip-African-HLARES-2-digit-hg19.RData
+Illumina ImmunoChip,One-field (2-digit) resolution,Broad,./ImmunoChip-Broad-HLARES-2-digit-hg19.RData
+Illumina ImmunoChip,Two-field (4-digit) resolution,European,./ImmunoChip-European-HLARES-4-digit-hg19.RData
+Illumina ImmunoChip,Two-field (4-digit) resolution,Asian,./ImmunoChip-Asian-HLARES-4-digit-hg19.RData
+Illumina ImmunoChip,Two-field (4-digit) resolution,Hispanic,./ImmunoChip-Hispanic-HLARES-4-digit-hg19.RData
+Illumina ImmunoChip,Two-field (4-digit) resolution,African,./ImmunoChip-African-HLARES-4-digit-hg19.RData
+Illumina ImmunoChip,Two-field (4-digit) resolution,Broad,./ImmunoChip-Broad-HLARES-4-digit-hg19.RData
+Illumina Human Omni Zhonghua-8 Beadchip,Two-field (4-digit) resolution,Asian,./OmniZhonghua-Asian-4-digit-hg19.RData
+Illumina Human Omni Zhonghua-8 Beadchip,Two-field (4-digit) resolution,Broad,./OmniZhonghua-Broad-4-digit-hg19.RData
+Illumina Infinium OncoArray-500K BeadChip,Two-field (4-digit) resolution,European,./OncoArray500K-European-4-digit-hg19.RData
+Illumina Infinium OncoArray-500K BeadChip,Two-field (4-digit) resolution,Asian,./OncoArray500K-Asian-4-digit-hg19.RData
+Illumina Infinium OncoArray-500K BeadChip,Two-field (4-digit) resolution,Hispanic,./OncoArray500K-Hispanic-4-digit-hg19.RData
+Illumina Infinium OncoArray-500K BeadChip,Two-field (4-digit) resolution,African,./OncoArray500K-African-4-digit-hg19.RData
+Illumina Infinium OncoArray-500K BeadChip,Two-field (4-digit) resolution,Broad,./OncoArray500K-Broad-4-digit-hg19.RData
+Illumina Infinium OmniExpress-24 v1.2,Two-field (4-digit) resolution,European,./InfiniumOmniExpress-24-European-4-digit-hg19.RData
+Illumina Infinium OmniExpress-24 v1.2,Two-field (4-digit) resolution,Asian,./InfiniumOmniExpress-24-Asian-4-digit-hg19.RData
+Illumina Infinium OmniExpress-24 v1.2,Two-field (4-digit) resolution,Hispanic,./InfiniumOmniExpress-24-Hispanic-4-digit-hg19.RData
+Illumina Infinium OmniExpress-24 v1.2,Two-field (4-digit) resolution,African,./InfiniumOmniExpress-24-African-4-digit-hg19.RData
+Illumina Infinium OmniExpress-24 v1.2,Two-field (4-digit) resolution,Broad,./InfiniumOmniExpress-24-Broad-4-digit-hg19.RData
+Illumina MHC Exon-centric Golden Gate panel,One-field (2-digit) resolution,European,./MHC_Exon_Golden_Gate-European-2-digit-hg19.RData
+Illumina MHC Exon-centric Golden Gate panel,One-field (2-digit) resolution,Asian,./MHC_Exon_Golden_Gate-Asian-2-digit-hg19.RData
+Illumina MHC Exon-centric Golden Gate panel,One-field (2-digit) resolution,Hispanic,./MHC_Exon_Golden_Gate-Hispanic-2-digit-hg19.RData
+Illumina MHC Exon-centric Golden Gate panel,One-field (2-digit) resolution,African,./MHC_Exon_Golden_Gate-African-2-digit-hg19.RData
+Illumina MHC Exon-centric Golden Gate panel,One-field (2-digit) resolution,Broad,./MHC_Exon_Golden_Gate-Broad-2-digit-hg19.RData
+Illumina MHC Exon-centric Golden Gate panel,Two-field (4-digit) resolution,European,./MHC_Exon_Golden_Gate-European-4-digit-hg19.RData
+Illumina MHC Exon-centric Golden Gate panel,Two-field (4-digit) resolution,Asian,./MHC_Exon_Golden_Gate-Asian-4-digit-hg19.RData
+Illumina MHC Exon-centric Golden Gate panel,Two-field (4-digit) resolution,Hispanic,./MHC_Exon_Golden_Gate-Hispanic-4-digit-hg19.RData
+Illumina MHC Exon-centric Golden Gate panel,Two-field (4-digit) resolution,African,./MHC_Exon_Golden_Gate-African-4-digit-hg19.RData
+Illumina MHC Exon-centric Golden Gate panel,Two-field (4-digit) resolution,Broad,./MHC_Exon_Golden_Gate-Broad-4-digit-hg19.RData
+Illumina PsychArray-B,Two-field (4-digit) resolution,European,./PsychArray-B-European-4-digit-hg19.RData
+Illumina PsychArray-B,Two-field (4-digit) resolution,Asian,./PsychArray-B-Asian-4-digit-hg19.RData
+Illumina PsychArray-B,Two-field (4-digit) resolution,Hispanic,./PsychArray-B-Hispanic-4-digit-hg19.RData
+Illumina PsychArray-B,Two-field (4-digit) resolution,African,./PsychArray-B-African-4-digit-hg19.RData
+Illumina PsychArray-B,Two-field (4-digit) resolution,Broad,./PsychArray-B-Broad-4-digit-hg19.RData
+Illumina Sentrix HumanHap300,Two-field (4-digit) resolution,European,./IlluminaHumanHap300-European-4-digit-hg19.RData
+Illumina Sentrix HumanHap300,Two-field (4-digit) resolution,Asian,./IlluminaHumanHap300-Asian-4-digit-hg19.RData
+Illumina Sentrix HumanHap300,Two-field (4-digit) resolution,Hispanic,./IlluminaHumanHap300-Hispanic-4-digit-hg19.RData
+Illumina Sentrix HumanHap300,Two-field (4-digit) resolution,African,./IlluminaHumanHap300-African-4-digit-hg19.RData
+Illumina Sentrix HumanHap300,Two-field (4-digit) resolution,Broad,./IlluminaHumanHap300-Broad-4-digit-hg19.RData
+Illumina Infinium Multi-Ethnic Global BeadChip,Two-field (4-digit) resolution,European,./InfiniumMEGA-European-4-digit-hg19.RData
+Illumina Infinium Multi-Ethnic Global BeadChip,Two-field (4-digit) resolution,Asian,./InfiniumMEGA-Asian-4-digit-hg19.RData
+Illumina Infinium Multi-Ethnic Global BeadChip,Two-field (4-digit) resolution,Hispanic,./InfiniumMEGA-Hispanic-4-digit-hg19.RData
+Illumina Infinium Multi-Ethnic Global BeadChip,Two-field (4-digit) resolution,African,./InfiniumMEGA-African-4-digit-hg19.RData
+Illumina Infinium Multi-Ethnic Global BeadChip,Two-field (4-digit) resolution,Broad,./InfiniumMEGA-Broad-4-digit-hg19.RData
+Illumina Infinium Global Screening Array v2.0,Two-field (4-digit) resolution,European,./InfiniumGlobal-European-4-digit-hg19.RData
+Illumina Infinium Global Screening Array v2.0,Two-field (4-digit) resolution,Asian,./InfiniumGlobal-Asian-4-digit-hg19.RData
+Illumina Infinium Global Screening Array v2.0,Two-field (4-digit) resolution,Hispanic,./InfiniumGlobal-Hispanic-4-digit-hg19.RData
+Illumina Infinium Global Screening Array v2.0,Two-field (4-digit) resolution,African,./InfiniumGlobal-African-4-digit-hg19.RData
+Illumina Infinium Global Screening Array v2.0,Two-field (4-digit) resolution,Broad,./InfiniumGlobal-Broad-4-digit-hg19.RData
+Illumina Infinium Global Diversity Array v1.0,Two-field (4-digit) resolution,European,./Infinium_GDA-European-4-digit-hg19.RData
+Illumina Infinium Global Diversity Array v1.0,Two-field (4-digit) resolution,Asian,./Infinium_GDA-Asian-4-digit-hg19.RData
+Illumina Infinium Global Diversity Array v1.0,Two-field (4-digit) resolution,Hispanic,./Infinium_GDA-Hispanic-4-digit-hg19.RData
+Illumina Infinium Global Diversity Array v1.0,Two-field (4-digit) resolution,African,./Infinium_GDA-African-4-digit-hg19.RData
+Illumina Infinium Global Diversity Array v1.0,Two-field (4-digit) resolution,Broad,./Infinium_GDA-Broad-4-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 5.0,One-field (2-digit) resolution,European,./Affy500K-European-2-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 5.0,One-field (2-digit) resolution,Asian,./Affy500K-Asian-2-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 5.0,One-field (2-digit) resolution,Hispanic,./Affy500K-Hispanic-2-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 5.0,One-field (2-digit) resolution,African,./Affy500K-African-2-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 5.0,One-field (2-digit) resolution,Broad,./Affy500K-Broad-2-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 5.0,Two-field (4-digit) resolution,European,./Affy500K-European-4-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 5.0,Two-field (4-digit) resolution,Asian,./Affy500K-Asian-4-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 5.0,Two-field (4-digit) resolution,Hispanic,./Affy500K-Hispanic-4-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 5.0,Two-field (4-digit) resolution,African,./Affy500K-African-4-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 5.0,Two-field (4-digit) resolution,Broad,./Affy500K-Broad-4-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 6.0,One-field (2-digit) resolution,European,./AffySNPv6-European-2-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 6.0,One-field (2-digit) resolution,Asian,./AffySNPv6-Asian-2-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 6.0,One-field (2-digit) resolution,Hispanic,./AffySNPv6-Hispanic-2-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 6.0,One-field (2-digit) resolution,African,./AffySNPv6-African-2-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 6.0,One-field (2-digit) resolution,Broad,./AffySNPv6-Broad-2-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 6.0,Two-field (4-digit) resolution,European,./AffySNPv6-European-4-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 6.0,Two-field (4-digit) resolution,Asian,./AffySNPv6-Asian-4-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 6.0,Two-field (4-digit) resolution,Hispanic,./AffySNPv6-Hispanic-4-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 6.0,Two-field (4-digit) resolution,African,./AffySNPv6-African-4-digit-hg19.RData
+Affymetrix Genome-Wide Human SNP Array 6.0,Two-field (4-digit) resolution,Broad,./AffySNPv6-Broad-4-digit-hg19.RData
+Affymetrix Axiom® Exome 319 Array Plate,One-field (2-digit) resolution,European,./AffyAxiomExome319-European-2-digit-hg19.RData
+Affymetrix Axiom® Exome 319 Array Plate,One-field (2-digit) resolution,Asian,./AffyAxiomExome319-Asian-2-digit-hg19.RData
+Affymetrix Axiom® Exome 319 Array Plate,One-field (2-digit) resolution,Hispanic,./AffyAxiomExome319-Hispanic-2-digit-hg19.RData
+Affymetrix Axiom® Exome 319 Array Plate,One-field (2-digit) resolution,African,./AffyAxiomExome319-African-2-digit-hg19.RData
+Affymetrix Axiom® Exome 319 Array Plate,One-field (2-digit) resolution,Broad,./AffyAxiomExome319-Broad-2-digit-hg19.RData
+Affymetrix Axiom® Exome 319 Array Plate,Two-field (4-digit) resolution,European,./AffyAxiomExome319-European-4-digit-hg19.RData
+Affymetrix Axiom® Exome 319 Array Plate,Two-field (4-digit) resolution,Asian,./AffyAxiomExome319-Asian-4-digit-hg19.RData
+Affymetrix Axiom® Exome 319 Array Plate,Two-field (4-digit) resolution,Hispanic,./AffyAxiomExome319-Hispanic-4-digit-hg19.RData
+Affymetrix Axiom® Exome 319 Array Plate,Two-field (4-digit) resolution,African,./AffyAxiomExome319-African-4-digit-hg19.RData
+Affymetrix Axiom® Exome 319 Array Plate,Two-field (4-digit) resolution,Broad,./AffyAxiomExome319-Broad-4-digit-hg19.RData
+Affymetrix Axiom® Genome-Wide CEU 1 Array Plate,Two-field (4-digit) resolution,European,./Axiom_GW_CEU-European-4-digit-hg19.RData
+Affymetrix Axiom® Genome-Wide CEU 1 Array Plate,Two-field (4-digit) resolution,Broad,./Axiom_GW_CEU-Broad-4-digit-hg19.RData
+Affymetrix Axiom® Genome-Wide ASI 1 Array Plate,One-field (2-digit) resolution,Asian,./AffyAxiom_ASI-Asian-2-digit-hg19.RData
+Affymetrix Axiom® Genome-Wide ASI 1 Array Plate,One-field (2-digit) resolution,Broad,./AffyAxiom_ASI-Broad-2-digit-hg19.RData
+Affymetrix Axiom® Genome-Wide ASI 1 Array Plate,Two-field (4-digit) resolution,Asian,./AffyAxiom_ASI-Asian-4-digit-hg19.RData
+Affymetrix Axiom® Genome-Wide ASI 1 Array Plate,Two-field (4-digit) resolution,Broad,./AffyAxiom_ASI-Broad-4-digit-hg19.RData
+Affymetrix Axiom® Genome-Wide CHB 1 Array Plate,One-field (2-digit) resolution,Asian,./AffyAxiomCHB_1-Asian-2-digit-hg19.RData
+Affymetrix Axiom® Genome-Wide CHB 1 Array Plate,One-field (2-digit) resolution,Broad,./AffyAxiomCHB_1-Broad-2-digit-hg19.RData
+Affymetrix Axiom® Genome-Wide CHB 1 Array Plate,Two-field (4-digit) resolution,Asian,./AffyAxiomCHB_1-Asian-4-digit-hg19.RData
+Affymetrix Axiom® Genome-Wide CHB 1 Array Plate,Two-field (4-digit) resolution,Broad,./AffyAxiomCHB_1-Broad-4-digit-hg19.RData
+Affymetrix Axiom® Human Origins 1 Array,One-field (2-digit) resolution,European,./AffyAxiom_Human_Origin_1-European-2-digit-hg19.RData
+Affymetrix Axiom® Human Origins 1 Array,One-field (2-digit) resolution,Asian,./AffyAxiom_Human_Origin_1-Asian-2-digit-hg19.RData
+Affymetrix Axiom® Human Origins 1 Array,One-field (2-digit) resolution,Hispanic,./AffyAxiom_Human_Origin_1-Hispanic-2-digit-hg19.RData
+Affymetrix Axiom® Human Origins 1 Array,One-field (2-digit) resolution,African,./AffyAxiom_Human_Origin_1-African-2-digit-hg19.RData
+Affymetrix Axiom® Human Origins 1 Array,One-field (2-digit) resolution,Broad,./AffyAxiom_Human_Origin_1-Broad-2-digit-hg19.RData
+Affymetrix Axiom® Human Origins 1 Array,Two-field (4-digit) resolution,European,./AffyAxiom_Human_Origin_1-European-4-digit-hg19.RData
+Affymetrix Axiom® Human Origins 1 Array,Two-field (4-digit) resolution,Asian,./AffyAxiom_Human_Origin_1-Asian-4-digit-hg19.RData
+Affymetrix Axiom® Human Origins 1 Array,Two-field (4-digit) resolution,Hispanic,./AffyAxiom_Human_Origin_1-Hispanic-4-digit-hg19.RData
+Affymetrix Axiom® Human Origins 1 Array,Two-field (4-digit) resolution,African,./AffyAxiom_Human_Origin_1-African-4-digit-hg19.RData
+Affymetrix Axiom® Human Origins 1 Array,Two-field (4-digit) resolution,Broad,./AffyAxiom_Human_Origin_1-Broad-4-digit-hg19.RData
+Affymetrix Axiom® UK Biobank Array,One-field (2-digit) resolution,European,./AffyAxiomUKB-European-2-digit-hg19.RData
+Affymetrix Axiom® UK Biobank Array,One-field (2-digit) resolution,Broad,./AffyAxiomUKB-Broad-2-digit-hg19.RData
+Affymetrix Axiom® UK Biobank Array,Two-field (4-digit) resolution,European,./AffyAxiomUKB-European-4-digit-hg19.RData
+Affymetrix Axiom® UK Biobank Array,Two-field (4-digit) resolution,Broad,./AffyAxiomUKB-Broad-4-digit-hg19.RData
+Affymetrix Axiom® World Arrays Genome-Wide EUR 1 Array Plate,One-field (2-digit) resolution,European,./AffyAxiom_WA_EUR-European-2-digit-hg19.RData
+Affymetrix Axiom® World Arrays Genome-Wide EUR 1 Array Plate,One-field (2-digit) resolution,Broad,./AffyAxiom_WA_EUR-Broad-2-digit-hg19.RData
+Affymetrix Axiom® World Arrays Genome-Wide EUR 1 Array Plate,Two-field (4-digit) resolution,European,./AffyAxiom_WA_EUR-European-4-digit-hg19.RData
+Affymetrix Axiom® World Arrays Genome-Wide EUR 1 Array Plate,Two-field (4-digit) resolution,Broad,./AffyAxiom_WA_EUR-Broad-4-digit-hg19.RData
+Affymetrix Axiom® World Arrays Genome-Wide EAS 1 Array Plate,One-field (2-digit) resolution,Asian,./AffyAxiom_WA_EAS-Asian-2-digit-hg19.RData
+Affymetrix Axiom® World Arrays Genome-Wide EAS 1 Array Plate,One-field (2-digit) resolution,Broad,./AffyAxiom_WA_EAS-Broad-2-digit-hg19.RData
+Affymetrix Axiom® World Arrays Genome-Wide EAS 1 Array Plate,Two-field (4-digit) resolution,Asian,./AffyAxiom_WA_EAS-Asian-4-digit-hg19.RData
+Affymetrix Axiom® World Arrays Genome-Wide EAS 1 Array Plate,Two-field (4-digit) resolution,Broad,./AffyAxiom_WA_EAS-Broad-4-digit-hg19.RData
+Axiom™ Precision Medicine Research Array (PMRA),Two-field (4-digit) resolution,European,./Axiom_PMRA-European-HLARES-4-digit-hg19.RData
+Axiom™ Precision Medicine Research Array (PMRA),Two-field (4-digit) resolution,Asian,./Axiom_PMRA-Asian-HLARES-4-digit-hg19.RData
+Axiom™ Precision Medicine Research Array (PMRA),Two-field (4-digit) resolution,Hispanic,./Axiom_PMRA-Hispanic-HLARES-4-digit-hg19.RData
+Axiom™ Precision Medicine Research Array (PMRA),Two-field (4-digit) resolution,African,./Axiom_PMRA-African-HLARES-4-digit-hg19.RData
+Axiom™ Precision Medicine Research Array (PMRA),Two-field (4-digit) resolution,Broad,./Axiom_PMRA-Broad-HLARES-4-digit-hg19.RData

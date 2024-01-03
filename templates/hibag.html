@@ -26,12 +26,14 @@
         }
     </style>
     <style>
-        /* ドロップダウンのスタイルをカスタマイズ */
         .vertical-dropdown {
-            display: block; /* 各ドロップダウンをブロック要素として表示 */
-            margin-bottom: 10px; /* ドロップダウン間の余白 */
+            display: block;
+            margin-bottom: 10px;
         }
     </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body class="bg-light">
@@ -57,58 +59,82 @@
 <!-- <form method="POST"> -->
 <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
         <div class="form-group lh-100 w-100">
-            <label for="in_bed">Input HIBAG model path or Select prepared model:
-    <span class="badge text-light bg-danger">* required</span>
-            </label>
 
-    <select class="vertical-dropdown" name="dropdown1">
-        {% for option in options1 %}
-            <option value="{{ option }}" {% if selections[0] == option %}selected{% endif %}>{{ option }}</option>
+    <label for="in_bed">Input HIBAG model path or Select prepared model:
+        <span class="badge text-light bg-danger">* required</span>
+    </label>
+
+    <select class="vertical-dropdown" id="dropdown1">
+        <option value="">--Select Option--</option>
+        {% for item in dropdown_list1 %}
+            <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+    </select>
+    <select class="vertical-dropdown" id="dropdown2" disabled>
+        <option value="">--Select Option--</option>
+        {% for item in dropdown_list2 %}
+            <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+    </select>
+    <select class="vertical-dropdown" id="dropdown3" disabled>
+        <option value="">--Select Option--</option>
+        {% for item in dropdown_list3 %}
+            <option value="{{ item }}">{{ item }}</option>
         {% endfor %}
     </select>
 
-    {% if show_text_input %}
-        <input type="text" name="text_input" placeholder="Enter Text">
-        <button type="submit" name="submit_text">Submit Your Model Path</button>
-    {% endif %}
+    <input type="hidden" name="hibagmodel_filepath" id="hibagmodel_filepath" value="">
+    <button class="vertical-dropdown" id="reset">Reset</button>
 
+    <script>
+    $(document).ready(function() {
+        $('#dropdown1').change(function() {
+            var selected_val1 = $(this).val();
+            $('#dropdown1').prop('disabled', true);
+            $.getJSON('/hibag/get_dropdown2', {selected_val1: selected_val1}, function(data) {
+                $('#dropdown2').empty();
+                $('#dropdown2').prop('disabled', false);
+                $('#dropdown2').append($('<option>').text("--Select Option--").attr('value', "--Select Option--"));
+                $.each(data, function(index, value) {                    
+                    $('#dropdown2').append($('<option>').text(value).attr('value', value));
+                });
+            });
+        });
 
-    {% if options2 %}
-        <select class="vertical-dropdown" name="dropdown2">
-            {% for option in options2 %}
-                <option value="{{ option }}" {% if selections[1] == option %}selected{% endif %}>{{ option }}</option>
-            {% endfor %}
-        </select>
-    {% endif %}
-    {% if options3 %}
-        <select class="vertical-dropdown" name="dropdown3">
-            {% for option in options3 %}
-                <option value="{{ option }}" {% if selections[2] == option %}selected{% endif %}>{{ option }}</option>
-            {% endfor %}
-        </select>
-    {% endif %}
-    {% if options4 %}
-        <select class="vertical-dropdown" name="dropdown4">
-            {% for option in options4 %}
-                <option value="{{ option }}" {% if selections[3] == option %}selected{% endif %}>{{ option }}</option>
-            {% endfor %}
-        </select>
-    {% endif %}
+        $('#dropdown2').change(function() {
+            var selected_val2 = $(this).val();
+            var selected_val1 = $('#dropdown1').val();
+            $('#dropdown2').prop('disabled', true);
+            $.getJSON('/hibag/get_dropdown3', {selected_val1: selected_val1, selected_val2: selected_val2}, function(data) {
+                $('#dropdown3').empty();
+                $('#dropdown3').prop('disabled', false);
+                $('#dropdown3').append($('<option>').text("--Select Option--").attr('value', "--Select Option--"));
+                $.each(data, function(index, value) {
+                    $('#dropdown3').append($('<option>').text(value).attr('value', value));
+                });
+            });
+        });
 
-    {% if show_text_input == False %}
-        <input type="submit" value="Select Prepared Model Type">
-    {% endif %}
+        $('#dropdown3').change(function() {
+            var selected_val3 = $(this).val();
+            var selected_val2 = $('#dropdown2').val();
+            var selected_val1 = $('#dropdown1').val();
+            $('#dropdown3').prop('disabled', true);
+            $.getJSON('/hibag/get_hibagmodel_filepath', {selected_val1: selected_val1,
+                selected_val2: selected_val2, selected_val3: selected_val3}, function(data) {
+                    $.each(data, function(index, value) {
+                        $('#hibagmodel_filepath').text(value).attr('value', value);
+                    });
+                });
+        });
 
-    <!--
-
-    {% if answer or show_usermodel_jobyml %}
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Your model file path</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{ rendered_yaml }}</textarea>
-        </div>
-    {% endif %}
-
-    -->
+        $('#reset').click(function() {
+            $('#dropdown1').prop('disabled', false);
+            $('#dropdown2').empty().prop('disabled', true);
+            $('#dropdown3').empty().prop('disabled', true);
+        });
+    });
+    </script>
 
 </div>
 </div>

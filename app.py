@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """This is the imputation server web UI."""
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import pandas as pd
 import jinja2
 
@@ -19,13 +19,6 @@ in_modelfile:
   path: {{ model_file }}
 '''
 
-# hibag_parameters = {
-#     'in_bed_path': './1KG.JPT.bed',
-#     'in_chromosome_number': '6',
-#     'runhibag_out_name': 'continuousWFtest_newdocker1',
-#     'model_file': './model_6_1KG.JPT.txt' 
-# }
-
 hibag_parameters = {
     'in_bed_path': '',
     'in_chromosome_number': '6',
@@ -36,7 +29,7 @@ hibag_parameters = {
 # set the secret key.  keep this really secret:
 app.secret_key = "k9SZr98j/3yX R~XHH!jmN]0d2,?RT"
 
-hibagdata = pd.read_csv('hibagmodel4flask.csv')
+hibagmodel_df = pd.read_csv('hibagmodel4flask.csv')
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -95,52 +88,49 @@ def bplink():
 
 @app.route("/hibag", methods=["GET", "POST"])
 def hibag():
-    show_text_input = False
-    show_usermodel_jobyml = False
+    dropdown_list1 = hibagmodel_df['Column1'].unique().tolist()
+    if request.method == "GET":
+        return render_template('hibag.html', dropdown_list1=dropdown_list1)
+    elif request.method == "POST":
+        env = jinja2.Environment(loader=jinja2.BaseLoader())
+        template = env.from_string(hibag_job_template)
+        hibag_parameters['in_bed_path'] = request.form["in_bed"]
+        hibag_parameters['runhibag_out_name'] = request.form["out_name"]
+        print(request.form["hibagmodel_filepath"])
+        hibag_parameters['model_file'] = request.form["hibagmodel_filepath"]
+        rendered_yaml = template.render(hibag_parameters)
+        return render_template('hibag.html', dropdown_list1=dropdown_list1, rendered_yaml=rendered_yaml)
 
-    selections = [request.form.get('dropdown1'), request.form.get('dropdown2'), request.form.get('dropdown3'), request.form.get('dropdown4')]
-    selections = [s for s in selections if s]  # Remove None values
+@app.route('/hibag/get_dropdown2')
+def get_dropdown2():
+    selected_val1 = request.args.get('selected_val1', type=str)
+    dropdown_list2 = hibagmodel_df[hibagmodel_df['Column1'] == selected_val1]['Column2'].unique().tolist()
+    print(dropdown_list2)
+    return jsonify(dropdown_list2)
 
-    bed_filepath = request.form.get('in_bed')
-    output_prefix = request.form.get('out_name')
-    # submit_button = request.form['setupjob_button']
+@app.route('/hibag/get_dropdown3')
+def get_dropdown3():
+    selected_val2 = request.args.get('selected_val2', type=str)
+    selected_val1 = request.args.get('selected_val1', type=str)
+    # print(selected_val1)
+    val1_index = hibagmodel_df['Column1'] == selected_val1
+    val2_index = hibagmodel_df['Column2'] == selected_val2
+    foo = val1_index & val2_index
+    # print(foo.value_counts())
+    dropdown_list3 = hibagmodel_df[foo]['Column3'].unique().tolist()
+    return jsonify(dropdown_list3)
 
-    filtered_data = hibagdata
-    for i, column in enumerate(['USE_YOUR_MODEL_OR_NOT', 'GENOTYPING_PLATFORMS', 'RESOLUTION', 'ANCESTRY']):
-        if i < len(selections):
-            filtered_data = filtered_data[filtered_data[column] == selections[i]]
-
-    options1 = hibagdata['USE_YOUR_MODEL_OR_NOT'].unique().tolist()
-    if len(selections) == 1 and selections[0] == 'Yes':
-        show_text_input = True
-    
-    if 'submit_text' in request.form:
-        hibag_parameters['model_file'] = request.form['text_input']
-        show_usermodel_jobyml = True
-
-    options2 = filtered_data['GENOTYPING_PLATFORMS'].unique().tolist() if len(selections) >= 1 and selections[0] == "No" else []
-    options3 = filtered_data['RESOLUTION'].unique().tolist() if len(selections) >= 2 else []
-    options4 = filtered_data['ANCESTRY'].unique().tolist() if len(selections) >= 3 else []
-    answer = filtered_data['HIBAG_MODEL_URL'].tolist() if len(selections) >= 4 else []
-    
-    if bed_filepath != "":
-        hibag_parameters['in_bed_path'] = bed_filepath
-
-    if len(answer) > 0:
-        hibag_parameters['model_file'] = answer[0]
-
-    if output_prefix != "":
-        hibag_parameters['runhibag_out_name'] = output_prefix
-    
-    env = jinja2.Environment(loader=jinja2.BaseLoader())
-    template = env.from_string(hibag_job_template)
-    rendered_yaml = template.render(hibag_parameters)
-    # if submit_button == 'setupjob_button':
-    #     print("hoge")
-    
-    return render_template('hibag.html', options1=options1, show_text_input=show_text_input, show_usermodel_jobyml=show_usermodel_jobyml, options2=options2, options3=options3, options4=options4,
-                           answer=answer, rendered_yaml=rendered_yaml, selections=selections)
-
+@app.route('/hibag/get_hibagmodel_filepath')
+def get_hibagmodel_filepath():
+    selected_val3 = request.args.get('selected_val3', type=str)
+    selected_val2 = request.args.get('selected_val2', type=str)
+    selected_val1 = request.args.get('selected_val1', type=str)
+    val1_index = hibagmodel_df['Column1'] == selected_val1
+    val2_index = hibagmodel_df['Column2'] == selected_val2
+    val3_index = hibagmodel_df['Column3'] == selected_val3
+    foo = val1_index & val2_index & val3_index
+    hibagmodel_filepath = hibagmodel_df[foo]['Column4'].unique().tolist()
+    return jsonify(hibagmodel_filepath)
 
 if __name__ == "__main__":
     # run host 0.0.0.0
