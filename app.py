@@ -100,7 +100,9 @@ def hibag():
             # print(request.form["hibagmodel_filepath"])
             hibag_parameters['model_file'] = request.form["hibagmodel_filepath"]
             rendered_yaml = template.render(hibag_parameters)
-            return render_template('hibag.html', dropdown_list1=dropdown_list1, rendered_yaml=rendered_yaml)
+            in_bed_text = request.form["in_bed"]
+            out_name_text = request.form["out_name"]
+            return render_template('hibag.html', in_bed=in_bed_text, out_name=out_name_text, rendered_yaml=rendered_yaml)
         elif 'reset_hibagmodel' in request.form:
             in_bed_text = request.form["in_bed"]
             out_name_text = request.form["out_name"]
