@@ -65,19 +65,19 @@
     </label>
 
     <select class="vertical-dropdown" id="dropdown1">
-        <option value="">--Select Option--</option>
+        <option value="">--Select a genotyping platform--</option>
         {% for item in dropdown_list1 %}
             <option value="{{ item }}">{{ item }}</option>
         {% endfor %}
     </select>
     <select class="vertical-dropdown" id="dropdown2" disabled>
-        <option value="">--Select Option--</option>
+        <option value="">--Select a resolution--</option>
         {% for item in dropdown_list2 %}
             <option value="{{ item }}">{{ item }}</option>
         {% endfor %}
     </select>
     <select class="vertical-dropdown" id="dropdown3" disabled>
-        <option value="">--Select Option--</option>
+        <option value="">--Select an ancestry--</option>
         {% for item in dropdown_list3 %}
             <option value="{{ item }}">{{ item }}</option>
         {% endfor %}
@@ -94,7 +94,7 @@
             $.getJSON('/hibag/get_dropdown2', {selected_val1: selected_val1}, function(data) {
                 $('#dropdown2').empty();
                 $('#dropdown2').prop('disabled', false);
-                $('#dropdown2').append($('<option>').text("--Select Option--").attr('value', "--Select Option--"));
+                $('#dropdown2').append($('<option>').text("--Select a resolution--").attr('value', "--Select a resolution--"));
                 $.each(data, function(index, value) {                    
                     $('#dropdown2').append($('<option>').text(value).attr('value', value));
                 });
@@ -108,7 +108,7 @@
             $.getJSON('/hibag/get_dropdown3', {selected_val1: selected_val1, selected_val2: selected_val2}, function(data) {
                 $('#dropdown3').empty();
                 $('#dropdown3').prop('disabled', false);
-                $('#dropdown3').append($('<option>').text("--Select Option--").attr('value', "--Select Option--"));
+                $('#dropdown3').append($('<option>').text("--Select an ancestry--").attr('value', "--Select an ancestry--"));
                 $.each(data, function(index, value) {
                     $('#dropdown3').append($('<option>').text(value).attr('value', value));
                 });
