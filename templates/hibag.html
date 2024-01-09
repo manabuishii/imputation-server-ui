@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+
+    <title>The NBDC-DDBJ imputation server HIBAG – HLA Genotype Imputation configuration</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/offcanvas/offcanvas.css" rel="stylesheet">
+
+    <style>
+        body {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Droid Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+        label {
+            margin-top: 0.2rem;
+        }
+    </style>
+    <style>
+        .vertical-dropdown {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body class="bg-light">
+
+    <form enctype="multipart/form-data" action="/hibag" method="POST" id="wholegenomeform">
+
+<main role="main" class="container">
+
+
+<div class="masthead">
+    <h3 class="text-muted">The NBDC-DDBJ imputation server HIBAG – HLA Genotype Imputation configuration</h3>
+</div>
+
+<div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+    <div class="form-group lh-100 w-100">
+        <label for="in_bed">Input BINARY PLINK BED file path:
+<span class="badge text-light bg-danger">* required</span>
+        </label>
+        <input type="text" class="form-control" name="in_bed" id="in_bed" placeholder="Input BINARY PLINK BED file path" value="{{ in_bed }}">
+    </div>
+</div>
+    
+<!-- <form method="POST"> -->
+<div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+        <div class="form-group lh-100 w-100">
+
+    <label for="in_bed">Select a prepared model:
+        <span class="badge text-light bg-danger">* required</span>
+    </label>
+
+    <select class="vertical-dropdown" id="dropdown1">
+        <option value="">--Select a genotyping platform--</option>
+        {% for item in dropdown_list1 %}
+            <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+    </select>
+    <select class="vertical-dropdown" id="dropdown2" disabled>
+        <option value="">--Select a resolution--</option>
+        {% for item in dropdown_list2 %}
+            <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+    </select>
+    <select class="vertical-dropdown" id="dropdown3" disabled>
+        <option value="">--Select an ancestry--</option>
+        {% for item in dropdown_list3 %}
+            <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+    </select>
+
+    <input type="hidden" name="hibagmodel_filepath" id="hibagmodel_filepath" value="">
+    <button class="vertical-dropdown" name="reset_hibagmodel">Reset Option</button>
+
+    <script>
+    $(document).ready(function() {
+        $('#dropdown1').change(function() {
+            var selected_val1 = $(this).val();
+            $('#dropdown1').prop('disabled', true);
+            $.getJSON('/hibag/get_dropdown2', {selected_val1: selected_val1}, function(data) {
+                $('#dropdown2').empty();
+                $('#dropdown2').prop('disabled', false);
+                $('#dropdown2').append($('<option>').text("--Select a resolution--").attr('value', "--Select a resolution--"));
+                $.each(data, function(index, value) {                    
+                    $('#dropdown2').append($('<option>').text(value).attr('value', value));
+                });
+            });
+        });
+
+        $('#dropdown2').change(function() {
+            var selected_val2 = $(this).val();
+            var selected_val1 = $('#dropdown1').val();
+            $('#dropdown2').prop('disabled', true);
+            $.getJSON('/hibag/get_dropdown3', {selected_val1: selected_val1, selected_val2: selected_val2}, function(data) {
+                $('#dropdown3').empty();
+                $('#dropdown3').prop('disabled', false);
+                $('#dropdown3').append($('<option>').text("--Select an ancestry--").attr('value', "--Select an ancestry--"));
+                $.each(data, function(index, value) {
+                    $('#dropdown3').append($('<option>').text(value).attr('value', value));
+                });
+            });
+        });
+
+        $('#dropdown3').change(function() {
+            var selected_val3 = $(this).val();
+            var selected_val2 = $('#dropdown2').val();
+            var selected_val1 = $('#dropdown1').val();
+            $('#dropdown3').prop('disabled', true);
+            $.getJSON('/hibag/get_hibagmodel_filepath', {selected_val1: selected_val1,
+                selected_val2: selected_val2, selected_val3: selected_val3}, function(data) {
+                    $.each(data, function(index, value) {
+                        $('#hibagmodel_filepath').text(value).attr('value', value);
+                    });
+                });
+        });
+
+        // $('#reset').click(function() {
+        //     $('#dropdown1').prop('disabled', false);
+        //     $('#dropdown2').empty().prop('disabled', true);
+        //     $('#dropdown3').empty().prop('disabled', true);
+        //     $('#in_bed').empty().attr('value', 'hoge');
+        //     $('#out_name').empty().attr('value', 'ccc');
+        // });
+
+    });
+    </script>
+
+</div>
+</div>
+
+    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+        <div class="form-group lh-100 w-100">
+            <label for="out_name">Output file name prefix:
+<span class="badge text-light bg-danger">* required</span>
+            </label>
+            <input type="text" class="form-control" name="out_name" id="out_name" placeholder="Output file name prefix" value="{{ out_name }}">
+        </div>
+    </div>
+
+    <div class="">
+        <p class="text-center">
+    <button class="btn btn-primary" type="submit" name="setupjob_button" value="setupjob_button">Set up job</button>
+    </p>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Generated config file</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="11">{{ rendered_yaml }}</textarea>
+    </div>
+
+</main>
+</form>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://getbootstrap.com/docs/4.0/examples/offcanvas/offcanvas.js"></script>
+</body>
+</html>
