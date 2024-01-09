@@ -43,3 +43,6 @@ There are 2 optional input parameters.
 - Generated config file
   - This is used as input parameters for imputation workflow
 
+## About the HIBAG workflow models
+
+We obtained the [HIBAG](https://bioconductor.org/packages/release/bioc/html/HIBAG.html) model files from https://hibag.s3.amazonaws.com/hlares_index.html on January 5, 2024.
