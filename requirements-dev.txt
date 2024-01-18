@@ -1,4 +1,6 @@
 -r requirements.txt
+# for pandas
+pandas==2.1.4
 # for lint
 pep8==1.7.1
 autopep8==1.6.0
