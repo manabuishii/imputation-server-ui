@@ -49,13 +49,13 @@ def index():
         refpanel = request.form["reference_panel"]
         referencepanelconfigfile =""
         if refpanel == "GRCh37.1KGP":
-            referencepanelconfigfile = "/home/ddbjshare-pg/imputation-server/reference/GRCh37.1KGP/default.config.yaml"
+            referencepanelconfigfile = "/usr/local/shared_data/imputation-server/reference/GRCh37.1KGP/default.config.yaml"
         elif refpanel == "GRCh37.1KGP-EAS":
-            referencepanelconfigfile = "/home/ddbjshare-pg/imputation-server/reference/GRCh37.1KGP-EAS/default.config.yaml"
+            referencepanelconfigfile = "/usr/local/shared_data/imputation-server/reference/GRCh37.1KGP-EAS/default.config.yaml"
         elif refpanel == "GRCh38.1KGP":
-            referencepanelconfigfile = "/home/ddbjshare-pg/imputation-server/reference/GRCh38.1KGP/default.config.yaml"
+            referencepanelconfigfile = "/usr/local/shared_data/imputation-server/reference/GRCh38.1KGP/default.config.yaml"
         elif refpanel == "GRCh38.1KGP-EAS":
-            referencepanelconfigfile = "/home/ddbjshare-pg/imputation-server/reference/GRCh38.1KGP-EAS/default.config.yaml"
+            referencepanelconfigfile = "/usr/local/shared_data/imputation-server/reference/GRCh38.1KGP-EAS/default.config.yaml"
         elif refpanel == "others":
             referencepanelconfigfile = request.form["ref_panel_config"]
         with open(referencepanelconfigfile, "r") as f:
