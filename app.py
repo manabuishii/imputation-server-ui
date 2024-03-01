@@ -29,7 +29,7 @@ in_bed:
   path: {{ in_bed_path }}
 in_chromosome_number: "{{ in_chromosome_number }}"
 filter_chrom_out_name: "test_chrom6_filter_newdocker1"
-runhibag_out_name: "{{ runhibag_out_name }}"
+out_name: "{{ runhibag_out_name }}"
 in_modelfile:
   class: File
   path: {{ model_file }}
