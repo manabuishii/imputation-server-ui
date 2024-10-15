@@ -7,6 +7,10 @@ import jinja2
 import csv
 import os
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 data = []
 with open("hibagmodel4flask.csv", "r") as csvfile:
     csvreader = csv.DictReader(csvfile)
@@ -42,8 +46,8 @@ hibag_parameters = {
     "model_file": "",
 }
 hibagdatadirectory = "/usr/local/shared_data/imputation-server/hibagdata/"
-# set the secret key.  keep this really secret:
-app.secret_key = "k9SZr98j/3yX R~XHH!jmN]0d2,?RT"
+# set the secret key.
+app.secret_key = os.getenv("IMPUTATION_SERVER_SECRET_KEY")
 
 
 @app.route("/", methods=["GET", "POST"])
