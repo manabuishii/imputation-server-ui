@@ -7,6 +7,8 @@ import jinja2
 import csv
 import os
 
+import utils.utils as utils
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -48,6 +50,8 @@ hibag_parameters = {
 hibagdatadirectory = "/usr/local/shared_data/imputation-server/hibagdata/"
 # set the secret key.
 app.secret_key = os.getenv("IMPUTATION_SERVER_SECRET_KEY")
+# bcftools container
+app.config["BCFTOOLS_IMAGE_PATH"] = os.getenv("BCFTOOLS_IMAGE_PATH")
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -58,9 +62,10 @@ def index():
         return render_template("index.html")
     # POST
     elif request.method == "POST":
+        target_vcf = request.form["target_vcf"]
         configcontent = ""
         configcontent += "gt:\n  class: File\n"
-        configcontent += "  path: " + request.form["target_vcf"] + "\n"
+        configcontent += "  path: " + target_vcf + "\n"
         configcontent += "gp: " + '"' + request.form["output_genotype_prob"] + '"' + "\n"
         configcontent += "nthreads: " + request.form["num_threads"] + "\n"
 
@@ -77,9 +82,17 @@ def index():
             referencepanelconfigfile = "/usr/local/shared_data/imputation-server/reference/GRCh38.1KGP-EAS/default.config.yaml"
         elif refpanel == "others":
             referencepanelconfigfile = request.form["ref_panel_config"]
-        with open(referencepanelconfigfile, "r") as f:
-            configcontent += f.read()
-        return render_template("index.html", configcontent=configcontent)
+        #
+        # with open(referencepanelconfigfile, "r") as f:
+        #     configcontent += f.read()
+        is_valid, reference_panel_contents = utils.generate_reference_panel(
+            target_vcf, referencepanelconfigfile, app.config["BCFTOOLS_IMAGE_PATH"]
+        )
+        if is_valid:
+            configcontent += reference_panel_contents
+            return render_template("index.html", configcontent=configcontent)
+    #
+    return render_template("index.html")
 
 
 @app.route("/plink", methods=["GET", "POST"])
