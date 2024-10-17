@@ -76,6 +76,19 @@ def create_vcffile_index(target_vcf_filepath: str, singularity_image_path: str) 
 def generate_reference_panel(
     target_vcf_filepath: str, config_filepath: str, singularity_image_path: str
 ) -> Tuple[bool, str]:
+    """
+    Generate a reference panel for the target VCF file.
+    index file is automatically created.
+    if there is a index file, it is overwritten.
+    Args:
+        target_vcf_filepath (str): The target VCF file path.
+        config_filepath (str): The reference panel configuration file path.
+        singularity_image_path (str): The Singularity image path.
+    Returns:
+        Tuple[bool, str]: A tuple of a boolean value and a string.
+        isValid: valid or not.
+        contents: The contents of the reference panel configuration file.
+    """
     # ファイルサイズが0の場合はFalseと、メッセージを返す
     if os.path.getsize(target_vcf_filepath) == 0:
         return False, "File size is 0."
