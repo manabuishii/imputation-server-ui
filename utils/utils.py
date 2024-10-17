@@ -53,6 +53,7 @@ def create_vcffile_index(target_vcf_filepath: str, singularity_image_path: str) 
                 singularity_image_path,
                 "bcftools",
                 "index",
+                "-f",
                 "-t",
                 target_vcf_filepath,
             ],
