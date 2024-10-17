@@ -111,3 +111,19 @@ def generate_reference_panel(
         return False, "No valid region"
     contents = yaml.dump(filtered_region_list)
     return True, contents
+
+
+# if there is "2-digit", remove it.
+def filtered_2_digit(data):
+    filtered_data = []
+    for row in data:
+        if "2-digit" in row["Column1"]:
+            continue
+        if "2-digit" in row["Column2"]:
+            continue
+        if "2-digit" in row["Column3"]:
+            continue
+        if "2-digit" in row["Column4"]:
+            continue
+        filtered_data.append(row)
+    return filtered_data

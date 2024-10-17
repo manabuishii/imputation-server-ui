@@ -13,10 +13,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-data = []
+raw_data = []
 with open("hibagmodel4flask.csv", "r") as csvfile:
     csvreader = csv.DictReader(csvfile)
-    data = list(csvreader)
+    raw_data = list(csvreader)
+
+data = utils.filtered_2_digit(raw_data)
+
 
 # hibag_genotyping_platform/rdata_filenames.txtを読み込んで、登場順にdataにColumn5として追加する
 with open("hibag_genotyping_platforms/rdata_filenames.txt", "r") as rdata_filenames:
