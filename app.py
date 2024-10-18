@@ -54,18 +54,39 @@ hibagdatadirectory = "/usr/local/shared_data/imputation-server/hibagdata/"
 # set the secret key.
 app.secret_key = os.getenv("IMPUTATION_SERVER_SECRET_KEY")
 # bcftools container
-app.config["BCFTOOLS_IMAGE_PATH"] = os.getenv("BCFTOOLS_IMAGE_PATH")
+app.config["BCFTOOLS_IMAGE_PATH"] = os.getenv("BCFTOOLS_IMAGE_PATH", "")
+is_bcftools = os.path.exists(app.config["BCFTOOLS_IMAGE_PATH"])
 
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     """Show the main page."""
+    # check tool
+    is_message = False
+    message_contents = ""
+    if not is_bcftools:
+        is_message = True
+        message_contents = f"bcftools image[{app.config['BCFTOOLS_IMAGE_PATH']}] is not found.please set the PATH to bcftools singularity image , in .env file with BCFTOOLS_IMAGE_PATH=bcftools.sif"
+
     # GET
     if request.method == "GET":
-        return render_template("index.html")
+
+        return render_template(
+            "index.html", is_message=is_message, message_contents=message_contents
+        )
     # POST
     elif request.method == "POST":
         target_vcf = request.form["target_vcf"]
+        if not os.path.exists(target_vcf):
+            if message_contents != "":
+                message_contents += "<br>"
+            message_contents += f"The target VCF file[{target_vcf}] is not found."
+            return render_template(
+                "index.html",
+                is_message=True,
+                message_contents=message_contents,
+            )
+
         configcontent = ""
         configcontent += "gt:\n  class: File\n"
         configcontent += "  path: " + target_vcf + "\n"
@@ -94,6 +115,15 @@ def index():
         if is_valid:
             configcontent += reference_panel_contents
             return render_template("index.html", configcontent=configcontent)
+        else:
+            if message_contents != "":
+                message_contents += "<br>"
+            message_contents += "Failed to create the reference panel.<br>No valid region or chromosome is different.(ex.first column 'chr1' or '1')"
+            return render_template(
+                "index.html",
+                is_message=True,
+                message_contents=message_contents,
+            )
     #
     return render_template("index.html")
 
