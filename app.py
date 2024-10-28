@@ -67,12 +67,20 @@ def index():
     if not is_bcftools:
         is_message = True
         message_contents = f"bcftools image[{app.config['BCFTOOLS_IMAGE_PATH']}] is not found.please set the PATH to bcftools singularity image , in .env file with BCFTOOLS_IMAGE_PATH=bcftools.sif"
-
+    # check BBJ config
+    is_check_1, is_check_2, is_check_3, is_check_4 = utils.check_bbj_config_available()
+    print(is_check_1)
     # GET
     if request.method == "GET":
 
         return render_template(
-            "index.html", is_message=is_message, message_contents=message_contents
+            "index.html",
+            is_message=is_message,
+            message_contents=message_contents,
+            is_check_1=is_check_1,
+            is_check_2=is_check_2,
+            is_check_3=is_check_3,
+            is_check_4=is_check_4,
         )
     # POST
     elif request.method == "POST":
@@ -85,6 +93,10 @@ def index():
                 "index.html",
                 is_message=True,
                 message_contents=message_contents,
+                is_check_1=is_check_1,
+                is_check_2=is_check_2,
+                is_check_3=is_check_3,
+                is_check_4=is_check_4,
             )
 
         configcontent = ""
@@ -114,7 +126,14 @@ def index():
         )
         if is_valid:
             configcontent += reference_panel_contents
-            return render_template("index.html", configcontent=configcontent)
+            return render_template(
+                "index.html",
+                configcontent=configcontent,
+                is_check_1=is_check_1,
+                is_check_2=is_check_2,
+                is_check_3=is_check_3,
+                is_check_4=is_check_4,
+            )
         else:
             if message_contents != "":
                 message_contents += "<br>"
@@ -123,9 +142,19 @@ def index():
                 "index.html",
                 is_message=True,
                 message_contents=message_contents,
+                is_check_1=is_check_1,
+                is_check_2=is_check_2,
+                is_check_3=is_check_3,
+                is_check_4=is_check_4,
             )
     #
-    return render_template("index.html")
+    return render_template(
+        "index.html",
+        is_check_1=is_check_1,
+        is_check_2=is_check_2,
+        is_check_3=is_check_3,
+        is_check_4=is_check_4,
+    )
 
 
 @app.route("/plink", methods=["GET", "POST"])

@@ -127,3 +127,20 @@ def filtered_2_digit(data):
             continue
         filtered_data.append(row)
     return filtered_data
+
+
+def check_bbj_config_available() -> Tuple[bool, bool, bool, bool]:
+    is_check_1 = False
+    is_check_2 = False
+    is_check_3 = False
+    is_check_4 = False
+    print(os.path.expanduser("~/jga-panel/BBJ1K_1/default.config.yaml"))
+    if os.path.exists(os.path.expanduser("~/jga-panel/BBJ1K_1/default.config.yaml")):
+        is_check_1 = True
+    if os.path.exists(os.path.expanduser("~/jga-panel/BBJ1K_2/default.config.yaml")):
+        is_check_2 = True
+    if os.path.exists(os.path.expanduser("~/jga-panel/BBJ1K_3/default.config.yaml")):
+        is_check_3 = True
+    if os.path.exists(os.path.expanduser("~/jga-panel/BBJ1K_4/default.config.yaml")):
+        is_check_4 = True
+    return is_check_1, is_check_2, is_check_3, is_check_4

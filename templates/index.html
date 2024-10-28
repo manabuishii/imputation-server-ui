@@ -46,11 +46,11 @@
         </div>
 
     <!-- top -->
-    <div class="d-block align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+    <div class="d-block align-items-center p-3 my-3 text-dark-50">
         <h6 class="mb-0 text-dark lh-100">Parameter 1: Genotype Impuation Panel</h6>
         Select a genotype imputatio panel.
     <!-- Publicly available -->    
-<div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+<div class="d-flex align-items-center p-3 my-3 text-dark-50">
     <div class="lh-100">
     <div class="lh-100">
         <h6 class="mb-0 text-dark lh-100">Publicly available
@@ -59,7 +59,7 @@
         <div class="form-check">
             <input class="form-check-input" type="radio" name="reference_panel" value="GRCh37.1KGP" id="GRCh37.1KGP" checked>
             <label class="form-check-label" for="GRCh37.1KGP">
-                1KGP multi-ancestry panel(GRCh37)
+                <b>1KGP multi-ancestry panel (GRCh37)</b>
             </label>
             <br><span style="color: grey;">
             A reference panel consisting of unrelated subjects of diverse ancestries(N = 2504) from the 1000 Genomes Project (phase 3, version 5).The X-chromosome is included.</span>
@@ -67,7 +67,7 @@
         <div class="form-check">
             <input class="form-check-input" type="radio" name="reference_panel" value="GRCh37.1KGP-EAS" id="GRCh37.1KGP-EAS" >
             <label class="form-check-label" for="GRCh37.1KGP-EAS">
-                1KGP East Asian-ancestry panel(GRCh37)
+                <b>1KGP East Asian-ancestry panel (GRCh37)</b>
             </label>
             <br><span style="color: grey;">
                 A reference panel consisting of unrelated subjects of East Asian ancestries(N = 504) from the 1000 Genomes Project (phase 3, version 5).The X-chromosome is included.</span>
@@ -75,7 +75,7 @@
         <div class="form-check">
             <input class="form-check-input" type="radio" name="reference_panel" value="GRCh38.1KGP" id="GRCh38.1KGP" >
             <label class="form-check-label" for="GRCh38.1KGP">
-                1KGP multi-ancestry panel (GRCh38)
+                <b>1KGP multi-ancestry panel (GRCh38)</b>
             </label>
             <br><span style="color: grey;">
             A reference panel consisting of unrelated subjects of diverse ancestries(N = 2548) from the 1000 Genomes Project (30x on GRCh38).The X-chromosome is not included.
@@ -84,7 +84,7 @@
         <div class="form-check">
             <input class="form-check-input" type="radio" name="reference_panel" value="GRCh38.1KGP-EAS" id="GRCh38.1KGP-EAS" >
             <label class="form-check-label" for="GRCh38.1KGP-EAS">
-                1KGP East Asian-ancestry panel (GRCh38)
+                <b>1KGP East Asian-ancestry panel (GRCh38)</b>
             </label>
             <br><span style="color: grey;">
             A reference panel consisting of unrelated subjects of East Asian ancestries(N = 508) from the 1000 Genomes Project (30x on GRCh38).The X-chromosome is not included.
@@ -95,43 +95,51 @@
     </div>
 </div>
     <!-- Controlled access -->    
-<div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+<div class="d-flex align-items-center p-3 my-3 text-dark-50">
     <div class="lh-100">
     <div class="lh-100">
         <h6 class="mb-0 text-dark lh-100">Controlled access
 <span style="color: red;">(Data use application to JGA is required)</span>
 </h6>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="reference_panel" value="GRCh37.1KGP" id="GRCh37.1KGP" disabled>
-            <label class="form-check-label" for="GRCh37.1KGP">
-                BBJ1K + 1KGP multi-ancestry panel(GRCh37)
+            <input class="form-check-input" type="radio" name="reference_panel" value="BBJ1K_GRCh37.1KGP" id="BBJ1K_GRCh37.1KGP" {% if is_check_1 %} enabled {% else %} disabled {% endif %}>
+            <label class="form-check-label" for="BBJ1K_GRCh37.1KGP">
+                <b>BBJ1K + 1KGP multi-ancestry panel (GRCh37)
+                <span style="color: red;">{% if is_check_1 %} Available {% else %} Unavailable (Data use application to JGA is required) {% endif %}</span>
+                </b>
             </label>
             <br><span style="color: grey;">
             A reference panel consisting of the BioBank Japan subjects of Japanese ancestry(N=1037) and the 1000 Genomes Project (phase 3, version 5) subjects of diverse ancestries(N = 2504).In total, N=3541. The X-chromosome is not included.
             </span>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="reference_panel" value="GRCh37.1KGP-EAS" id="GRCh37.1KGP-EAS" disabled >
-            <label class="form-check-label" for="GRCh37.1KGP-EAS">
-                BBJ1K + 1KGP East Asian-ancestry panel(GRCh37)
-            </label>
+            <input class="form-check-input" type="radio" name="reference_panel" value="BBJ1K_GRCh37.1KGP-EAS" id="BBJ1K_GRCh37.1KGP-EAS" {% if is_check_2 %} enabled {% else %} disabled {% endif %} >
+            <label class="form-check-label" for="BBJ1K_GRCh37.1KGP-EAS">
+            <b>BBJ1K + 1KGP East Asian-ancestry panel (GRCh37)
+            <span style="color: red;">{% if is_check_2 %} Available {% else %} Unavailable (Data use application to JGA is required) {% endif %}</span>
+            </b>
+        </label>
             <br><span style="color: grey;">
             A reference panel consisting of the BioBank Japan subjects of Japanese ancestry(N=1037) and the 1000 Genomes Project (phase 3, version 5) subjects of East Asian ancestries(N = 504).In total, N=1541. The X-chromosome is not included.
             </span>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="reference_panel" value="GRCh38.1KGP" id="GRCh38.1KGP" disabled >
-            <label class="form-check-label" for="GRCh38.1KGP">
-                BBJ1K Japanese-ancestry panel (GRCh38)
-            </label>
+            <input class="form-check-input" type="radio" name="reference_panel" value="BBJ1K_GRCh38.1KGP" id="BBJ1K_GRCh38.1KGP" {% if is_check_3 %} enabled {% else %} disabled {% endif %} >
+            <label class="form-check-label" for="BBJ1K_GRCh38.1KGP">
+            <b>BBJ1K Japanese-ancestry panel (GRCh38)
+            <span style="color: red;">{% if is_check_3 %} Available {% else %} Unavailable (Data use application to JGA is required) {% endif %}</span>
+            </b>
+        </label>
             <br><span style="color: grey;">
             A reference panel consisting of the BioBank Japan subjectgsof Japanese ancestry(N = 1026).The X-chromosome is included.
                 </span>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="reference_panel" value="GRCh38.1KGP-EAS" id="GRCh38.1KGP-EAS" disabled >
-            <label class="form-check-label" for="GRCh38.1KGP-EAS">
-                BBJ2K Japanese-ancestry panel (GRCh38)
+            <input class="form-check-input" type="radio" name="reference_panel" value="BBJ1K_GRCh38.1KGP-EAS" id="BBJ1K_GRCh38.1KGP-EAS" {% if is_check_4 %} enabled {% else %} disabled {% endif %} >
+            <label class="form-check-label" for="BBJ1K_GRCh38.1KGP-EAS">
+            <b>BBJ2K Japanese-ancestry panel (GRCh38)
+                <span style="color: red;">{% if is_check_4 %} Available {% else %} Unavailable (Data use application to JGA is required) {% endif %}</span>
+            </b>
             </label>
             <br><span style="color: grey;">
             A reference panel consisting of BBioBank Japan subjects of Japanese ancestry(N = 1964).The X-chromosome is included.
@@ -144,12 +152,12 @@
 </div>
 
     <!-- second -->
-    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+    <div class="d-flex align-items-center p-3 my-3 text-dark-50">
         <div class="form-group lh-100 w-100">
             <label for="ref_panel_config">User-defined</label>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="reference_panel" value="others" id="others" >
-                <label class="form-check-label" for="others">
+                <label class="form-check-label" for="others"><br><br>
                 </label>
             </div>
             <input type="text" class="form-control" name="ref_panel_config" id="ref_panel_config" placeholder="Other reference panel config file path">
@@ -158,7 +166,7 @@
     </div>
     <!-- third -->
 
-    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+    <div class="d-flex align-items-center p-3 my-3 text-dark-50">
         <div class="form-group lh-100 w-100">
             <label for="target_vcf">Parameter 2: Target VCF file
 </label>
@@ -171,7 +179,7 @@ Specify a target VCF file
         </div>
     </div>
     <!-- fourth -->
-    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+    <div class="d-flex align-items-center p-3 my-3 text-dark-50">
         <div class="lh-100">
             <h6 class="mb-0 text-dark lh-100">Parameter 3: Output genotype probability</h6>
             <br><span style="color: grey;">
@@ -193,7 +201,7 @@ Specify a target VCF file
     </div>
     <!-- fifth -->
     <!--
-    <div class="d-flex align-items-center p-3 my-3 text-dark-50 border border-dark rounded box-shadow">
+    <div class="d-flex align-items-center p-3 my-3 text-dark-50">
         <div class="form-group lh-100 w-100">
     -->
             <input type="hidden" class="form-control" name="num_threads" id="num_threads" placeholder="Number of threads" value="16">
