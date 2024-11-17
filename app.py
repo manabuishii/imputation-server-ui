@@ -110,10 +110,18 @@ def index():
         referencepanelconfigfile = ""
         if refpanel == "GRCh37.1KGP":
             referencepanelconfigfile = "/usr/local/shared_data/imputation-server/reference/GRCh37.1KGP/default.config.yaml"
+        elif refpanel == "GRCh37.1KGP-test":
+            referencepanelconfigfile = (
+                "/usr/local/shared_data/imputation-server/reference/GRCh37.1KGP/test.config.yaml"
+            )
         elif refpanel == "GRCh37.1KGP-EAS":
             referencepanelconfigfile = "/usr/local/shared_data/imputation-server/reference/GRCh37.1KGP-EAS/default.config.yaml"
         elif refpanel == "GRCh38.1KGP":
             referencepanelconfigfile = "/usr/local/shared_data/imputation-server/reference/GRCh38.1KGP/default.config.yaml"
+        elif refpanel == "GRCh38.1KGP-test":
+            referencepanelconfigfile = (
+                "/usr/local/shared_data/imputation-server/reference/GRCh38.1KGP/test.config.yaml"
+            )
         elif refpanel == "GRCh38.1KGP-EAS":
             referencepanelconfigfile = "/usr/local/shared_data/imputation-server/reference/GRCh38.1KGP-EAS/default.config.yaml"
         elif refpanel == "others":
