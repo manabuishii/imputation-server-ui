@@ -38,7 +38,7 @@
 
 <body class="bg-light">
 
-    <form enctype="multipart/form-data" action="/hibag" method="POST" id="wholegenomeform">
+    <form enctype="multipart/form-data" action="./hibag" method="POST" id="wholegenomeform">
 
 <main role="main" class="container">
 
@@ -91,7 +91,7 @@
         $('#dropdown1').change(function() {
             var selected_val1 = $(this).val();
             $('#dropdown1').prop('disabled', true);
-            $.getJSON('/hibag/get_dropdown2', {selected_val1: selected_val1}, function(data) {
+            $.getJSON('./hibag/get_dropdown2', {selected_val1: selected_val1}, function(data) {
                 $('#dropdown2').empty();
                 $('#dropdown2').prop('disabled', false);
                 $('#dropdown2').append($('<option>').text("--Select a resolution--").attr('value', "--Select a resolution--"));
@@ -105,7 +105,7 @@
             var selected_val2 = $(this).val();
             var selected_val1 = $('#dropdown1').val();
             $('#dropdown2').prop('disabled', true);
-            $.getJSON('/hibag/get_dropdown3', {selected_val1: selected_val1, selected_val2: selected_val2}, function(data) {
+            $.getJSON('./hibag/get_dropdown3', {selected_val1: selected_val1, selected_val2: selected_val2}, function(data) {
                 $('#dropdown3').empty();
                 $('#dropdown3').prop('disabled', false);
                 $('#dropdown3').append($('<option>').text("--Select an ancestry--").attr('value', "--Select an ancestry--"));
@@ -120,7 +120,7 @@
             var selected_val2 = $('#dropdown2').val();
             var selected_val1 = $('#dropdown1').val();
             $('#dropdown3').prop('disabled', true);
-            $.getJSON('/hibag/get_hibagmodel_filepath', {selected_val1: selected_val1,
+            $.getJSON('./hibag/get_hibagmodel_filepath', {selected_val1: selected_val1,
                 selected_val2: selected_val2, selected_val3: selected_val3}, function(data) {
                     $.each(data, function(index, value) {
                         $('#hibagmodel_filepath').text(value).attr('value', value);
