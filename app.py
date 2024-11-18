@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """This is the imputation server web UI."""
 from flask import Flask, render_template, request, jsonify
+from flask import Blueprint
 
 import jinja2
 import csv
@@ -31,6 +32,9 @@ with open("hibag_genotyping_platforms/rdata_filenames.txt", "r") as rdata_filena
 
 
 app = Flask(__name__)
+app_blueprint = Blueprint(
+    "app", __name__, url_prefix=os.environ.get("URL_PREFIX_IMPUTATION_WORKFLOW_UI", "/")
+)
 
 hibag_job_template = """
 in_bed:
@@ -58,7 +62,7 @@ app.config["BCFTOOLS_IMAGE_PATH"] = os.getenv("BCFTOOLS_IMAGE_PATH", "")
 is_bcftools = os.path.exists(app.config["BCFTOOLS_IMAGE_PATH"])
 
 
-@app.route("/", methods=["GET", "POST"])
+@app_blueprint.route("/", methods=["GET", "POST"])
 def index():
     """Show the main page."""
     # check tool
@@ -165,7 +169,7 @@ def index():
     )
 
 
-@app.route("/plink", methods=["GET", "POST"])
+@app_blueprint.route("/plink", methods=["GET", "POST"])
 def plink():
     """Show the plink2vcf conversion configuration page."""
     # GET
@@ -178,7 +182,7 @@ def plink():
     return render_template("plink.html", configcontent=configcontent)
 
 
-@app.route("/bplink", methods=["GET", "POST"])
+@app_blueprint.route("/bplink", methods=["GET", "POST"])
 def bplink():
     """Show the bplink2vcf conversion configuration page."""
     # GET
@@ -191,7 +195,7 @@ def bplink():
     return render_template("bplink.html", configcontent=configcontent)
 
 
-@app.route("/hibag", methods=["GET", "POST"])
+@app_blueprint.route("/hibag", methods=["GET", "POST"])
 def hibag():
     dl1 = list(row["Column1"] for row in data)
     dropdown_list1 = []
@@ -229,7 +233,7 @@ def hibag():
             )
 
 
-@app.route("/hibag/get_dropdown2")
+@app_blueprint.route("/hibag/get_dropdown2", methods=["GET", "POST"])
 def get_dropdown2():
     selected_val1 = request.args.get("selected_val1", type=str)
     # dropdown_list2 = list(set(row["Column2"] for row in data if row["Column1"] == selected_val1))
@@ -243,7 +247,7 @@ def get_dropdown2():
     return jsonify(dropdown_list2)
 
 
-@app.route("/hibag/get_dropdown3")
+@app_blueprint.route("/hibag/get_dropdown3", methods=["GET", "POST"])
 def get_dropdown3():
     selected_val2 = request.args.get("selected_val2", type=str)
     selected_val1 = request.args.get("selected_val1", type=str)
@@ -262,7 +266,7 @@ def get_dropdown3():
     return jsonify(dropdown_list3)
 
 
-@app.route("/hibag/get_hibagmodel_filepath")
+@app_blueprint.route("/hibag/get_hibagmodel_filepath", methods=["GET", "POST"])
 def get_hibagmodel_filepath():
     selected_val3 = request.args.get("selected_val3", type=str)
     selected_val2 = request.args.get("selected_val2", type=str)
@@ -283,6 +287,7 @@ def get_hibagmodel_filepath():
     return jsonify(hibagmodel_filepath)
 
 
+app.register_blueprint(app_blueprint)
 if __name__ == "__main__":
     # run host 0.0.0.0
     # Base.metadata.create_all(bind=ENGINE)
