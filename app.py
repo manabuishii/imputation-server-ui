@@ -61,6 +61,166 @@ app.secret_key = os.getenv("IMPUTATION_SERVER_SECRET_KEY")
 app.config["BCFTOOLS_IMAGE_PATH"] = os.getenv("BCFTOOLS_IMAGE_PATH", "")
 is_bcftools = os.path.exists(app.config["BCFTOOLS_IMAGE_PATH"])
 
+#
+# PGS Catalog API URL
+PGS_API_URL = "https://www.pgscatalog.org/rest/score/all"
+
+# キャッシュファイルのパス
+CACHE_FILE = "pgs_catalog_cache.json"
+# キャッシュの有効期限（秒）- 1日 * 7
+CACHE_EXPIRY = 864000 * 1000 * 7
+
+
+def fetch_all_pgs_scores():
+    """
+    PGS Catalog APIから全てのスコアデータを取得する
+    ページネーションを使用して全件取得
+    """
+    all_results = []
+    next_url = PGS_API_URL
+
+    while next_url:
+        print(f"Fetching data from: {next_url}")
+        response = requests.get(next_url)
+        data = response.json()
+
+        # 結果を追加
+        all_results.extend(data.get("results", []))
+
+        # 次のページがあれば取得
+        next_url = data.get("next")
+
+    # 全データを含む応答を作成
+    complete_response = {
+        "count": len(all_results),
+        "next": None,
+        "previous": None,
+        "results": all_results,
+    }
+
+    return complete_response
+
+
+def get_cached_data():
+    """
+    キャッシュからデータを取得する
+    キャッシュが存在しない、または期限切れの場合はNoneを返す
+    """
+    if not os.path.exists(CACHE_FILE):
+        return None
+
+    try:
+        with open(CACHE_FILE, "r") as f:
+            cache_data = json.load(f)
+
+        # キャッシュの有効期限をチェック
+        cache_time = cache_data.get("cache_time", 0)
+        print(f"Cache time: {cache_time}")
+        print(f"Current time: {time.time()}")
+        print(f"Time diff: {time.time() - cache_time}")
+        print(f"Cache expiry: {CACHE_EXPIRY}")
+        if time.time() - cache_time > CACHE_EXPIRY:
+            print("Cache expired")
+            return None
+
+        return cache_data.get("data")
+    except Exception as e:
+        print(f"Error reading cache: {e}")
+        return None
+
+
+def save_to_cache(data, cache_file=CACHE_FILE):
+    """
+    データをキャッシュに保存する
+    """
+    cache_data = {
+        "cache_time": time.time(),
+        "timestamp": datetime.now().isoformat(),
+        "data": data,
+    }
+
+    try:
+        with open(cache_file, "w") as f:
+            json.dump(cache_data, f)
+        print(
+            f"Data cached successfully to {cache_file}. Total records: {data.get('count', 0)}"
+        )
+    except Exception as e:
+        print(f"Error saving cache: {e}")
+
+@app_blueprint.route("/pgs")
+def pgs():
+    return render_template("pgs.html")
+
+
+@app_blueprint.route("/api/pgs-catalog", methods=["GET"])
+def proxy_pgs_catalog():
+    """
+    プロキシエンドポイント - PGS Catalog APIへのリクエストを中継
+    CORSの問題を回避するためのバックエンドプロキシ
+    キャッシュ機能を実装して、APIへの負荷を軽減
+    """
+    try:
+        # キャッシュからデータを取得
+        cached_data = get_cached_data()
+
+        # キャッシュが有効な場合はそれを返す
+        if cached_data:
+            print("Returning cached data")
+
+            # キャッシュのタイムスタンプ情報を追加
+            if os.path.exists(CACHE_FILE):
+                try:
+                    with open(CACHE_FILE, "r") as f:
+                        cache_info = json.load(f)
+                        if "timestamp" in cache_info:
+                            cached_data["_cache_timestamp"] = cache_info["timestamp"]
+                except Exception as e:
+                    print(f"Error reading cache timestamp: {e}")
+
+            return jsonify(cached_data)
+
+        # キャッシュがない場合はAPIから全データを取得
+        print("Fetching all data from API")
+        all_data = fetch_all_pgs_scores()
+
+        # データをキャッシュに保存
+        save_to_cache(all_data)
+
+        # タイムスタンプ情報を追加
+        all_data["_cache_timestamp"] = datetime.now().isoformat()
+
+        # APIからのレスポンスをJSONとして返す
+        return jsonify(all_data)
+    except Exception as e:
+        # エラーが発生した場合はエラーメッセージを返す
+        error_msg = str(e)
+        print(f"Error: {error_msg}")
+        return jsonify({"error": error_msg}), 500
+
+
+@app_blueprint.route("/api/refresh-cache", methods=["POST"])
+def refresh_cache():
+    """
+    キャッシュを強制的に更新するエンドポイント
+    """
+    try:
+        # APIから全データを取得
+        all_data = fetch_all_pgs_scores()
+
+        # データをキャッシュに保存
+        save_to_cache(all_data)
+
+        return jsonify(
+            {
+                "success": True,
+                "message": f"Cache refreshed successfully. Total records: {all_data.get('count', 0)}",
+                "timestamp": datetime.now().isoformat(),
+            }
+        )
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
 
 @app_blueprint.route("/", methods=["GET", "POST"])
 def index():

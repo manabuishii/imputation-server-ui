@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGS Catalog 検索インターフェイス</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <style>
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .selected-ids {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .badge {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        #trait-filter {
+            margin-bottom: 15px;
+        }
+        .refresh-icon {
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        #refresh-cache-btn:hover .refresh-icon {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        #data-info {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">PGS Catalog 検索インターフェイス</h1>
+        
+        <div class="alert alert-info" role="alert" id="data-info">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>スコアデータ:</strong> <span id="data-count">0</span> 件のレコードが読み込まれています
+                    <small id="cache-timestamp" class="d-block text-muted"></small>
+                </div>
+                <button id="refresh-cache-btn" class="btn btn-sm btn-outline-primary">
+                    <span class="refresh-icon">↻</span> スコアキャッシュを更新
+                </button>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">検索フィルタ</h5>
+            </div>
+            <div class="card-body">
+                <!-- 検索フィルタ -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="pgs-id-filter" class="form-label">PGS ID</label>
+                        <input type="text" class="form-control" id="pgs-id-filter" placeholder="例: PGS000001">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="pgp-id-filter" class="form-label">PGP ID</label>
+                        <input type="text" class="form-control" id="pgp-id-filter" placeholder="例: PGP000001">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="efo-id-filter" class="form-label">EFO ID/ラベル/説明</label>
+                        <input type="text" class="form-control" id="efo-id-filter" placeholder="例: EFO:0001645, carcinoma, epithelial">
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="trait-filter" class="form-label">形質 (Trait/EFO ラベル/説明)</label>
+                        <input type="text" class="form-control" id="trait-filter" placeholder="例: Coronary artery disease, carcinoma, epithelial">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="publication-filter" class="form-label">出版物 ID (Publication ID)</label>
+                        <input type="text" class="form-control" id="publication-filter" placeholder="例: PMID:12345678">
+                    </div>
+                </div>
+                
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h6 class="mb-0">出版物フィルタ (Publication Filters)</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="first-author-filter" class="form-label">筆頭著者 (First Author)</label>
+                                <input type="text" class="form-control" id="first-author-filter" placeholder="例: Smith">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="journal-filter" class="form-label">ジャーナル名 (Journal Name)</label>
+                                <input type="text" class="form-control" id="journal-filter" placeholder="例: Nature Genetics">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <label for="title-filter" class="form-label">論文タイトル (Title)</label>
+                                <input type="text" class="form-control" id="title-filter" placeholder="例: Genome-wide association">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="doi-filter" class="form-label">DOI</label>
+                                <input type="text" class="form-control" id="doi-filter" placeholder="例: 10.1038/">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="pub-date-filter" class="form-label">出版日 (Publication Date)</label>
+                                <input type="text" class="form-control" id="pub-date-filter" placeholder="例: 2020">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-flex justify-content-between mt-3">
+                    <button id="reset-btn" class="btn btn-secondary">リセット</button>
+                    <button id="search-btn" class="btn btn-primary">検索</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">データを読み込み中</p>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">検索結果</h5>
+                <span id="results-count" class="badge bg-primary">0 件</span>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="results-table" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>選択</th>
+                                <th>PGS ID</th>
+                                <th>名前</th>
+                                <th>形質</th>
+                                <th>PGP ID</th>
+                                <th>EFO 情報</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- テーブルの行はJavaScriptで動的に生成します -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="selected-ids" id="selected-ids-container">
+            <h4>選択された ID</h4>
+            <div class="mb-3">
+                <h6>PGS ID</h6>
+                <div id="selected-pgs-ids" class="d-flex flex-wrap"></div>
+            </div>
+            <div class="mb-3">
+                <h6>PGP ID</h6>
+                <div id="selected-pgp-ids" class="d-flex flex-wrap"></div>
+            </div>
+            <div class="mb-3">
+                <h6>EFO ID</h6>
+                <div id="selected-efo-ids" class="d-flex flex-wrap"></div>
+            </div>
+            
+            <div class="d-flex justify-content-end mt-3">
+                <button id="send-btn" class="btn btn-success" disabled>WESサーバーに送信</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/dataTables.bootstrap5.min.js"></script>
+    
+    <script>
+        // 選択されたIDを管理
+        const selectedIds = {
+            pgs: new Set(),
+            pgp: new Set(),
+            efo: new Set()
+        };
+        
+        // DataTable インスタンス
+        let dataTable;
+        
+        // APIからのデータをキャッシュ
+        let cachedData = null;
+        
+        // バックエンドプロキシエンドポイント
+        const API_URL = '/api/pgs-catalog';
+        
+        $(document).ready(function() {
+            // テーブルの初期化
+            dataTable = $('#results-table').DataTable({
+                columns: [
+                    { 
+                        data: null,
+                        render: function(data) {
+                            return '<input type="checkbox" class="row-checkbox" data-pgs-id="' + data.id + '">';
+                        },
+                        orderable: false
+                    },
+                    { data: 'id' },
+                    { data: 'name' },
+                    { data: 'trait_reported' },
+                    { 
+                        data: 'publication',
+                        render: function(data) {
+                            if (!data || !data.id) return '-';
+                            
+                            // PGP情報を整形して表示
+                            let pgpInfo = `<div class="mb-2"><strong>${data.id}</strong>`;
+                            
+                            if (data.title) {
+                                pgpInfo += `<br><span>${data.title}</span>`;
+                            }
+                            
+                            if (data.firstauthor) {
+                                pgpInfo += `<br><small class="text-muted">著者: ${data.firstauthor}`;
+                                if (data.authors_number && data.authors_number > 1) {
+                                    pgpInfo += ` 他 ${data.authors_number - 1} 名`;
+                                }
+                                pgpInfo += `</small>`;
+                            }
+                            
+                            if (data.journal) {
+                                pgpInfo += `<br><small class="text-muted">ジャーナル: ${data.journal}`;
+                                if (data.date_publication) {
+                                    pgpInfo += ` (${data.date_publication})`;
+                                }
+                                pgpInfo += `</small>`;
+                            }
+                            
+                            if (data.PMID) {
+                                pgpInfo += `<br><small class="text-muted">PMID: ${data.PMID}</small>`;
+                            }
+                            
+                            if (data.doi) {
+                                pgpInfo += `<br><small class="text-muted">DOI: ${data.doi}</small>`;
+                            }
+                            
+                            pgpInfo += '</div>';
+                            return pgpInfo;
+                        }
+                    },
+                    { 
+                        data: 'trait_efo',
+                        render: function(data) {
+                            if (!data || !data.length) return '-';
+                            
+                            // EFO情報を整形して表示
+                            return data.map(efo => {
+                                let efoInfo = `<div class="mb-2"><strong>${efo.id}</strong>`;
+                                if (efo.label) {
+                                    efoInfo += `: ${efo.label}`;
+                                }
+                                if (efo.description) {
+                                    efoInfo += `<br><small class="text-muted">${efo.description}</small>`;
+                                }
+                                efoInfo += '</div>';
+                                return efoInfo;
+                            }).join('');
+                        }
+                    }
+                ],
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.10.25/i18n/Japanese.json'
+                },
+                pageLength: 10,
+                lengthMenu: [10, 25, 50, 100]
+            });
+            
+            // 初期データ読み込み
+            loadData();
+            
+            // 検索ボタンイベント
+            $('#search-btn').click(function() {
+                applyFilters();
+            });
+            
+            // リセットボタンイベント
+            $('#reset-btn').click(function() {
+                clearFilters();
+            });
+            
+            // 送信ボタンイベント
+            $('#send-btn').click(function() {
+                sendToWesServer();
+            });
+            
+            // チェックボックスのイベント委任
+            $('#results-table').on('change', '.row-checkbox', function() {
+                const pgsId = $(this).data('pgs-id');
+                const row = dataTable.row($(this).closest('tr')).data();
+                
+                if ($(this).is(':checked')) {
+                    // 選択に追加
+                    selectedIds.pgs.add(pgsId);
+                    
+                    // PGP IDを追加
+                    if (row.publication && row.publication.id) {
+                        selectedIds.pgp.add(row.publication.id);
+                    }
+                    
+                    // EFO IDを追加
+                    if (row.trait_efo && row.trait_efo.length) {
+                        row.trait_efo.forEach(efo => {
+                            if (efo.id) selectedIds.efo.add(efo.id);
+                        });
+                    }
+                } else {
+                    // 選択から削除
+                    selectedIds.pgs.delete(pgsId);
+                    
+                    // 注：関連するPGP/EFO IDは他の選択されたPGSでも使われている可能性があるため、
+                    // より複雑な処理が必要になるため、ここでは単純化のため削除しません
+                }
+                
+                updateSelectedIds();
+            });
+            
+            // フィルター入力時のリアルタイム検索
+            $('#trait-filter, #pgs-id-filter, #pgp-id-filter, #efo-id-filter, #publication-filter, ' +
+              '#first-author-filter, #journal-filter, #title-filter, #doi-filter, #pub-date-filter').on('keyup', function() {
+                applyFilters();
+            });
+        });
+        
+        // キャッシュを更新するイベントハンドラ
+        $('#refresh-cache-btn').click(function() {
+            refreshCache();
+        });
+        
+        // キャッシュを更新する
+        function refreshCache() {
+            $('#refresh-cache-btn').prop('disabled', true);
+            $('#refresh-cache-btn').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> 更新中...');
+            
+            fetch('/api/refresh-cache', {
+                method: 'POST'
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Cache refresh failed with status ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        // キャッシュをクリアして再読み込み
+                        cachedData = null;
+                        loadData();
+                        
+                        // 成功メッセージを表示
+                        const alertDiv = $('<div class="alert alert-success alert-dismissible fade show" role="alert">')
+                            .text(data.message)
+                            .append('<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>');
+                        
+                        alertDiv.insertAfter('#data-info');
+                        
+                        // 3秒後に自動的に閉じる
+                        setTimeout(() => {
+                            alertDiv.alert('close');
+                        }, 3000);
+                    } else {
+                        throw new Error(data.error || 'キャッシュの更新に失敗しました');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error refreshing cache:', error);
+                    alert(`キャッシュの更新に失敗しました: ${error.message}`);
+                })
+                .finally(() => {
+                    $('#refresh-cache-btn').prop('disabled', false);
+                    $('#refresh-cache-btn').html('<span class="refresh-icon">↻</span> キャッシュを更新');
+                });
+        }
+        
+        // APIからデータを読み込む
+        function loadData() {
+            // すでにキャッシュされたデータがあれば使用
+            if (cachedData) {
+                processData(cachedData);
+                return;
+            }
+            
+            $('#loading').show();
+            
+            // バックエンドプロキシを使用してAPIからデータを取得
+            fetch(API_URL)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`API request failed with status ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    cachedData = data;
+                    processData(data);
+                    
+                    // キャッシュのタイムスタンプを表示（もしあれば）
+                    if (data._cache_timestamp) {
+                        const cacheDate = new Date(data._cache_timestamp);
+                        $('#cache-timestamp').text(`最終更新: ${cacheDate.toLocaleString()}`);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching PGS Catalog data:', error);
+                    alert('APIからのデータ取得に失敗しました');
+                })
+                .finally(() => {
+                    $('#loading').hide();
+                });
+        }
+        
+        // データを処理してテーブルに表示
+        function processData(data) {
+            const results = data.results || [];
+            dataTable.clear().rows.add(results).draw();
+            $('#results-count').text(`${results.length} 件`);
+            $('#data-count').text(results.length);
+        }
+        
+        // フィルターを適用
+        function applyFilters() {
+            const pgsFilter = $('#pgs-id-filter').val().toUpperCase();
+            const pgpFilter = $('#pgp-id-filter').val().toUpperCase();
+            const efoFilter = $('#efo-id-filter').val().toUpperCase();
+            const traitFilter = $('#trait-filter').val().toLowerCase();
+            const publicationFilter = $('#publication-filter').val().toLowerCase();
+            
+            // 出版物フィルタ
+            const firstAuthorFilter = $('#first-author-filter').val().toLowerCase();
+            const journalFilter = $('#journal-filter').val().toLowerCase();
+            const titleFilter = $('#title-filter').val().toLowerCase();
+            const doiFilter = $('#doi-filter').val().toLowerCase();
+            const pubDateFilter = $('#pub-date-filter').val().toLowerCase();
+            
+            dataTable.search('').columns().search('').draw();
+            
+            // カスタムフィルタリング
+            $.fn.dataTable.ext.search.push(
+                function(settings, data, dataIndex) {
+                    const rowData = dataTable.row(dataIndex).data();
+                    // PGS ID フィルタ
+                    if (pgsFilter && !rowData.id.includes(pgsFilter)) return false;
+                    
+                    // PGP ID フィルタ
+                    if (pgpFilter && (!rowData.publication || !rowData.publication.id || !rowData.publication.id.includes(pgpFilter))) {
+                        return false;
+                    }
+                    
+                    // EFO ID フィルタ
+                    if (efoFilter) {
+                        const hasEfo = rowData.trait_efo && 
+                                      rowData.trait_efo.some(efo => 
+                                          (efo.id && efo.id.includes(efoFilter)) ||
+                                          (efo.label && efo.label.toUpperCase().includes(efoFilter)) ||
+                                          (efo.description && efo.description.toUpperCase().includes(efoFilter)));
+                        if (!hasEfo) return false;
+                    }
+                    
+                    // 形質フィルタ
+                    if (traitFilter) {
+                        // 報告された形質をチェック
+                        const hasTraitReported = rowData.trait_reported && 
+                                               rowData.trait_reported.toLowerCase().includes(traitFilter);
+                        
+                        // trait_efo の label と description もチェック
+                        const hasTraitEfo = rowData.trait_efo && 
+                                          rowData.trait_efo.some(efo => 
+                                              (efo.label && efo.label.toLowerCase().includes(traitFilter)) ||
+                                              (efo.description && efo.description.toLowerCase().includes(traitFilter)));
+                        
+                        if (!hasTraitReported && !hasTraitEfo) return false;
+                    }
+                    
+                    // 出版物フィルタ
+                    if (publicationFilter || firstAuthorFilter || journalFilter || titleFilter || doiFilter || pubDateFilter) {
+                        // 出版物データがない場合はスキップ
+                        if (!rowData.publication) return false;
+                        
+                        // 出版物IDフィルタ (PMID, DOI, PGP ID)
+                        if (publicationFilter) {
+                            const pub = rowData.publication;
+                            let hasPubId = false;
+                            
+                            if (pub.PMID && pub.PMID.toString().toLowerCase().includes(publicationFilter)) hasPubId = true;
+                            if (pub.doi && pub.doi.toLowerCase().includes(publicationFilter)) hasPubId = true;
+                            if (pub.id && pub.id.toLowerCase().includes(publicationFilter)) hasPubId = true;
+                            
+                            if (!hasPubId) return false;
+                        }
+                        
+                        // 筆頭著者フィルタ
+                        if (firstAuthorFilter && 
+                            !(rowData.publication.firstauthor && 
+                              rowData.publication.firstauthor.toLowerCase().includes(firstAuthorFilter))) {
+                            return false;
+                        }
+                        
+                        // ジャーナル名フィルタ
+                        if (journalFilter && 
+                            !(rowData.publication.journal && 
+                              rowData.publication.journal.toLowerCase().includes(journalFilter))) {
+                            return false;
+                        }
+                        
+                        // 論文タイトルフィルタ
+                        if (titleFilter && 
+                            !(rowData.publication.title && 
+                              rowData.publication.title.toLowerCase().includes(titleFilter))) {
+                            return false;
+                        }
+                        
+                        // DOIフィルタ
+                        if (doiFilter && 
+                            !(rowData.publication.doi && 
+                              rowData.publication.doi.toLowerCase().includes(doiFilter))) {
+                            return false;
+                        }
+                        
+                        // 出版日フィルタ
+                        if (pubDateFilter && 
+                            !(rowData.publication.date_publication && 
+                              rowData.publication.date_publication.includes(pubDateFilter))) {
+                            return false;
+                        }
+                    }
+                    
+                    return true;
+                }
+            );
+            
+            dataTable.draw();
+            
+            // フィルタを削除
+            $.fn.dataTable.ext.search.pop();
+        }
+        
+        // フィルターをクリア
+        function clearFilters() {
+            $('#pgs-id-filter').val('');
+            $('#pgp-id-filter').val('');
+            $('#efo-id-filter').val('');
+            $('#trait-filter').val('');
+            $('#publication-filter').val('');
+            
+            // 出版物フィルタをクリア
+            $('#first-author-filter').val('');
+            $('#journal-filter').val('');
+            $('#title-filter').val('');
+            $('#doi-filter').val('');
+            $('#pub-date-filter').val('');
+            
+            dataTable.search('').columns().search('').draw();
+        }
+        
+        // 選択されたIDを更新
+        function updateSelectedIds() {
+            updateIdContainer('selected-pgs-ids', selectedIds.pgs);
+            updateIdContainer('selected-pgp-ids', selectedIds.pgp);
+            updateIdContainer('selected-efo-ids', selectedIds.efo);
+            
+            // 送信ボタンの有効/無効を切り替え
+            $('#send-btn').prop('disabled', 
+                selectedIds.pgs.size === 0 && 
+                selectedIds.pgp.size === 0 && 
+                selectedIds.efo.size === 0
+            );
+        }
+        
+        // IDコンテナを更新
+        function updateIdContainer(containerId, idSet) {
+            const container = $(`#${containerId}`);
+            container.empty();
+            
+            idSet.forEach(id => {
+                const badge = $(`<span class="badge bg-info id-badge">${id} <button type="button" class="btn-close btn-close-white btn-sm" aria-label="Remove"></button></span>`);
+                
+                // バッジの削除ボタンにイベントハンドラを追加
+                badge.find('.btn-close').on('click', function() {
+                    if (containerId === 'selected-pgs-ids') {
+                        selectedIds.pgs.delete(id);
+                    } else if (containerId === 'selected-pgp-ids') {
+                        selectedIds.pgp.delete(id);
+                    } else if (containerId === 'selected-efo-ids') {
+                        selectedIds.efo.delete(id);
+                    }
+                    
+                    // テーブルのチェックボックスを更新
+                    if (containerId === 'selected-pgs-ids') {
+                        $('.row-checkbox').each(function() {
+                            if ($(this).data('pgs-id') === id) {
+                                $(this).prop('checked', false);
+                            }
+                        });
+                    }
+                    
+                    updateSelectedIds();
+                });
+                
+                container.append(badge);
+            });
+        }
+        
+        // WESサーバーに送信
+        function sendToWesServer() {
+            const payload = {
+                pgs_ids: Array.from(selectedIds.pgs),
+                pgp_ids: Array.from(selectedIds.pgp),
+                efo_ids: Array.from(selectedIds.efo)
+            };
+            
+            console.log('送信するペイロード:', payload);
+            
+            // 実際の送信処理（バックエンドAPI実装後に有効化）
+            /*
+            fetch('あなたのWESサーバーエンドポイント', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert('WESサーバーに正常に送信されました');
+                    console.log('サーバーレスポンス:', data);
+                })
+                .catch(error => {
+                    console.error('WESサーバーへの送信エラー:', error);
+                    alert('WESサーバーへの送信に失敗しました');
+                });
+            */
+            
+            // 開発用のモック応答
+            alert('WESサーバーに送信しました（開発用モック）');
+        }
+        
+    </script>
+</body>
+</html>
