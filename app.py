@@ -200,7 +200,7 @@ def generate_pgs_config():
     vcf_files = []
     for root, dirs, files in os.walk(sapporo_path + "/outputs"):
         for file in files:
-            if file.endswith(".vcf.gz"):
+            if file.endswith(".beagle.vcf.gz"):
                 # if file start with "chrX", pass
                 if file.startswith("chrX"):
                     continue
