@@ -183,6 +183,35 @@ def generate_pgs_config():
         config_content += "\nefo_ids:\n"
         for efo_id in efo_ids:
             config_content += f"  - {efo_id}\n"
+    # open ../sapporo-service/run/
+    sapporo_path = f"../sapporo-service/run/{run_id[:2]}/{run_id}"
+    with open(sapporo_path + "/run_request.json", "r") as f:
+        run_request = json.load(f)
+        workflow_params = run_request["workflow_params"]
+        # check workflow_params has GRCh37 or GRCh38
+        if "GRCh37" in workflow_params:
+            config_content += "\nreference_genome: GRCh37\n"
+        elif "GRCh38" in workflow_params:
+            config_content += "\nreference_genome: GRCh38\n"
+        else:
+            # error
+            pass
+    # file list sapporo_path/outputs/*.vcf.gz
+    vcf_files = []
+    for root, dirs, files in os.walk(sapporo_path + "/outputs"):
+        for file in files:
+            if file.endswith(".vcf.gz"):
+                # if file start with "chrX", pass
+                if file.startswith("chrX"):
+                    continue
+                vcf_files.append(os.path.join(root, file))
+    # if not vcf_files, error
+    if not vcf_files:
+        return render_template("pgs_config.html", config_content="No VCF files found.")
+    # add vcf_files to config_content
+    config_content += "\nvcf_files:\n"
+    for vcf_file in vcf_files:
+        config_content += f"  - {vcf_file}\n"
 
     # Render the template with the config content
     return render_template("pgs_config.html", config_content=config_content)
