@@ -651,29 +651,38 @@
             $('#send-btn').prop('disabled', true);
             $('#send-btn').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> 処理中...');
             
-            // 新しいエンドポイントにPOSTリクエストを送信
-            fetch('/pgs/generate-config', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`サーバーエラー: ${response.status}`);
+            // フォームを作成して直接POSTリクエストを送信（ページ遷移）
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/pgs/generate-config';
+            form.style.display = 'none';
+            
+            // ペイロードの各フィールドをフォーム入力として追加
+            for (const key in payload) {
+                if (Array.isArray(payload[key])) {
+                    // 配列の場合、複数の入力フィールドを作成
+                    payload[key].forEach(value => {
+                        const input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = key;
+                        input.value = value;
+                        form.appendChild(input);
+                    });
+                } else {
+                    // 単一値の場合
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = payload[key];
+                    form.appendChild(input);
                 }
-                // レスポンスがHTMLなので、新しいページに遷移
-                window.location.href = response.url;
-            })
-            .catch(error => {
-                console.error('コンフィグ生成エラー:', error);
-                alert(`コンフィグ生成に失敗しました: ${error.message}`);
-                
-                // エラー時にボタンを元に戻す
-                $('#send-btn').prop('disabled', false);
-                $('#send-btn').text('WESサーバーに送信');
-            });
+            }
+            
+            // フォームをドキュメントに追加して送信
+            document.body.appendChild(form);
+            form.submit();
+            
+            // エラー処理はサーバー側で行われるため、ここでは不要
         }
         
     </script>
