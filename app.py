@@ -4,6 +4,7 @@
 from flask import Flask, render_template, request, jsonify
 from flask import Blueprint
 
+import requests
 import jinja2
 import csv
 import os
@@ -142,11 +143,10 @@ def save_to_cache(data, cache_file=CACHE_FILE):
     try:
         with open(cache_file, "w") as f:
             json.dump(cache_data, f)
-        print(
-            f"Data cached successfully to {cache_file}. Total records: {data.get('count', 0)}"
-        )
+        print(f"Data cached successfully to {cache_file}. Total records: {data.get('count', 0)}")
     except Exception as e:
         print(f"Error saving cache: {e}")
+
 
 @app_blueprint.route("/pgs")
 def pgs():
