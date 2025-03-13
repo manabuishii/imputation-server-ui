@@ -159,14 +159,11 @@ def pgs():
 @app_blueprint.route("/pgs/generate-config", methods=["POST"])
 def generate_pgs_config():
     """Generate PGS configuration based on submitted parameters."""
-    # Get the JSON data from the request
-    data = request.json
-
-    # Extract the parameters
-    pgs_ids = data.get("pgs_ids", [])
-    pgp_ids = data.get("pgp_ids", [])
-    efo_ids = data.get("efo_ids", [])
-    run_id = data.get("run_id", "")
+    # Get the form data from the request
+    pgs_ids = request.form.getlist("pgs_ids")
+    pgp_ids = request.form.getlist("pgp_ids")
+    efo_ids = request.form.getlist("efo_ids")
+    run_id = request.form.get("run_id", "")
 
     # Create a formatted string representation of the parameters
     config_content = "# PGS Configuration\n\n"
