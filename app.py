@@ -156,6 +156,41 @@ def pgs():
     return render_template("pgs.html")
 
 
+@app_blueprint.route("/pgs/generate-config", methods=["POST"])
+def generate_pgs_config():
+    """Generate PGS configuration based on submitted parameters."""
+    # Get the JSON data from the request
+    data = request.json
+
+    # Extract the parameters
+    pgs_ids = data.get("pgs_ids", [])
+    pgp_ids = data.get("pgp_ids", [])
+    efo_ids = data.get("efo_ids", [])
+    run_id = data.get("run_id", "")
+
+    # Create a formatted string representation of the parameters
+    config_content = "# PGS Configuration\n\n"
+    config_content += f"run_id: {run_id}\n\n"
+
+    if pgs_ids:
+        config_content += "pgs_ids:\n"
+        for pgs_id in pgs_ids:
+            config_content += f"  - {pgs_id}\n"
+
+    if pgp_ids:
+        config_content += "\npgp_ids:\n"
+        for pgp_id in pgp_ids:
+            config_content += f"  - {pgp_id}\n"
+
+    if efo_ids:
+        config_content += "\nefo_ids:\n"
+        for efo_id in efo_ids:
+            config_content += f"  - {efo_id}\n"
+
+    # Render the template with the config content
+    return render_template("pgs_config.html", config_content=config_content)
+
+
 @app_blueprint.route("/api/pgs-catalog", methods=["GET"])
 def proxy_pgs_catalog():
     """

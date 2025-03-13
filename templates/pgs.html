@@ -189,7 +189,7 @@
             </div>
             
             <div class="d-flex justify-content-end mt-3">
-            <button id="send-btn" class="btn btn-success" disabled>WESサーバーに送信</button>
+            <button id="send-btn" class="btn btn-success" disabled>コンフィグ生成</button>
             </div>
         </div>
     </div>
@@ -634,38 +634,46 @@
             });
         }
         
-        // WESサーバーに送信
+        // コンフィグ生成処理
         function sendToWesServer() {
+            const runId = $('#run-id').val() || '';
+            
             const payload = {
                 pgs_ids: Array.from(selectedIds.pgs),
                 pgp_ids: Array.from(selectedIds.pgp),
-                efo_ids: Array.from(selectedIds.efo)
+                efo_ids: Array.from(selectedIds.efo),
+                run_id: runId
             };
             
             console.log('送信するペイロード:', payload);
             
-            // 実際の送信処理（バックエンドAPI実装後に有効化）
-            /*
-            fetch('あなたのWESサーバーエンドポイント', {
+            // 送信ボタンを無効化し、ローディング表示
+            $('#send-btn').prop('disabled', true);
+            $('#send-btn').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> 処理中...');
+            
+            // 新しいエンドポイントにPOSTリクエストを送信
+            fetch('/pgs/generate-config', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(payload)
             })
-                .then(response => response.json())
-                .then(data => {
-                    alert('WESサーバーに正常に送信されました');
-                    console.log('サーバーレスポンス:', data);
-                })
-                .catch(error => {
-                    console.error('WESサーバーへの送信エラー:', error);
-                    alert('WESサーバーへの送信に失敗しました');
-                });
-            */
-            
-            // 開発用のモック応答
-            alert('WESサーバーに送信しました（開発用モック）');
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`サーバーエラー: ${response.status}`);
+                }
+                // レスポンスがHTMLなので、新しいページに遷移
+                window.location.href = response.url;
+            })
+            .catch(error => {
+                console.error('コンフィグ生成エラー:', error);
+                alert(`コンフィグ生成に失敗しました: ${error.message}`);
+                
+                // エラー時にボタンを元に戻す
+                $('#send-btn').prop('disabled', false);
+                $('#send-btn').text('WESサーバーに送信');
+            });
         }
         
     </script>
