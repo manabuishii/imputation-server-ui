@@ -232,7 +232,9 @@ def generate_pgs_config():
                 )
                 vcf_files.append(full_path)
     # save sapporo_path > outputs/samplesheet-run_id.csv
-    samplesheet_path = os.path.join(sapporo_path, "outputs", "samplesheet-" + run_id + ".csv")
+    samplesheet_path = os.path.normpath(
+        os.path.join(current_dir, sapporo_path, "outputs", "samplesheet-" + run_id + ".csv")
+    )
     with open(samplesheet_path, "w") as f:
         f.write(samplesheet_content)
     # add samplesheet to config_content
