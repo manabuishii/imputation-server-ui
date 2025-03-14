@@ -166,23 +166,18 @@ def generate_pgs_config():
     run_id = request.form.get("run_id", "")
 
     # Create a formatted string representation of the parameters
-    config_content = "# PGS Configuration\n\n"
+    config_content = "params {\n"
+    config_content += f"  min_overlap=0\n\n"
     config_content += f"run_id: {run_id}\n\n"
 
     if pgs_ids:
-        config_content += "pgs_ids:\n"
-        for pgs_id in pgs_ids:
-            config_content += f"  - {pgs_id}\n"
+        config_content += "  pgs_id='" + ",".join(pgs_ids) + "'\n"
 
     if pgp_ids:
-        config_content += "\npgp_ids:\n"
-        for pgp_id in pgp_ids:
-            config_content += f"  - {pgp_id}\n"
+        config_content += "  pgp_id='" + ",".join(pgp_ids) + "'\n"
 
     if efo_ids:
-        config_content += "\nefo_ids:\n"
-        for efo_id in efo_ids:
-            config_content += f"  - {efo_id}\n"
+        config_content += "  efo_id='" + ",".join(efo_ids) + "'\n"
     # open ../sapporo-service/run/
     sapporo_path = f"../sapporo-service/run/{run_id[:2]}/{run_id}"
     with open(sapporo_path + "/run_request.json", "r") as f:
@@ -190,9 +185,9 @@ def generate_pgs_config():
         workflow_params = run_request["workflow_params"]
         # check workflow_params has GRCh37 or GRCh38
         if "GRCh37" in workflow_params:
-            config_content += "\nreference_genome: GRCh37\n"
+            config_content += "\n  target_build='GRCh37'\n"
         elif "GRCh38" in workflow_params:
-            config_content += "\nreference_genome: GRCh38\n"
+            config_content += "\n  target_build='GRCh38'\n"
         else:
             # error
             pass
