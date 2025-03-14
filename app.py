@@ -224,9 +224,13 @@ def generate_pgs_config():
                     f"{sampleset},{path_prefix},{chrom},{format},{vcf_genotype_field}\n"
                 )
                 vcf_files.append(full_path)
-    # save samplesheet
-    config_content += "\nsamplesheet:\n"
-    config_content += samplesheet_content
+    # save sapporo_path > outputs/samplesheet-run_id.csv
+    samplesheet_path = os.path.join(sapporo_path, "outputs", "samplesheet-" + run_id + ".csv")
+    with open(samplesheet_path, "w") as f:
+        f.write(samplesheet_content)
+    # add samplesheet to config_content
+    config_content += "\n"
+    config_content += "  input='{samplesheet_path}'\n"
 
     # if not vcf_files, error
     if not vcf_files:
