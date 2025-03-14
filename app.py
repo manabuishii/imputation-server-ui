@@ -187,17 +187,21 @@ def generate_pgs_config():
         config_content += "  efo_id='" + ",".join(efo_ids) + "'\n"
     # open ../sapporo-service/run/
     sapporo_path = f"../sapporo-service/run/{run_id[:2]}/{run_id}"
-    with open(sapporo_path + "/run_request.json", "r") as f:
-        run_request = json.load(f)
-        workflow_params = run_request["workflow_params"]
-        # check workflow_params has GRCh37 or GRCh38
-        if "GRCh37" in workflow_params:
-            config_content += "\n  target_build='GRCh37'\n"
-        elif "GRCh38" in workflow_params:
-            config_content += "\n  target_build='GRCh38'\n"
-        else:
-            # error
-            pass
+    try:
+        with open(sapporo_path + "/run_request.json", "r") as f:
+            run_request = json.load(f)
+            workflow_params = run_request["workflow_params"]
+            # check workflow_params has GRCh37 or GRCh38
+            if "GRCh37" in workflow_params:
+                config_content += "\n  target_build='GRCh37'\n"
+            elif "GRCh38" in workflow_params:
+                config_content += "\n  target_build='GRCh38'\n"
+            else:
+                # error: target_build is not found
+                return redirect(url_for("app.pgs"))
+    except FileNotFoundError:
+        # If the file cannot be opened, redirect to app.pgs
+        return redirect(url_for("app.pgs"))
     # file list sapporo_path/outputs/*.vcf.gz
     vcf_files = []
     # samplesheetにパスを書くために、カレントディレクトリの絶対パスを取得
