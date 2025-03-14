@@ -193,15 +193,41 @@ def generate_pgs_config():
             pass
     # file list sapporo_path/outputs/*.vcf.gz
     vcf_files = []
-    # カレントディレクトリの絶対パスを取得
+    # samplesheetにパスを書くために、カレントディレクトリの絶対パスを取得
     current_dir = os.getcwd()
+    # samplesheetの中身
+    samplesheet_content = "sampleset,path_prefix,chrom,format,vcf_genotype_field\n"
+
     for root, dirs, files in os.walk(sapporo_path + "/outputs"):
         for file in files:
             if file.endswith(".beagle.vcf.gz"):
                 # if file start with "chrX", pass
                 if file.startswith("chrX"):
                     continue
-                vcf_files.append(os.path.normpath(os.path.join(current_dir, root, file)))
+                # samplesheetの中身を追加
+                # sampleset
+                sampleset = "1kgp-jpt"
+                # path_prefix /path/to/outputs/chr1.beagle.vcf.gzのうち 最後の.vcf.gzまたはvcf を削除
+                full_path = os.path.normpath(os.path.join(current_dir, root, file))
+                path_prefix = ""
+                if full_path.endswith(".vcf.gz"):
+                    path_prefix = full_path[:-7]
+                elif full_path.endswith(".vcf"):
+                    path_prefix = full_path[:-4]
+                # chrom
+                chrom = file.split(".")[0].replace("chr", "")
+                # format
+                format = "vcf"
+                # vcf_genotype_field
+                vcf_genotype_field = "DS"
+                samplesheet_content += (
+                    f"{sampleset},{path_prefix},{chrom},{format},{vcf_genotype_field}\n"
+                )
+                vcf_files.append(full_path)
+    # save samplesheet
+    config_content += "\nsamplesheet:\n"
+    config_content += samplesheet_content
+
     # if not vcf_files, error
     if not vcf_files:
         return render_template("pgs_config.html", config_content="No VCF files found.")
