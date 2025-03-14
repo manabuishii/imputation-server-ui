@@ -168,7 +168,7 @@
         <div class="card mb-4">
             <div class="card-body">
                 <label for="run-id" class="form-label">RUN ID <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="run-id" placeholder="例: 00000000-0000-0000-0000-000000000000" required>
+                <input type="text" class="form-control" id="run-id" placeholder="例: 00000000-0000-0000-0000-000000000000" required oninput="updateSelectedIds()">
             </div>
         </div>
         <div class="selected-ids" id="selected-ids-container">
