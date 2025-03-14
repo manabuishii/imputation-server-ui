@@ -198,13 +198,15 @@ def generate_pgs_config():
             pass
     # file list sapporo_path/outputs/*.vcf.gz
     vcf_files = []
+    # カレントディレクトリの絶対パスを取得
+    current_dir = os.getcwd()
     for root, dirs, files in os.walk(sapporo_path + "/outputs"):
         for file in files:
             if file.endswith(".beagle.vcf.gz"):
                 # if file start with "chrX", pass
                 if file.startswith("chrX"):
                     continue
-                vcf_files.append(os.path.join(root, file))
+                vcf_files.append(os.path.normpath(os.path.join(current_dir, root, file)))
     # if not vcf_files, error
     if not vcf_files:
         return render_template("pgs_config.html", config_content="No VCF files found.")
