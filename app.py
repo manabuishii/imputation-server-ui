@@ -245,7 +245,7 @@ def generate_pgs_config():
     config_content += "\n"
     config_content += f"  input='{samplesheet_path}'\n"
     # add min_overlap
-    config_content += f"  min_overlap=0\n\n"
+    config_content += f"\n  min_overlap=0\n\n"
     config_content += "}\n"
 
     # if not vcf_files, error
