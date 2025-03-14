@@ -103,33 +103,33 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="first-author-filter" class="form-label">筆頭著者 (First Author)</label>
-                                <input type="text" class="form-control" id="first-author-filter" placeholder="例: Smith">
+                                <input type="text" class="form-control" id="first-author-filter" placeholder="ex: Smith">
                             </div>
                             <div class="col-md-6">
                                 <label for="journal-filter" class="form-label">ジャーナル名 (Journal Name)</label>
-                                <input type="text" class="form-control" id="journal-filter" placeholder="例: Nature Genetics">
+                                <input type="text" class="form-control" id="journal-filter" placeholder="ex: Nature Genetics">
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-6">
                                 <label for="title-filter" class="form-label">論文タイトル (Title)</label>
-                                <input type="text" class="form-control" id="title-filter" placeholder="例: Genome-wide association">
+                                <input type="text" class="form-control" id="title-filter" placeholder="ex: Genome-wide association">
                             </div>
                             <div class="col-md-3">
                                 <label for="doi-filter" class="form-label">DOI</label>
-                                <input type="text" class="form-control" id="doi-filter" placeholder="例: 10.1038/">
+                                <input type="text" class="form-control" id="doi-filter" placeholder="ex: 10.1038/">
                             </div>
                             <div class="col-md-3">
                                 <label for="pub-date-filter" class="form-label">出版日 (Publication Date)</label>
-                                <input type="text" class="form-control" id="pub-date-filter" placeholder="例: 2020">
+                                <input type="text" class="form-control" id="pub-date-filter" placeholder="ex: 2020">
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="d-flex justify-content-between mt-3">
-                    <button id="reset-btn" class="btn btn-secondary">リセット</button>
-                    <button id="search-btn" class="btn btn-primary">検索</button>
+                    <button id="reset-btn" class="btn btn-secondary">Reset</button>
+                    <button id="search-btn" class="btn btn-primary">Search</button>
                 </div>
             </div>
         </div>
@@ -189,7 +189,7 @@
             </div>
             
             <div class="d-flex justify-content-end mt-3">
-            <button id="send-btn" class="btn btn-success" disabled>コンフィグ生成</button>
+            <button id="send-btn" class="btn btn-success" disabled>Generate Config</button>
             </div>
         </div>
     </div>
@@ -246,7 +246,7 @@
                             }
                             
                             if (data.firstauthor) {
-                                pgpInfo += `<br><small class="text-muted">著者: ${data.firstauthor}`;
+                                pgpInfo += `<br><small class="text-muted">Authros: ${data.firstauthor}`;
                                 if (data.authors_number && data.authors_number > 1) {
                                     pgpInfo += ` 他 ${data.authors_number - 1} 名`;
                                 }
@@ -254,7 +254,7 @@
                             }
                             
                             if (data.journal) {
-                                pgpInfo += `<br><small class="text-muted">ジャーナル: ${data.journal}`;
+                                pgpInfo += `<br><small class="text-muted">Journal: ${data.journal}`;
                                 if (data.date_publication) {
                                     pgpInfo += ` (${data.date_publication})`;
                                 }
@@ -364,7 +364,7 @@
         // キャッシュを更新する
         function refreshCache() {
             $('#refresh-cache-btn').prop('disabled', true);
-            $('#refresh-cache-btn').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> 更新中...');
+            $('#refresh-cache-btn').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...');
             
             fetch('/api/refresh-cache', {
                 method: 'POST'
@@ -393,16 +393,16 @@
                             alertDiv.alert('close');
                         }, 3000);
                     } else {
-                        throw new Error(data.error || 'キャッシュの更新に失敗しました');
+                        throw new Error(data.error || 'Error refreshing cache');
                     }
                 })
                 .catch(error => {
                     console.error('Error refreshing cache:', error);
-                    alert(`キャッシュの更新に失敗しました: ${error.message}`);
+                    alert(`Error refreshing cache: ${error.message}`);
                 })
                 .finally(() => {
                     $('#refresh-cache-btn').prop('disabled', false);
-                    $('#refresh-cache-btn').html('<span class="refresh-icon">↻</span> キャッシュを更新');
+                    $('#refresh-cache-btn').html('<span class="refresh-icon">↻</span> Refresh Cache');
                 });
         }
         
@@ -431,12 +431,12 @@
                     // キャッシュのタイムスタンプを表示（もしあれば）
                     if (data._cache_timestamp) {
                         const cacheDate = new Date(data._cache_timestamp);
-                        $('#cache-timestamp').text(`最終更新: ${cacheDate.toLocaleString()}`);
+                        $('#cache-timestamp').text(`Last modified: ${cacheDate.toLocaleString()}`);
                     }
                 })
                 .catch(error => {
                     console.error('Error fetching PGS Catalog data:', error);
-                    alert('APIからのデータ取得に失敗しました');
+                    alert('Error fetching PGS Catalog data');
                 })
                 .finally(() => {
                     $('#loading').hide();
