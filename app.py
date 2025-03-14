@@ -167,8 +167,6 @@ def generate_pgs_config():
 
     # Create a formatted string representation of the parameters
     config_content = "params {\n"
-    config_content += f"  min_overlap=0\n\n"
-    config_content += f"run_id: {run_id}\n\n"
 
     if pgs_ids:
         config_content += "  pgs_id='" + ",".join(pgs_ids) + "'\n"
@@ -230,15 +228,18 @@ def generate_pgs_config():
         f.write(samplesheet_content)
     # add samplesheet to config_content
     config_content += "\n"
-    config_content += "  input='{samplesheet_path}'\n"
+    config_content += f"  input='{samplesheet_path}'\n"
+    # add min_overlap
+    config_content += f"  min_overlap=0\n\n"
+    config_content += "}\n"
 
     # if not vcf_files, error
     if not vcf_files:
         return render_template("pgs_config.html", config_content="No VCF files found.")
     # add vcf_files to config_content
-    config_content += "\nvcf_files:\n"
-    for vcf_file in vcf_files:
-        config_content += f"  - {vcf_file}\n"
+    # config_content += "\nvcf_files:\n"
+    # for vcf_file in vcf_files:
+    #     config_content += f"  - {vcf_file}\n"
 
     # Render the template with the config content
     return render_template("pgs_config.html", config_content=config_content)
