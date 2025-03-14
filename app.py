@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """This is the imputation server web UI."""
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 from flask import Blueprint
 
 import requests
@@ -164,6 +164,15 @@ def generate_pgs_config():
     pgp_ids = request.form.getlist("pgp_ids")
     efo_ids = request.form.getlist("efo_ids")
     run_id = request.form.get("run_id", "")
+
+    # pgs_ids, pgp_ids, efo_ids are at least 1 required
+    if not (pgs_ids or pgp_ids or efo_ids):
+        # redirect to the pgs page with an error message
+        return redirect(url_for("app.pgs"))
+    # run_id is required
+    if not run_id:
+        # redirect to the pgs page with an error message
+        return redirect(url_for("app.pgs"))
 
     # Create a formatted string representation of the parameters
     config_content = "params {\n"

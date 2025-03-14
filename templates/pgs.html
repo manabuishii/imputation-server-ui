@@ -6,8 +6,6 @@
     <title>PGS Catalog 検索インターフェイス</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- DataTables CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <style>
         .loading {
             display: none;
@@ -54,18 +52,18 @@
         <div class="alert alert-info" role="alert" id="data-info">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <strong>スコアデータ:</strong> <span id="data-count">0</span> 件のレコードが読み込まれています
+                    <strong>Score data:</strong> <span id="data-count">0</span> records loaded.
                     <small id="cache-timestamp" class="d-block text-muted"></small>
                 </div>
                 <button id="refresh-cache-btn" class="btn btn-sm btn-outline-primary">
-                    <span class="refresh-icon">↻</span> スコアキャッシュを更新
+                    <span class="refresh-icon">↻</span> Refresh Score cache
                 </button>
             </div>
         </div>
         
         <div class="card mb-4">
             <div class="card-header">
-                <h5 class="mb-0">検索フィルタ</h5>
+                <h5 class="mb-0">Filter</h5>
             </div>
             <div class="card-body">
                 <!-- 検索フィルタ -->
@@ -169,8 +167,8 @@
         
         <div class="card mb-4">
             <div class="card-body">
-                <label for="run-id" class="form-label">RUN ID</label>
-                <input type="text" class="form-control" id="run-id" placeholder="例: 00000000-0000-0000-0000-000000000000">
+                <label for="run-id" class="form-label">RUN ID <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="run-id" placeholder="例: 00000000-0000-0000-0000-000000000000" required>
             </div>
         </div>
         <div class="selected-ids" id="selected-ids-container">
@@ -200,7 +198,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- DataTables JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/dataTables.bootstrap5.min.js"></script>
     
     <script>
         // 選択されたIDを管理
