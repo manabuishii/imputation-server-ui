@@ -590,10 +590,14 @@
             updateIdContainer('selected-efo-ids', selectedIds.efo);
             
             // 送信ボタンの有効/無効を切り替え
-            $('#send-btn').prop('disabled', 
+            $('#send-btn').prop('disabled',
+                // runid が空の場合、または選択されたIDがない場合
+                !$('#run-id').val() ||
+                // 
                 selectedIds.pgs.size === 0 && 
                 selectedIds.pgp.size === 0 && 
                 selectedIds.efo.size === 0
+
             );
         }
         
